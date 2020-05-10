@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+
+<h1>Result</h1>
+<p th:text="'Nom : ' + ${index.nom}" />
+<p th:text="'Prénom : ' + ${index.prenom}" />
+<p th:text="'Mail : ' + ${index.mail}" />
+<p th:text="'Mdp : ' + ${index.mdp}" />
+<p th:text="'Sexe : ' + ${index.sxe}" />
+<p th:text="'Voie : ' + ${index.voie}" />
+<p th:text="'Code postal : ' + ${index.codePostal}" />
+<p th:text="'Commune : ' + ${index.commune}" />
+<p th:text="'Niveau : ' + ${index.niveau}" />
+<a href="/index">Submit another message</a>
+
+</body>
+</html>

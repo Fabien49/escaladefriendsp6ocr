@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- font -->
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+	<!-- css -->
+	<link rel="stylesheet" href="css/main.css">
+
+
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="bootstrap/js/jquery-3.5.0.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/script.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+
+	<title>Les Amis de l'Escalade</title>
+</head>
+
+<!-- contenu du site -->
+<body>
+<!-- header -->
+<header class="container-fluid header">
+	<div class="container-logo">
+		<a href="#" class="active">Les Amis de l'Escalade</a>
+		<nav class="menu">
+			<a href="#">Accueil</a>
+			<a href="#">Sites d'escalade</a>
+			<a href="#">Topos</a>
+			<a href="#">Membres</a>
+			<a href="#about">A propos</a>
+			<!-- <a href="#contact">Contact</a> -->
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<i class="fa fa-bars"></i></a>
+		</nav>
+
+	</div>
+
+</header>
+<!-- end header -->
+
+<!-- banniere -->
+<section class="container-fluid">
+	<div class="ban">
+		<img src="img/ban5.jpg" alt="Bannière du site" class="banner" />
+	</div>
+	<div class="inner-banner">
+		<h1>Bienvenue chez les Amis de l'Escalade</h1>
+		<button  type="button "class="btn btn-custom" data-toggle="modal" data-target="#sem-reg">Inscritpion</button>
+		<button type="button "class="btn btn-custom" data-toggle="modal" data-target="#sem-login">Connexion</button>
+		<!-- The Modal -->
+		<div class="modal fade seminor-login-modal" data-backdrop="static" id="sem-reg">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-dialog modal-dialog-scrollable">
+					<div class="modal-content">
+
+						<!-- Modal body -->
+						<div class="modal-body seminor-login-modal-body">
+							<h5 class="modal-title text-center">INSCRITPION</h5>
+							<button type="button" class="close" data-dismiss="modal">
+								<span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+							</button>
+
+
+							<form action="#" th:action="@{/index}" th:object="${index}" method="POST" class="seminor-login-form">
+								<div class="form-group">
+									<input type="name" id="name"  class="form-control" required autocomplete="off">
+									<label class="form-control-placeholder" for="name">Nom</label>
+								</div>
+								<div class="form-group">
+									<input type="name"  class="form-control" required autocomplete="off">
+									<label class="form-control-placeholder" for="name">Prénom</label>
+								</div>
+								<div class="form-group">
+									<input type="email"  class="form-control" required autocomplete="off">
+									<label class="form-control-placeholder" for="name">Adresse mail</label>
+								</div>
+								<div class="form-group">
+									<input type="email"  class="form-control" required autocomplete="off">
+									<label class="form-control-placeholder" for="name">Confirmation adresse mail</label>
+								</div>
+								<div class="form-group">
+									<input type="password" id="password" class="form-control" required autocomplete="off">
+									<label class="form-control-placeholder" for="password">Mot de passe</label>
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control" required autocomplete="off">
+									<label class="form-control-placeholder" for="password">Confirmation mot de passe</label>
+								</div>
+								<div class="form-group">
+									<label  class="select-form-control-placeholder" for="sel1">Sexe</label>
+									<select class="form-control" id="sel1" name="sellist1">
+										<option></option>
+										<option>Femme</option>
+										<option>Homme</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<input type="text"  class="form-control" required autocomplete="off">
+									<label class="form-control-placeholder" for="name">Voie</label>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" required autocomplete="off">
+									<label class="form-control-placeholder" for="name">Code postal</label>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" required autocomplete="off">
+									<label class="form-control-placeholder" for="name">Commune</label>
+								</div>
+								<label  class="select-form-control-placeholder" for="sel1">Niveau</label>
+								<select class="form-control" id="sel2" name="sellist2">
+									<option></option>
+									<option>1 (Sentier à plat)</option>
+									<option>2 (Sentier escarpé)</option>
+									<option>3 (Début d'usage des mains, voies enfants)</option>
+									<option>4a (Initiation)</option>
+									<option>4b (Initiation)</option>
+									<option>4c (Initiation)</option>
+									<option>5a (Perfectionnement)</option>
+									<option>5b (Perfectionnement)</option>
+									<option>5c (Perfectionnement)</option>
+									<option>6a (Escalade techniqque, adhérences, petites prises)</option>
+									<option>6b (Escalade techniqque, adhérences, petites prises)</option>
+									<option>6c (Premiers dévers et surplombs)</option>
+									<option>7a (Escalade physique, parfois en dévers)</option>
+									<option>7b (Début en compétition)</option>
+									<option>7c (Début en compétition)</option>
+									<option>8a (Haut niveau)</option>
+									<option>8b (Haut niveau)</option>
+									<option>8c (Haut niveau)</option>
+									<option>9a (Escalade extrême, Top niveau mondial)</option>
+									<option>9a+ (Escalade extrême, Top niveau mondial)</option>
+									<option>9b (Escalade extrême, Top niveau mondial)</option>
+									<option>9b+ (Le plus dur jamais réalisé)</option>
+								</select>
+						</div>
+
+
+						<div class="form-group forgot-pass-fau text-center ">
+							<a href="/terms-conditions/" class="text-secondary">
+								En validant votre inscription vous acceptez nos<br>
+								<span class="text-primary-fau">Conditions</span>
+							</a>
+						</div>
+
+						<div class="btn-check-log">
+							<button type="submit" class="btn-check-login">INSCRIPTION</button>
+						</div>
+						<div class="create-new-fau text-center pt-3">
+							<a href="#" class="text-primary-fau"><span data-toggle="modal" data-target="#sem-login" data-dismiss="modal">Déjà inscrit</span></a>
+						</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<!-- The Modal -->
+		<div class="modal fade seminor-login-modal" data-backdrop="static" id="sem-login">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+
+					<!-- Modal body -->
+					<div class="modal-body seminor-login-modal-body">
+						<h5 class="modal-title text-center">CONNEXION</h5>
+						<button type="button" class="close" data-dismiss="modal">
+							<span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+						</button>
+
+
+						<form class="seminor-login-form">
+							<div class="form-group">
+								<input type="email" class="form-control" required autocomplete="off">
+								<label class="form-control-placeholder" for="name">Adresse mail</label>
+							</div>
+							<div class="form-group">
+								<input type="password" class="form-control" required autocomplete="off">
+								<label class="form-control-placeholder" for="password">Mot de passe</label>
+							</div>
+							<div class="form-group">
+								<label class="container-checkbox">
+									Remember Me On This Computer
+									<input type="checkbox" checked="checked" required>
+									<span class="checkmark-box"></span>
+								</label>
+							</div>
+
+							<div class="btn-check-log">
+								<button type="submit" class="btn-check-login">CONNEXION</button>
+							</div>
+
+
+							<div class="forgot-pass-fau text-center pt-3">
+								<a href="/reset_pass" class="text-secondary">Mot de passe oublié?</a>
+
+							</div>
+							<div class="create-new-fau text-center pt-3">
+								<a href="#" class="text-primary-fau"><span data-toggle="modal" data-target="#sem-reg" data-dismiss="modal">Créer un nouveau compte</span></a>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+</section>
+<!-- end banniere -->
+
+<section>
+
+
+</section>
+
+<!-- à propos -->
+<section class="container-fluid about">
+	<div class="container">
+		<h2 id="about">A propos de nous</h2>
+		<hr class="separator">
+		<div class="row">
+			<article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+				<h2>Qui ?</h2>
+				<p>
+					Nous sommes des passionnés d'escalade et avons décidé de créer un site pour que comme nous tu viennes partager ta passion, tes expériences avec d'autres.
+				</p>
+			</article>
+			<article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+				<h2>Pour ?</h2>
+				<p>
+					Les Amis de l'Escalade a pour but de réunir tous les mordus d'escalade. Tu trouveras sur ce site tous les sites d'escalades de France, tu pourras également chercher un site d'escalade en fonction du lieu, de la cotation, du nombre de secteurs etc.
+				</p>
+			</article>
+			<article class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
+				<h2>Comment ?</h2>
+				<p>
+					L'inscription est gratuite, elle te permettra entre autre de laisser un commentaire sur les pages des differents sites que tu as pu faire, d'enregistrer dans ton espace personnel tes topos et préciser si ils sont disponibles, en réserver à d'autres utilisateurs...
+				</p>
+			</article>
+		</div>
+	</div>
+</section>
+<!-- end à propos -->
+
+<!-- escalade -->
+<section class="container-fluid escalade">
+	<article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+	</article>
+	<article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+	</article>
+	<article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+	</article>
+	<article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+	</article>
+	<article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+	</article>
+	<article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+	</article>
+	<article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+	</article>
+	<article class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+	</article>
+
+</section>
+<!-- end escalade -->
+
+<!-- footer-->
+<footer>
+	<p class="footer">Par Fabien Chapeau de chez OC</p>
+</footer>
+
+<!--<footer class="container-fluid footer">
+    <div class="container">
+    <h2 id="contact">Contactez nous !</h2>
+    <hr class="separator">
+    <div class="row">
+      <div class="formulaireContact" >
+          <form class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+              <div class="controls controls-row">
+                  <input id="name" name="name" type="text" class="span3" placeholder="Nom">
+                  <input id="email" name="email" type="email" class="span3" placeholder="Adresse email">
+              </div>
+              <div class="controls">
+                  <textarea id="message" name="message" class="span6" placeholder="Ton message" rows="5"></textarea>
+              </div>
+
+              <div class="controls">
+                  <button id="contact-submit" type="submit" class="btn btn-primary input-medium pull-right">Envoyer</button>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>
+</footer> -->
+<!-- end footer -->
+
+<script>
+		function myFunction() {
+		  var x = document.getElementById("myTopnav");
+		  if (x.className === "menu") {
+		    x.className += " responsive";
+		  } else {
+		    x.className = "menu";
+		  }
+		}
+		</script>
+
+</body>
+</html>
