@@ -1,10 +1,10 @@
-package com.fabienit.escaladefriends.dao;
+package com.fabienit.escaladefriends.repository;
 
 import com.fabienit.escaladefriends.entities.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface InscriptionDAO extends JpaRepository <Utilisateur, Long>{
+public interface InscriptionRepository extends JpaRepository <Utilisateur, Long>{
 
 }
