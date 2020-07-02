@@ -55,15 +55,27 @@
 
 <!-- banniere -->
 <section class="container-fluid">
-	<div class="ban-inscritpion">
-		<img src="img/ban6.jpg" alt="Bannière du site" class="banner" />
-	</div>
+	<!--<div class="ban">
+		<img src="img/ban5.jpg" alt="Bannière du site" class="banner" />
+	</div>-->
 	<div class="inner-banner">
-		<h1>INSCRIPTION</h1>
+		<h1>MISE A JOUR</h1>
+		<!--<button  type="button "class="btn btn-custom" data-toggle="modal" data-target="#sem-reg">Inscritpion</button>
+        <button type="button "class="btn btn-custom" data-toggle="modal" data-target="#sem-login">Connexion</button>-->
 		<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
-					<form th:action="@{/results}" th:object="${inscriptionForm}" method="post">
+					<form th:action="@{/results}" th:object="${utilisateur}" method="post">
+
+						<div class="form-group">
+							<label for="id" class="cols-sm-2 control-label">ID</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text"  th:field="*{id}" class="form-control" name="id" id="id" placeholder="Prénom"/>
+								</div>
+							</div>
+						</div>
 
 						<div class="form-group">
 							<label for="nom" class="cols-sm-2 control-label">Nom</label>
@@ -126,7 +138,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" th:field="*{mdp}" class="form-control" name="mdp" id="mdp"  placeholder="Mot de passe"/>
+									<input type="text" th:field="*{mdp}" class="form-control" name="mdp" id="mdp"  placeholder="Mot de passe"/>
 								</div>
 							</div>
 						</div>

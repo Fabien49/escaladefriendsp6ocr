@@ -17,8 +17,10 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript" src="bootstrap/js/jquery-3.5.0.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/script.js"></script>
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>-->
 
 	<title>Les Amis de l'Escalade</title>
 </head>
@@ -28,12 +30,14 @@
 <!-- header -->
 <header class="container-fluid header">
 	<div class="container-logo">
-		<a href="/home" class="active">Les Amis de l'Escalade</a>
+		<a href="#" class="active">Les Amis de l'Escalade</a>
 		<nav class="menu">
-			<a href="/home">Accueil</a>
-			<a href="/sites">Sites d'escalade</a>
+			<a href="#">Accueil</a>
+			<a href="#">Sites d'escalade</a>
 			<a href="#">Topos</a>
+			<a href="#">Utilisateur</a>
 			<a href="#about">A propos</a>
+			<a href="/logout" class="btn btn-default"><i class="fa fa-power-off"></i></a>
 			<!-- <a href="#contact">Contact</a> -->
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 				<i class="fa fa-bars"></i></a>
@@ -50,10 +54,10 @@
 		<img src="img/ban5.jpg" alt="Bannière du site" class="banner" />
 	</div>
 	<div class="inner-banner">
-		<h1>Bienvenue chez les Amis de l'Escalade</h1>
-		<a href="/callFormInscription" type="button" class="btn btn-custom">Inscritpion</a>
-		<a href="/login" type="button" class="btn btn-custom">Connexion</a>
-
+		<h1>Bienvenue dans l'espace des utlisateurs connectés</h1>
+		<p th:text="'Bonjour ' + ${userName}"></p>
+		<a href="/callFormInscription"type="button" class="btn btn-custom">Inscritpion</a>
+		<button type="button "class="btn btn-custom" data-toggle="modal" data-target="#sem-login">Connexion</button>
 	</div>
 
 

@@ -1,4 +1,4 @@
-package com.fabienit.escaladefriends;
+package com.fabienit.escaladefriends.controller;
 
 
 import org.springframework.stereotype.Controller;
@@ -7,18 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class Home {
+public class HomeController {
 
-    @GetMapping("/hello")
+    /*@GetMapping("/hello")
     public String hello(@RequestParam(value = "message", defaultValue = "Bienvenue") String message, Model model) {
         model.addAttribute("message", message);
         return "hello";
-    }
-
-  /* @GetMapping("/")
-    public String accueil(@RequestParam(value = "name", defaultValue = "World") String name) {
-
-        return "index";
     }*/
+
+@GetMapping("/")
+    public String accueil() {
+
+        return "home";
+    }
 
 }

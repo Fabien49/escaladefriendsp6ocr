@@ -1,7 +1,7 @@
-package com.fabienit.escaladefriends;
+package com.fabienit.escaladefriends.controller;
 
-import com.fabienit.escaladefriends.Data.InscriptionDAO;
-import com.fabienit.escaladefriends.InscriptionForm;
+import com.fabienit.escaladefriends.entities.Utilisateur;
+import com.fabienit.escaladefriends.service.InscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,18 +14,20 @@ public class InscriptionController {
 
 
     @Autowired
-    InscriptionDAO inscriptionDAO;
+    InscriptionService inscriptionService;
+    // mettre USERsERVICEiMPL
 
-    @GetMapping("/")
-    public String resultsForm (Model model ) {
-        model.addAttribute("inscriptionForm", new InscriptionForm());
-        return "index";
+    @GetMapping("/callFormInscription")
+    public String resultsForm (Model model) {
+        model.addAttribute("inscriptionForm", new Utilisateur());
+        return "inscription";
     }
 
 
-    @PostMapping("/")
-    public String resultsSubmit(@ModelAttribute InscriptionForm inscriptionForm) {
-
+    @PostMapping("/results")
+    public String utilisateurSubmit(@ModelAttribute Utilisateur utilisateur) {
+        System.out.println("*****************Le nom d'utilisateur est : " +utilisateur);
+        inscriptionService.ajouter(utilisateur);
         return "results";
     }
 
