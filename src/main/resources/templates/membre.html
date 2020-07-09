@@ -30,12 +30,14 @@
 <!-- header -->
 <header class="container-fluid header">
 	<div class="container-logo">
-		<a href="/" class="active">Les Amis de l'Escalade</a>
+		<a href="#" class="active">Les Amis de l'Escalade</a>
 		<nav class="menu">
-			<a href="/">Accueil</a>
-			<a href="/sites">Sites d'escalade</a>
+			<a href="#">Accueil</a>
+			<a href="#">Sites d'escalade</a>
 			<a href="#">Topos</a>
+			<a href="#">Utilisateur</a>
 			<a href="#about">A propos</a>
+			<a href="/logout" class="btn btn-default"><i class="fa fa-power-off"></i></a>
 			<!-- <a href="#contact">Contact</a> -->
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 				<i class="fa fa-bars"></i></a>
@@ -52,10 +54,10 @@
 		<img src="img/ban5.jpg" alt="Bannière du site" class="banner" />
 	</div>
 	<div class="inner-banner">
-		<h1>Bienvenue  dans l'espace des membres</h1>
+		<h1>Bienvenue dans l'espace des utlisateurs connectés</h1>
 		<p th:text="'Bonjour ' + ${userName}"></p>
-		<!-- <a href="/callFormInscription"type="button" class="btn btn-custom">Inscritpion</a>
-		<button type="button "class="btn btn-custom" data-toggle="modal" data-target="#sem-login">Connexion</button> -->
+		<a href="/callFormInscription"type="button" class="btn btn-custom">Inscritpion</a>
+		<button type="button "class="btn btn-custom" data-toggle="modal" data-target="#sem-login">Connexion</button>
 	</div>
 
 

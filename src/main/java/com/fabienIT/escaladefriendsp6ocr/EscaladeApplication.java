@@ -20,9 +20,9 @@ import java.util.List;
 
 
 @SpringBootApplication
-public class ArchiJEEApplication implements CommandLineRunner{
+public class EscaladeApplication implements CommandLineRunner{
 	
-	private static final Logger logger = LoggerFactory.getLogger(ArchiJEEApplication.class);
+	private static final Logger logger = LoggerFactory.getLogger(EscaladeApplication.class);
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -31,7 +31,7 @@ public class ArchiJEEApplication implements CommandLineRunner{
 	private BCryptPasswordEncoder bCryptPasswordEncoder;*/
 
 	public static void main(String[] args) {
-		SpringApplication.run(ArchiJEEApplication.class, args);
+		SpringApplication.run(EscaladeApplication.class, args);
 		logger.info("Start Archi Application ...");
 	}
 
