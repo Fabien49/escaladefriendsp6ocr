@@ -4,36 +4,30 @@ package com.fabienIT.escaladefriendsp6ocr.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="utilisateur")
-public class Utilisateur {
+@Table(name="site")
+public class Site {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    private String prenom;
-    private String mail;
-    private String mdp;
-    private String sexe;
-    private String voie;
-    private String codePostal;
-    private String commune;
-    private String niveau;
+    private String nombreVoie;
+    private String difficulte;
+    private String description;
+    private String technique;
+    private String site_image;
 
-    public Utilisateur() {
+    public Site() {
     }
 
-    public Utilisateur(Long id, String nom, String prenom, String mail, String mdp, String sexe, String voie, String codePostal, String commune, String niveau) {
+    public Site(Long id, String nom, String nombreVoie, String difficulte, String description, String technique, String site_image) {
         this.id = id;
         this.nom = nom;
-        this.prenom = prenom;
-        this.mail = mail;
-        this.mdp = mdp;
-        this.sexe = sexe;
-        this.voie = voie;
-        this.codePostal = codePostal;
-        this.commune = commune;
-        this.niveau = niveau;
+        this.nombreVoie = nombreVoie;
+        this.difficulte = difficulte;
+        this.description = description;
+        this.technique = technique;
+        this.site_image = site_image;
     }
 
     public Long getId() {
@@ -52,83 +46,56 @@ public class Utilisateur {
         this.nom = nom;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public String getNombreVoie() {
+        return nombreVoie;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setNombreVoie(String nombreVoie) {
+        this.nombreVoie = nombreVoie;
     }
 
-    public String getMail() {
-        return mail;
+    public String getDifficulte() {
+        return difficulte;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setDifficulte(String difficulte) {
+        this.difficulte = difficulte;
     }
 
-    public String getMdp() {
-        return mdp;
+    public String getDescription() {
+        return description;
     }
 
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getSexe() {
-        return sexe;
+    public String getTechnique() {
+        return technique;
     }
 
-    public void setSexe(String sexe) {
-        this.sexe = sexe;
+    public void setTechnique(String technique) {
+        this.technique = technique;
     }
 
-    public String getVoie() {
-        return voie;
+    public String getSite_image() {
+        return site_image;
     }
 
-    public void setVoie(String voie) {
-        this.voie = voie;
-    }
-
-    public String getCodePostal() {
-        return codePostal;
-    }
-
-    public void setCodePostal(String codePostal) {
-        this.codePostal = codePostal;
-    }
-
-    public String getCommune() {
-        return commune;
-    }
-
-    public void setCommune(String commune) {
-        this.commune = commune;
-    }
-
-    public String getNiveau() {
-        return niveau;
-    }
-
-    public void setNiveau(String niveau) {
-        this.niveau = niveau;
+    public void setSite_image(String site_image) {
+        this.site_image = site_image;
     }
 
     @Override
     public String toString() {
-        return "Utilisateur{" +
+        return "Site{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", mail='" + mail + '\'' +
-                ", mdp='" + mdp + '\'' +
-                ", sexe='" + sexe + '\'' +
-                ", voie='" + voie + '\'' +
-                ", codePostal='" + codePostal + '\'' +
-                ", commune='" + commune + '\'' +
-                ", niveau='" + niveau + '\'' +
+                ", nombreVoie='" + nombreVoie + '\'' +
+                ", difficulte='" + difficulte + '\'' +
+                ", description='" + description + '\'' +
+                ", technique='" + technique + '\'' +
+                ", site_image='" + site_image + '\'' +
                 '}';
     }
 }

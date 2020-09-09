@@ -1,6 +1,6 @@
-package com.macrosoftas.archijee.service;
+package com.fabienIT.escaladefriendsp6ocr.service;
 
-import com.macrosoftas.archijee.model.User;
+import com.fabienIT.escaladefriendsp6ocr.model.User;
 
 public interface UserService {
 	public User findUserByEmail(String email);

@@ -1,7 +1,7 @@
-package com.macrosoftas.archijee.repository;
+package com.fabienIT.escaladefriendsp6ocr.repository;
 
 
-import com.macrosoftas.archijee.model.Utilisateur;
+import com.fabienIT.escaladefriendsp6ocr.model.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 

@@ -1,8 +1,8 @@
-package com.macrosoftas.archijee.service;
+package com.fabienIT.escaladefriendsp6ocr.service;
 
 
-import com.macrosoftas.archijee.model.Utilisateur;
-import com.macrosoftas.archijee.repository.UtilisateurRepository;
+import com.fabienIT.escaladefriendsp6ocr.model.Utilisateur;
+import com.fabienIT.escaladefriendsp6ocr.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

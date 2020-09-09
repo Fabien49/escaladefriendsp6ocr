@@ -1,4 +1,4 @@
-package com.macrosoftas.archijee.handler;
+package com.fabienIT.escaladefriendsp6ocr.handler;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -37,6 +37,8 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
             httpServletResponse.sendRedirect("/sites");
             httpServletResponse.sendRedirect("/home");
             httpServletResponse.sendRedirect("/login");
+            httpServletResponse.sendRedirect("/results");
+            httpServletResponse.sendRedirect("/pageEscalade");
         }
     }
 }

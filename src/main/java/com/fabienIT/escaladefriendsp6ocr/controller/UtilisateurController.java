@@ -1,9 +1,9 @@
-package com.macrosoftas.archijee.controller;
+package com.fabienIT.escaladefriendsp6ocr.controller;
 
 
 
-import com.macrosoftas.archijee.model.Utilisateur;
-import com.macrosoftas.archijee.repository.UtilisateurRepository;
+import com.fabienIT.escaladefriendsp6ocr.model.Utilisateur;
+import com.fabienIT.escaladefriendsp6ocr.repository.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

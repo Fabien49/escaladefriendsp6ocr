@@ -1,14 +1,13 @@
-package com.macrosoftas.archijee;
+package com.fabienIT.escaladefriendsp6ocr;
 
 import org.junit.*;
 import org.junit.runner.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.boot.test.autoconfigure.orm.jpa.*;
-import com.macrosoftas.archijee.repository.UserRepository;
-import com.macrosoftas.archijee.model.User;
-import com.macrosoftas.archijee.ArchiJEEApplication;
+import com.fabienIT.escaladefriendsp6ocr.repository.UserRepository;
+import com.fabienIT.escaladefriendsp6ocr.model.User;
 import static org.assertj.core.api.Assertions.*;
-import org.springframework.boot.test.context.SpringBootTest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 

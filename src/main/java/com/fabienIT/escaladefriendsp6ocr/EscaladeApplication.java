@@ -1,26 +1,23 @@
-package com.macrosoftas.archijee;
+package com.fabienIT.escaladefriendsp6ocr;
 
-import java.util.HashSet;
-
+import com.fabienIT.escaladefriendsp6ocr.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.macrosoftas.archijee.model.Role;
-import com.macrosoftas.archijee.model.User;
-import com.macrosoftas.archijee.repository.UserRepository;
-import com.macrosoftas.archijee.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Arrays;
-import java.util.List;
 
 
 @SpringBootApplication
 public class EscaladeApplication implements CommandLineRunner{
+
+	@Value("${chemin.site.image}")
+	private String siteImageRoot;
+
+
 	
 	private static final Logger logger = LoggerFactory.getLogger(EscaladeApplication.class);
 	
@@ -32,14 +29,30 @@ public class EscaladeApplication implements CommandLineRunner{
 
 	public static void main(String[] args) {
 		SpringApplication.run(EscaladeApplication.class, args);
-		logger.info("Start Archi Application ...");
+		logger.info("Start Les Amis de l'Escalade Application ...");
 	}
 
 	public void run(String... args) throws Exception {
-		
+		logger.info("Le chemin des images des sites est : " +siteImageRoot);
+		testCrudTopo();
+		testReservationTopo();
+		createUser();
+
+	}
+
+	private void testCrudTopo(){
+		System.out.println("je suis en train de tester");
+	}
+
+	private void testReservationTopo(){
+		System.out.println("je suis en train de tester testReservationTopo");
+	}
+
+	private void createUser(){
+		System.out.println("je suis en train de tester createUser");
 		/*List<String> userdata = Arrays.asList("ADMIN", "ADMIN", "admin@test.com","admin2017");
         logger.debug("**** Create default user  {}", userdata);
-		
+
 		User user = new User();
 		user.setName("ADMIN");
 		user.setLastName("ADMIN");

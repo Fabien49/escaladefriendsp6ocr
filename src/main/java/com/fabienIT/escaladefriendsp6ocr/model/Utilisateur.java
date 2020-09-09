@@ -1,4 +1,4 @@
-package com.macrosoftas.archijee.model;
+package com.fabienIT.escaladefriendsp6ocr.model;
 
 
 import javax.persistence.*;

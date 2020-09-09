@@ -1,4 +1,4 @@
-package com.macrosoftas.archijee.controller;
+package com.fabienIT.escaladefriendsp6ocr.controller;
 
 import java.io.Serializable;
 

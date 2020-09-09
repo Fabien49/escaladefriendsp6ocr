@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <property name="HOME_LOG" value="logs/apparchijee.log"/>
+    <property name="HOME_LOG" value="logs/escaladefriendsp6ocr.log"/>
 	
 	
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -14,7 +14,7 @@
         <file>${HOME_LOG}</file>
 
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>logs/archived/aaparchijee.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>logs/archived/escaladefriendsp6ocr.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <!-- each archived file, size max 10MB -->
             <maxFileSize>10MB</maxFileSize>
             <!-- total size of all archive files, if total size > 20GB, 
@@ -34,7 +34,7 @@
 	<!-- <logger name="org.hibernate.stat" level="DEBUG"/> -->
 	
 	
-    <logger name="com.macrosoftas" level="debug" additivity="false">
+    <logger name="com.fabienIT" level="debug" additivity="false">
         <appender-ref ref="FILE-ROLLING"/>
 		<appender-ref ref="STDOUT" />
     </logger>

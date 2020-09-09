@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class SitesController {
+public class ResultsController {
 
     /*@GetMapping("/hello")
     public String hello(@RequestParam(value = "message", defaultValue = "Bienvenue") String message, Model model) {
@@ -13,10 +13,10 @@ public class SitesController {
         return "hello";
     }*/
 
-@GetMapping("/sites")
+@GetMapping("/results")
     public String sites() {
 
-        return "sites";
+        return "results";
     }
 
 }

@@ -1,6 +1,6 @@
-package com.macrosoftas.archijee.configuration;
+package com.fabienIT.escaladefriendsp6ocr.configuration;
 
-import com.macrosoftas.archijee.handler.UserAuthenticationSuccessHandler;
+import com.fabienIT.escaladefriendsp6ocr.handler.UserAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,9 +42,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/").permitAll()
 				.antMatchers("/home").permitAll()
 				.antMatchers("/login").permitAll()
-				.antMatchers("/callFormInscription").permitAll()
-				.antMatchers("/registration").permitAll()
+				.antMatchers("/inscription").permitAll()
 				.antMatchers("/sites").permitAll()
+				.antMatchers("/pageEscalade").permitAll()
 				.antMatchers("/admin/**","/h2web/**").hasAuthority("ADMIN").anyRequest()
 				.authenticated().and().csrf().disable().formLogin()
 				.loginPage("/login").failureUrl("/login?error=true")
@@ -88,7 +88,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 	    web
 	       .ignoring()
-	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/img/**", "/bootstrap/**");
+	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/img/**", "/bootstrap/**", "/img/site/**");
 	}
 	
 	@Bean

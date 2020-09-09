@@ -1,13 +1,16 @@
-package com.macrosoftas.archijee.service;
+package com.fabienIT.escaladefriendsp6ocr.service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import javax.transaction.Transactional;
 
+import com.fabienIT.escaladefriendsp6ocr.model.Role;
+import com.fabienIT.escaladefriendsp6ocr.model.User;
+import com.fabienIT.escaladefriendsp6ocr.repository.RoleRepository;
+import com.fabienIT.escaladefriendsp6ocr.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -16,11 +19,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import com.macrosoftas.archijee.model.Role;
-import com.macrosoftas.archijee.model.User;
-import com.macrosoftas.archijee.repository.RoleRepository;
-import com.macrosoftas.archijee.repository.UserRepository;
 
 @Service("userService")
 public class UserServiceImpl implements UserService, UserDetailsService {

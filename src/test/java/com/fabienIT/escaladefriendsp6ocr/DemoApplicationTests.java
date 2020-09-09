@@ -1,13 +1,13 @@
-package com.macrosoftas.archijee;
+package com.fabienIT.escaladefriendsp6ocr;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import com.macrosoftas.archijee.ArchiJEEApplication;
+
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ArchiJEEApplication.class)
+@SpringBootTest(classes = EscaladeApplication.class)
 /**
 
 By default, @SpringBootTest does not start the server. 

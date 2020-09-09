@@ -1,8 +1,9 @@
-package com.macrosoftas.archijee.controller;
+package com.fabienIT.escaladefriendsp6ocr.controller;
 
 
-import com.macrosoftas.archijee.model.Utilisateur;
-import com.macrosoftas.archijee.service.InscriptionService;
+import com.fabienIT.escaladefriendsp6ocr.model.User;
+import com.fabienIT.escaladefriendsp6ocr.model.Utilisateur;
+import com.fabienIT.escaladefriendsp6ocr.service.InscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,9 +19,9 @@ public class InscriptionController {
     InscriptionService inscriptionService;
     // mettre USERsERVICEiMPL
 
-    @GetMapping("/callFormInscription")
+    @GetMapping("/inscription")
     public String resultsForm (Model model) {
-        model.addAttribute("inscriptionForm", new Utilisateur());
+        model.addAttribute("user", new User());
         return "inscription";
     }
 
