@@ -33,12 +33,16 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
 
         } else {
             System.out.println("Rôle inconnu");
-            httpServletResponse.sendRedirect("/");
-            httpServletResponse.sendRedirect("/sites");
+           /* httpServletResponse.sendRedirect("/");
+            httpServletResponse.sendRedirect("/visiteur/sites");
             httpServletResponse.sendRedirect("/home");
+            httpServletResponse.sendRedirect("/inscription");
             httpServletResponse.sendRedirect("/login");
             httpServletResponse.sendRedirect("/results");
-            httpServletResponse.sendRedirect("/pageEscalade");
+            httpServletResponse.sendRedirect("/sitePageEscalade");
+            httpServletResponse.sendRedirect("/topoForm");
+            httpServletResponse.sendRedirect("/topoListe");
+            httpServletResponse.sendRedirect("/pageEscalade/(id=${s.id})");*/
         }
     }
 }

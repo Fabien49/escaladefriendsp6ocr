@@ -4,7 +4,7 @@ package com.fabienIT.escaladefriendsp6ocr.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="utilisateur")
+@Table(name="Utilisateur")
 public class Utilisateur {
 
     @Id

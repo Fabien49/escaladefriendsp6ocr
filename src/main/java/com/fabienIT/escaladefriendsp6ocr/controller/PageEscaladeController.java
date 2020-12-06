@@ -2,7 +2,10 @@ package com.fabienIT.escaladefriendsp6ocr.controller;
 
 
 import com.fabienIT.escaladefriendsp6ocr.model.Site;
+import com.fabienIT.escaladefriendsp6ocr.model.Topo;
 import com.fabienIT.escaladefriendsp6ocr.repository.PageEscaladeRepository;
+import com.fabienIT.escaladefriendsp6ocr.repository.TopoRepository;
+import com.fabienIT.escaladefriendsp6ocr.service.TopoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,12 +15,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class PageEscaladeController {
 
 
     @Autowired
     PageEscaladeRepository pageEscaladeRepository;
+
+    @Autowired
+    TopoService topoService;
 
 
     /*@GetMapping("/hello")
@@ -26,7 +34,7 @@ public class PageEscaladeController {
         return "hello";
     }*/
 
-    @GetMapping("/pageEscaladeCo")
+    @GetMapping("/sitePageEscaladeCo")
     public String utilisateur (Model model, Authentication authentication ) {
 
         String userName = authentication . getName ();
@@ -40,7 +48,7 @@ public class PageEscaladeController {
         return "pageEscaladeCo";
     }
 
-    @GetMapping("/pageEscaladeMe")
+   /* @GetMapping("/pageEscaladeMe")
     public String membre (Model model, Authentication authentication ) {
 
         String userName = authentication . getName ();
@@ -52,10 +60,10 @@ public class PageEscaladeController {
         model.addAttribute("userName", userName);
 
         return "pageEscaladeMe";
-    }
+    }*/
 
-    @GetMapping("/pageEscalade")
-    public String pageEscalde (Model model,
+   /* @GetMapping ("/pageEscalade")
+    public String pageEscalade (Model model,
                         @RequestParam(name = "page", defaultValue = "0") int page,
                         @RequestParam(name = "size", defaultValue = "5") int size,
                         @RequestParam(name = "keyword", defaultValue = "") String mc) {
@@ -66,12 +74,23 @@ public class PageEscaladeController {
         model.addAttribute("size", size);
         model.addAttribute("keyword", mc);
         model.addAttribute("template", "test html paragraphe");
-        {
+        List<Topo> maListDesTopo = findAllTopo();
+        model.addAttribute("TopoList", maListDesTopo);
 
             return "pageEscalade";
-        }
 
-    }
+    }*/
+
+    /*@GetMapping ("/pageEscalade")
+    public String topo(Model model, Topo topo){
+       model.addAttribute("topo", topo);
+       return "pageEscalade";
+    }*/
+
+    /*private List<Topo> findAllTopo (){
+        return topoService.findAllTopo();
+    }*/
+
 
 }
 

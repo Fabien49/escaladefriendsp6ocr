@@ -1,0 +1,387 @@
+2020-11-26 08:39:56,250 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 1620 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 08:39:56,260 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 08:39:56,260 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 08:40:07,414 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 11.88 seconds (JVM running for 13.708)
+2020-11-26 08:40:07,422 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 08:40:07,515 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 09:26:50,229 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-5] Le nombre de site est : 2
+2020-11-26 09:27:17,578 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] Le nombre de site est : 2
+2020-11-26 09:29:39,434 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 13128 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 09:29:39,438 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 09:29:39,440 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 09:29:50,797 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 12.182 seconds (JVM running for 13.658)
+2020-11-26 09:29:50,805 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 09:29:50,959 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 09:29:55,407 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] Le nombre de site est : 2
+2020-11-26 09:30:37,543 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 9856 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 09:30:37,547 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 09:30:37,549 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 09:30:47,392 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 10.568 seconds (JVM running for 12.014)
+2020-11-26 09:30:47,395 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 09:30:47,487 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 09:30:52,497 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-1] Le nombre de site est : 2
+2020-11-26 09:30:59,160 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] Le nombre de site est : 2
+2020-11-26 09:31:32,008 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 2236 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 09:31:32,012 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 09:31:32,016 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 09:31:43,156 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 11.849 seconds (JVM running for 13.328)
+2020-11-26 09:31:43,160 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 09:31:43,266 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 09:31:46,901 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] Le nombre de site est : 2
+2020-11-26 10:09:15,341 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 11580 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 10:09:15,346 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 10:09:15,348 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 10:09:29,553 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 15.063 seconds (JVM running for 17.378)
+2020-11-26 10:09:29,557 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 10:09:29,678 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 10:10:02,057 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] Le nombre de site est : 2
+2020-11-26 11:25:08,701 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] Le nombre de site est : 2
+2020-11-26 11:26:21,195 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-2] Le nombre de site est : 2
+2020-11-26 11:26:25,943 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-6] Le nombre de site est : 2
+2020-11-26 11:26:34,103 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-9] Le nombre de site est : 2
+2020-11-26 11:26:42,674 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-3] Le nombre de site est : 2
+2020-11-26 11:26:49,697 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-4] Le nombre de site est : 2
+2020-11-26 11:27:02,513 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-3] Le nombre de site est : 2
+2020-11-26 11:27:20,208 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-8] Le nombre de site est : 2
+2020-11-26 11:30:27,588 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-2] Le nombre de site est : 2
+2020-11-26 11:32:51,820 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 11736 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 11:32:51,825 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 11:32:51,827 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 11:33:07,246 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 16.14 seconds (JVM running for 17.634)
+2020-11-26 11:33:07,269 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 11:33:07,487 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 11:36:14,383 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 7392 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 11:36:14,390 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 11:36:14,395 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 11:36:27,989 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 14.33 seconds (JVM running for 15.786)
+2020-11-26 11:36:27,993 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 11:36:28,101 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 11:37:29,309 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 8364 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 11:37:29,314 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 11:37:29,315 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 11:37:43,407 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 14.956 seconds (JVM running for 16.619)
+2020-11-26 11:37:43,411 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 11:37:43,575 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 11:39:57,590 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 11844 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 11:39:57,599 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 11:39:57,601 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 11:40:10,388 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 13.507 seconds (JVM running for 14.965)
+2020-11-26 11:40:10,391 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 11:40:10,501 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 11:40:26,744 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-5] Le nombre de site est : 2
+2020-11-26 11:44:02,973 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] La page d'escalade est : Le Peyssin
+2020-11-26 11:44:05,266 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-4] Le nombre de site est : 2
+2020-11-26 11:44:19,690 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-1] Le nombre de site est : 2
+2020-11-26 11:51:08,431 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 2108 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 11:51:08,436 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 11:51:08,438 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 11:51:23,193 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 15.468 seconds (JVM running for 17.094)
+2020-11-26 11:51:23,198 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 11:51:23,335 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 11:51:23,738 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-1] Le nombre de site est : 2
+2020-11-26 11:51:53,287 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-6] Le nombre de site est : 2
+2020-11-26 11:51:59,855 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-9] La page d'escalade est : Le Peyssin
+2020-11-26 11:52:45,816 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 7140 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 11:52:45,820 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 11:52:45,822 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 11:52:59,830 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 14.783 seconds (JVM running for 16.414)
+2020-11-26 11:52:59,834 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 11:53:00,050 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 11:53:09,459 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-3] Le nombre de site est : 2
+2020-11-26 11:53:12,868 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-3] La page d'escalade est : Le Peyssin
+2020-11-26 11:53:17,750 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-6] Le nombre de site est : 2
+2020-11-26 11:53:32,405 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-4] Le nombre de site est : 2
+2020-11-26 11:54:44,176 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 3836 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 11:54:44,182 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 11:54:44,186 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 11:54:56,911 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 13.518 seconds (JVM running for 15.294)
+2020-11-26 11:54:56,914 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 11:54:57,032 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 11:55:07,805 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-3] Le nombre de site est : 2
+2020-11-26 11:55:15,907 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-10] La page d'escalade est : Le Peyssin
+2020-11-26 11:55:18,612 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-6] Le nombre de site est : 2
+2020-11-26 11:55:48,099 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-4] *********Le nombre de topo est : 366
+2020-11-26 11:56:05,333 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] *********Le nombre de topo est : 71
+2020-11-26 13:47:22,670 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-4] Le nombre de site est : 2
+2020-11-26 13:48:50,446 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-5] La page d'escalade est : Le Peyssin
+2020-11-26 13:49:08,349 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 592 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 13:49:08,359 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 13:49:08,359 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 13:49:17,913 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 10.182 seconds (JVM running for 11.56)
+2020-11-26 13:49:17,923 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 13:49:18,014 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 13:49:26,658 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-3] Le nombre de site est : 2
+2020-11-26 13:49:28,344 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-10] La page d'escalade est : Le Peyssin
+2020-11-26 13:49:37,541 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-3] Le nombre de site est : 2
+2020-11-26 13:49:41,197 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-1] Le nombre de site est : 2
+2020-11-26 13:49:47,030 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-6] Le nombre de site est : 2
+2020-11-26 13:49:50,118 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] Le nombre de site est : 2
+2020-11-26 13:49:52,609 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] La page d'escalade est : Le Peyssin
+2020-11-26 13:59:06,934 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-8] Le nombre d'utilisateur est : 371
+2020-11-26 13:59:06,950 ERROR org.thymeleaf.TemplateEngine [http-nio-8088-exec-8] [THYMELEAF][http-nio-8088-exec-8] Exception processing template "utilisateur": An error happened during template parsing (template: "class path resource [templates/utilisateur.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/utilisateur.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:890)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "u.prenom" (template: "utilisateur" - line 61, col 25)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 84 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "u.prenom" (template: "utilisateur" - line 61, col 25)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:290)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.Model.process(Model.java:282)
+	at org.thymeleaf.engine.Model.process(Model.java:290)
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.processIterationModel(IteratedGatheringModelProcessable.java:367)
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.process(IteratedGatheringModelProcessable.java:221)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleCloseElement(ProcessorTemplateHandler.java:1640)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleCloseElementEnd(TemplateHandlerAdapterMarkupHandler.java:388)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:322)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleCloseElementEnd(OutputExpressionInlinePreProcessorHandler.java:220)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:164)
+	at org.attoparser.HtmlElement.handleCloseElementEnd(HtmlElement.java:169)
+	at org.attoparser.HtmlMarkupHandler.handleCloseElementEnd(HtmlMarkupHandler.java:412)
+	at org.attoparser.MarkupEventProcessorHandler.handleCloseElementEnd(MarkupEventProcessorHandler.java:473)
+	at org.attoparser.ParsingElementMarkupUtil.parseCloseElement(ParsingElementMarkupUtil.java:201)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:725)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 86 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'prenom' cannot be found on object of type 'com.fabienIT.escaladefriendsp6ocr.model.Topo' - maybe not public or not valid?
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:217)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:406)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:90)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:111)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:328)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:263)
+	... 111 common frames omitted
+2020-11-26 13:59:06,950 ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8088-exec-8] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/utilisateur.html]")] with root cause
+org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property or field 'prenom' cannot be found on object of type 'com.fabienIT.escaladefriendsp6ocr.model.Topo' - maybe not public or not valid?
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.readProperty(PropertyOrFieldReference.java:217)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.getValueInternal(PropertyOrFieldReference.java:104)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference.access$000(PropertyOrFieldReference.java:51)
+	at org.springframework.expression.spel.ast.PropertyOrFieldReference$AccessorLValue.getValue(PropertyOrFieldReference.java:406)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:90)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:111)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:328)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:263)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.Model.process(Model.java:282)
+	at org.thymeleaf.engine.Model.process(Model.java:290)
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.processIterationModel(IteratedGatheringModelProcessable.java:367)
+	at org.thymeleaf.engine.IteratedGatheringModelProcessable.process(IteratedGatheringModelProcessable.java:221)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleCloseElement(ProcessorTemplateHandler.java:1640)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleCloseElementEnd(TemplateHandlerAdapterMarkupHandler.java:388)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:322)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleCloseElementEnd(OutputExpressionInlinePreProcessorHandler.java:220)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleCloseElementEnd(InlinedOutputExpressionMarkupHandler.java:164)
+	at org.attoparser.HtmlElement.handleCloseElementEnd(HtmlElement.java:169)
+	at org.attoparser.HtmlMarkupHandler.handleCloseElementEnd(HtmlMarkupHandler.java:412)
+	at org.attoparser.MarkupEventProcessorHandler.handleCloseElementEnd(MarkupEventProcessorHandler.java:473)
+	at org.attoparser.ParsingElementMarkupUtil.parseCloseElement(ParsingElementMarkupUtil.java:201)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:725)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:362)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1370)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1116)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1055)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:998)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:890)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:875)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:127)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:91)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:170)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:66)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:357)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:270)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:770)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-11-26 14:07:15,300 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 6864 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 14:07:15,302 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 14:07:15,302 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 14:07:25,274 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 10.609 seconds (JVM running for 11.92)
+2020-11-26 14:07:25,276 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 14:07:25,366 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 14:16:47,735 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-6] Le membre connecté est : djzefchapeau@hotmail.com
+2020-11-26 14:16:51,690 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-3] Le membre connecté est : djzefchapeau@hotmail.com
+2020-11-26 14:23:24,055 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 9340 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-11-26 14:23:24,060 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-11-26 14:23:24,062 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-11-26 14:23:33,658 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 10.234 seconds (JVM running for 11.434)
+2020-11-26 14:23:33,658 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-11-26 14:23:33,749 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-11-26 14:23:41,708 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-7] Le membre connecté est : djzefchapeau@hotmail.com
+2020-11-26 14:24:40,274 INFO com.fabienIT.escaladefriendsp6ocr.controller.TopoController [http-nio-8088-exec-5] Le membre connecté est : djzefchapeau@hotmail.com

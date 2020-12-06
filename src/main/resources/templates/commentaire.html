@@ -36,8 +36,12 @@
         <a href="/" class="active">Les Amis de l'Escalade</a>
         <nav class="menu">
             <a href="/">Accueil</a>
-            <a href="/sites">Sites d'escalade</a>
+            <a href="visiteur/sites">Sites d'escalade</a>
+            <a href="topoListe">Topos</a>
             <a href="/#about">A propos</a>
+            <a href="utilisateur">Gestion des utilisateurs</a>
+            <a href="compte">Mon compte</a>
+            <a href="/logout" class="btn btn-default"><i class="fa fa-power-off"></i></a>
             <!-- <a href="#contact">Contact</a> -->
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i></a>
@@ -46,44 +50,63 @@
     </div>
 
 </header>
-
 <!-- end header -->
 
-<h1>MODIFICATION DES TOPOS</h1>
+
+<!--
+<div class="container-fluid">
+    <div th:each="c:${commentaire}" class="row">
+        <div class="d-inline p-2 col-sm-4">
+            <div class="card mb-4 box-shadow">
+                <table>
+                    <tr class="card-body">
+                        <td>Date : </td><th></th><td th:text="${c.#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></td>
+                    </tr>
+                    <tr class="card-body">
+                        <td>Commentaire : </td><th></th><td th:text="${c.com}"></td>
+                    </tr>
+                </table>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/visiteur/pageEscalade/(id=${s.id})}">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+-->
+
+<div class="container-fluid">
+<form class="form-horizontal" method="post" action="#" th:action="@{/commentaireAjouter}" th:object="${commentaireForm}">
+    <fieldset>
+
+        <!-- Form Name -->
+        <legend>Commentaire</legend>
+
+        <!-- Textarea -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textarea">Commentaire</label>
+            <div class="col-md-4">
+                <input type="datetime-local" th:field="*{dateTime}" class="form-control" id="date" name="date"></input>
+                <input type="text" th:field="*{com}" class="form-control" id="textarea" name="textarea"></input>
+            </div>
+        </div>
 
 
-<table class="table" border="1" cellpadding="10">
 
-    <tr>
-        <th>NOM</th><th>PROPRIETAIRE</th><th>REGION</th><th>Nb DE SITES</th><th>Nb DE VOIES</th><th>COTATION MINI</th><th>COTATION MAX</th><th>DEMANDE RESERATION</th>
+        <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="singlebutton"></label>
+            <div class="col-md-4">
+                <input type="button" id="singlebutton" name="singlebutton" class="btn btn-primary">Envoyer</input>
+            </div>
+        </div>
 
-    <tr>
-        <td th:text="*{topoAfficher.nom}"> </td>
-        <td th:text="*{topoAfficher.proprietaire}"> </td>
-        <td th:text="*{topoAfficher.region}"> </td>
-        <td th:text="*{topoAfficher.nbSites}"> </td>
-        <td th:text="*{topoAfficher.nbVoies}"> </td>
-        <td th:text="*{topoAfficher.cotationMin}"> </td>
-        <td th:text="*{topoAfficher.cotationMax}"> </td>
-    <form method="post" action="#" th:action="@{/saveUpdateTopo}" th:object="${topoAfficher}">
-        <td >
-        <input type="hidden" name="id" th:field="*{id}"/>
-        <input type="hidden" th:field="*{nom}"/>
-        <input type="hidden" th:field="*{proprietaire}"/>
-        <input type="hidden" th:field="*{region}"/>
-        <input type="hidden" th:field="*{nbSites}"/>
-        <input type="hidden" th:field="*{nbVoies}"/>
-        <input type="hidden" th:field="*{cotationMin}"/>
-        <input type="hidden" th:field="*{cotationMax}"/>
-        <input type="checkbox"   th:field="*{demandeReservation} "/>
-        <input type="hidden" th:field="*{validerReservation}"th:value="false"/>
-        <input type="hidden" th:field="*{reserve}" th:value="false"/>
-
-            <button type="submit" value="Demander réservation" class="btn btn-info" >Demander réservation</button></td>
-        </form>
-    </tr>
-
-</table>
+    </fieldset>
+</form>
+</div>
 
 
 <footer class="text-muted">

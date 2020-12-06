@@ -26,7 +26,7 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="css/main.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -58,28 +58,29 @@
         <th>NOM</th><th>PROPRIETAIRE</th><th>REGION</th><th>Nb DE SITES</th><th>Nb DE VOIES</th><th>COTATION MINI</th><th>COTATION MAX</th><th>DEMANDE RESERATION</th>
 
     <tr>
-        <td th:text="*{topoAfficher.nom}"> </td>
-        <td th:text="*{topoAfficher.proprietaire}"> </td>
-        <td th:text="*{topoAfficher.region}"> </td>
-        <td th:text="*{topoAfficher.nbSites}"> </td>
-        <td th:text="*{topoAfficher.nbVoies}"> </td>
-        <td th:text="*{topoAfficher.cotationMin}"> </td>
-        <td th:text="*{topoAfficher.cotationMax}"> </td>
-    <form method="post" action="#" th:action="@{/saveUpdateTopo}" th:object="${topoAfficher}">
-        <td >
-        <input type="hidden" name="id" th:field="*{id}"/>
-        <input type="hidden" th:field="*{nom}"/>
-        <input type="hidden" th:field="*{proprietaire}"/>
-        <input type="hidden" th:field="*{region}"/>
-        <input type="hidden" th:field="*{nbSites}"/>
-        <input type="hidden" th:field="*{nbVoies}"/>
-        <input type="hidden" th:field="*{cotationMin}"/>
-        <input type="hidden" th:field="*{cotationMax}"/>
-        <input type="checkbox"   th:field="*{demandeReservation} "/>
-        <input type="hidden" th:field="*{validerReservation}"th:value="false"/>
-        <input type="hidden" th:field="*{reserve}" th:value="false"/>
+        <td th:text="*{valider.nom}"> </td>
+        <td th:text="*{valider.proprietaire}"> </td>
+        <td th:text="*{valider.region}"> </td>
+        <td th:text="*{valider.nbSites}"> </td>
+        <td th:text="*{valider.nbVoies}"> </td>
+        <td th:text="*{valider.cotationMin}"> </td>
+        <td th:text="*{valider.cotationMax}"> </td>
+        <form method="post" action="#" th:action="@{/saveUpdateTopo}" th:object="${valider}">
+            <td >
+                <input type="hidden" name="id" th:field="*{id}"/>
+                <input type="hidden" th:field="*{nom}"/>
+                <input type="hidden" th:field="*{proprietaire}"/>
+                <input type="hidden" th:field="*{region}"/>
+                <input type="hidden" th:field="*{nbSites}"/>
+                <input type="hidden" th:field="*{nbVoies}"/>
+                <input type="hidden" th:field="*{cotationMin}"/>
+                <input type="hidden" th:field="*{cotationMax}"/>
+                <input type="hidden" th:field="*{demandeReservation}" th:value="false"/>
+                <label><input type="radio" th:field="*{reserve}"th:value="true"/>Oui</label>
+                <label><input type="radio" th:field="*{reserve}"th:value="false"/>Non</label>
 
-            <button type="submit" value="Demander réservation" class="btn btn-info" >Demander réservation</button></td>
+
+                <button type="submit" value="Valider réservation" class="btn btn-info">Envoyer</button></td>
         </form>
     </tr>
 

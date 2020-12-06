@@ -2,32 +2,46 @@ package com.fabienIT.escaladefriendsp6ocr.model;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name="site")
-public class Site {
+@Table(name="Topo")
+public class Topo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "topo_id")
     private Long id;
     private String nom;
-    private String nombreVoie;
-    private String difficulte;
-    private String description;
-    private String technique;
-    private String site_image;
+    private String proprietaire;
+    private String region;
+    private int nbSites;
+    private int nbVoies;
+    private String cotationMin;
+    private String cotationMax;
+    private Boolean demandeReservation = false;
+    private Boolean validerReservation = false;
+    private Boolean reserve;
 
-    public Site() {
+    @OneToMany(mappedBy="topo")
+    private Set<Site> site;
+
+
+    public Topo() {
     }
 
-    public Site(Long id, String nom, String nombreVoie, String difficulte, String description, String technique, String site_image) {
+    public Topo(Long id, String nom, String proprietaire, String region, int nbSites, int nbVoies, String cotationMin, String cotationMax, Boolean demandeReservation, Boolean validerReservation, Boolean reserve) {
         this.id = id;
         this.nom = nom;
-        this.nombreVoie = nombreVoie;
-        this.difficulte = difficulte;
-        this.description = description;
-        this.technique = technique;
-        this.site_image = site_image;
+        this.proprietaire = proprietaire;
+        this.region = region;
+        this.nbSites = nbSites;
+        this.nbVoies = nbVoies;
+        this.cotationMin = cotationMin;
+        this.cotationMax = cotationMax;
+        this.demandeReservation = demandeReservation;
+        this.validerReservation = validerReservation;
+        this.reserve = reserve;
     }
 
     public Long getId() {
@@ -46,56 +60,92 @@ public class Site {
         this.nom = nom;
     }
 
-    public String getNombreVoie() {
-        return nombreVoie;
+    public String getProprietaire() {
+        return proprietaire;
     }
 
-    public void setNombreVoie(String nombreVoie) {
-        this.nombreVoie = nombreVoie;
+    public void setProprietaire(String proprietaire) {
+        this.proprietaire = proprietaire;
     }
 
-    public String getDifficulte() {
-        return difficulte;
+    public String getRegion() {
+        return region;
     }
 
-    public void setDifficulte(String difficulte) {
-        this.difficulte = difficulte;
+    public void setRegion(String region) {
+        this.region = region;
     }
 
-    public String getDescription() {
-        return description;
+    public int getNbSites() {
+        return nbSites;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setNbSites(int nbSites) {
+        this.nbSites = nbSites;
     }
 
-    public String getTechnique() {
-        return technique;
+    public int getNbVoies() {
+        return nbVoies;
     }
 
-    public void setTechnique(String technique) {
-        this.technique = technique;
+    public void setNbVoies(int nbVoies) {
+        this.nbVoies = nbVoies;
     }
 
-    public String getSite_image() {
-        return site_image;
+    public String getCotationMin() {
+        return cotationMin;
     }
 
-    public void setSite_image(String site_image) {
-        this.site_image = site_image;
+    public void setCotationMin(String cotationMin) {
+        this.cotationMin = cotationMin;
+    }
+
+    public String getCotationMax() {
+        return cotationMax;
+    }
+
+    public void setCotationMax(String cotationMax) {
+        this.cotationMax = cotationMax;
+    }
+
+    public Boolean getDemandeReservation() {
+        return demandeReservation;
+    }
+
+    public void setDemandeReservation(Boolean demandeReservation) {
+        this.demandeReservation = demandeReservation;
+    }
+
+    public Boolean getValiderReservation() {
+        return validerReservation;
+    }
+
+    public void setValiderReservation(Boolean validerReservation) {
+        this.validerReservation = validerReservation;
+    }
+
+    public Boolean getReserve() {
+        return reserve;
+    }
+
+    public void setReserve(Boolean reserve) {
+        this.reserve = reserve;
     }
 
     @Override
     public String toString() {
-        return "Site{" +
+        return "Topo{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
-                ", nombreVoie='" + nombreVoie + '\'' +
-                ", difficulte='" + difficulte + '\'' +
-                ", description='" + description + '\'' +
-                ", technique='" + technique + '\'' +
-                ", site_image='" + site_image + '\'' +
+                ", proprietaire='" + proprietaire + '\'' +
+                ", region='" + region + '\'' +
+                ", nbSites=" + nbSites +
+                ", nbVoies=" + nbVoies +
+                ", cotationMin='" + cotationMin + '\'' +
+                ", cotationMax='" + cotationMax + '\'' +
+                ", demandeReservation=" + demandeReservation +
+                ", validerReservation=" + validerReservation +
+                ", reserve=" + reserve +
                 '}';
     }
 }

@@ -19,18 +19,19 @@ public class InscriptionController {
     InscriptionService inscriptionService;
     // mettre USERsERVICEiMPL
 
-    @GetMapping("/inscription")
+   /* @GetMapping("/inscription")
     public String resultsForm (Model model) {
         model.addAttribute("user", new User());
         return "inscription";
-    }
+    }*/
 
 
-    @PostMapping("/results")
-    public String utilisateurSubmit(@ModelAttribute Utilisateur utilisateur) {
-        System.out.println("*****************Le nom d'utilisateur est : " +utilisateur);
+    /*@PostMapping("/ajouterUtilisateur")
+    public String utilisateurSubmit(@ModelAttribute Utilisateur utilisateur, Model model) {
+        model.addAttribute("utilisateur", utilisateur);
+        System.out.println("*****************Le nom d'utilisateur est : " + utilisateur);
         inscriptionService.ajouter(utilisateur);
-        return "results";
-    }
+        return "utilisateur";
+    }*/
 
 }

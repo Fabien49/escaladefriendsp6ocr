@@ -11,22 +11,28 @@ public class Site {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    private String nombreVoie;
-    private String difficulte;
+    private String region;
+    private int nbVoies;
+    private String cotationMin;
+    private String cotationMax;
     private String description;
-    private String technique;
     private String site_image;
+
+    @ManyToOne
+    @JoinColumn(name="topo_id")
+    private Topo topo;
 
     public Site() {
     }
 
-    public Site(Long id, String nom, String nombreVoie, String difficulte, String description, String technique, String site_image) {
+    public Site(Long id, String nom, String region, int nbVoies, String cotationMin, String cotationMax, String description, String site_image) {
         this.id = id;
         this.nom = nom;
-        this.nombreVoie = nombreVoie;
-        this.difficulte = difficulte;
+        this.region = region;
+        this.nbVoies = nbVoies;
+        this.cotationMin = cotationMin;
+        this.cotationMax = cotationMax;
         this.description = description;
-        this.technique = technique;
         this.site_image = site_image;
     }
 
@@ -46,20 +52,36 @@ public class Site {
         this.nom = nom;
     }
 
-    public String getNombreVoie() {
-        return nombreVoie;
+    public String getRegion() {
+        return region;
     }
 
-    public void setNombreVoie(String nombreVoie) {
-        this.nombreVoie = nombreVoie;
+    public void setRegion(String region) {
+        this.region = region;
     }
 
-    public String getDifficulte() {
-        return difficulte;
+    public int getNbVoies() {
+        return nbVoies;
     }
 
-    public void setDifficulte(String difficulte) {
-        this.difficulte = difficulte;
+    public void setNbVoies(int nbVoies) {
+        this.nbVoies = nbVoies;
+    }
+
+    public String getCotationMin() {
+        return cotationMin;
+    }
+
+    public void setCotationMin(String cotationMin) {
+        this.cotationMin = cotationMin;
+    }
+
+    public String getCotationMax() {
+        return cotationMax;
+    }
+
+    public void setCotationMax(String cotationMax) {
+        this.cotationMax = cotationMax;
     }
 
     public String getDescription() {
@@ -68,14 +90,6 @@ public class Site {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getTechnique() {
-        return technique;
-    }
-
-    public void setTechnique(String technique) {
-        this.technique = technique;
     }
 
     public String getSite_image() {
@@ -91,10 +105,11 @@ public class Site {
         return "Site{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
-                ", nombreVoie='" + nombreVoie + '\'' +
-                ", difficulte='" + difficulte + '\'' +
+                ", region='" + region + '\'' +
+                ", nbVoies=" + nbVoies +
+                ", cotationMin='" + cotationMin + '\'' +
+                ", cotationMax='" + cotationMax + '\'' +
                 ", description='" + description + '\'' +
-                ", technique='" + technique + '\'' +
                 ", site_image='" + site_image + '\'' +
                 '}';
     }

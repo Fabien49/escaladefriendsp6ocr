@@ -162,6 +162,11 @@ hr{
 	color: #fff;
 }
 
+h1{
+    text-align: center;
+    margin-top:0px;
+}
+
 /* Fin bannière */
 
 /* Formulaire d'inscription */
@@ -269,6 +274,12 @@ span.input-group-addon i {
 }
 
 /* FIN LOGIN */
+
+/*FORMULAIRE DE RECHERHCE*/
+
+
+/*FIN FORMULAIRE DE RECHERHCE*/
+
 
 
 
