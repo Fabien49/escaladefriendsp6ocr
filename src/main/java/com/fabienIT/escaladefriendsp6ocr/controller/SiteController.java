@@ -20,7 +20,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 
 @Controller
@@ -64,11 +67,12 @@ public class SiteController {
 
 
     @GetMapping("/visiteur/sites")
-    public String sites (Model model,
+    public String sites (Model model, Long topo,
                          @RequestParam(name = "page", defaultValue = "0") int page,
                          @RequestParam(name = "size", defaultValue = "5") int size,
-                         @RequestParam(name = "keyword", defaultValue = "") String mc) {
+                         @RequestParam(name = "keyword", defaultValue = "") String mc, String keyword) {
         Page<Site> sitePage = siteRepository.findByNomContains(mc, PageRequest.of(page, size));
+
         model.addAttribute("sitePage", sitePage.getContent());
         model.addAttribute("pages", new int[sitePage.getTotalPages()]);
         model.addAttribute("currentPage", page);
@@ -76,6 +80,7 @@ public class SiteController {
         model.addAttribute("keyword", mc);
         {
             log.info("Le nombre de site est : " + sitePage.getTotalElements());
+
             return "sites";
         }
 
@@ -98,13 +103,18 @@ public class SiteController {
     }
 
     @GetMapping("/visiteur/pageEscalade")
-    public String pageEscalade (Model model,Long id){
+    public String pageEscalade (Model model,Long id,
+                                @RequestParam(name = "page", defaultValue = "0") int page,
+                                @RequestParam(name = "size", defaultValue = "5") int size,
+                                @RequestParam(name = "keyword", defaultValue = "") String keyword){
         Site s = siteService.findSiteById(id);
         model.addAttribute("sitePageEscalade", s );
-        log.info("La page d'escalade est : " + s.getNom());
+        Set<Topo> toposite= siteService.findById(id).get().getTopo();
+        model.addAttribute("toposite", toposite);
+        log.info("La page d'escalade est : " + s);
+        log.info("Le topo est : " + toposite);
         return "sitePageEscalade";
     }
-
 
 }
 

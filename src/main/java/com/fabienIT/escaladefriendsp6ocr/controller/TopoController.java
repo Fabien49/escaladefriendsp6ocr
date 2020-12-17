@@ -1,9 +1,7 @@
 package com.fabienIT.escaladefriendsp6ocr.controller;
 
 
-import com.fabienIT.escaladefriendsp6ocr.EscaladeApplication;
 import com.fabienIT.escaladefriendsp6ocr.model.Topo;
-import com.fabienIT.escaladefriendsp6ocr.repository.TopoRepository;
 import com.fabienIT.escaladefriendsp6ocr.service.TopoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,7 +67,7 @@ public class TopoController {
 
     @GetMapping("/demandeReservation")
     public String topoAfficher (Model model, Long id){
-        Topo t = topoService.findTopoById(id);
+        List<Topo> t = topoService.findAllTopo();
         model.addAttribute("topoAfficher", t );
         log.info("Le topo que l'on souhaite réserver est : " + t);
         return "topoDemandeReservation";
@@ -84,7 +82,7 @@ public class TopoController {
 
     @GetMapping("/editerTopo")
         public String modifier (Model model, Long id){
-        Topo t = topoService.findTopoById(id);
+        List<Topo> t = topoService.findAllTopo();
         model.addAttribute("topoModif", t );
         log.info("Le topo que l'on souhaite modofier est : " + t);
         return "topoModif";
@@ -100,7 +98,7 @@ public class TopoController {
 
     @GetMapping("/validerReservation")
     public String topoValider (Model model, Long id){
-        Topo t = topoService.findTopoById(id);
+        List<Topo> t = topoService.findAllTopo();
         model.addAttribute("valider", t );
         log.info("Le topo que l'on valide est : " + t);
         return "topoValidation";

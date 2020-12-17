@@ -4,7 +4,6 @@ import com.fabienIT.escaladefriendsp6ocr.model.Topo;
 import com.fabienIT.escaladefriendsp6ocr.repository.TopoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -22,14 +21,15 @@ public class TopoService {
 
 	public List<Topo> findAllTopo (){return topoRepository.findAll(); }
 
-	public Topo findTopoById(Long topo) {
-		return (Topo) topoRepository.findAllById(topo);
-	}
+/*	public Topo findTopoById() {
+		return (Topo) topoRepository.findAllById();
+	}*/
 
 	public Topo findTopoByNom(String topo) {
 		return topoRepository.findByNom(topo);
 	}
 
+	public Optional<Topo> findTopoSite(Long topo){return topoRepository.findById(topo);}
 
 
 	/*public List <Topo> findAllTopo (){

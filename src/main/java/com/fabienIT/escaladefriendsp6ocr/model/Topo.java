@@ -2,15 +2,15 @@ package com.fabienIT.escaladefriendsp6ocr.model;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
 @Table(name="Topo")
-public class Topo {
+public class Topo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "topo_id")
     private Long id;
     private String nom;
     private String proprietaire;
@@ -23,14 +23,16 @@ public class Topo {
     private Boolean validerReservation = false;
     private Boolean reserve;
 
-    @OneToMany(mappedBy="topo")
-    private Set<Site> site;
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "site_id", nullable = false)
+    private Site site;
+
 
 
     public Topo() {
     }
 
-    public Topo(Long id, String nom, String proprietaire, String region, int nbSites, int nbVoies, String cotationMin, String cotationMax, Boolean demandeReservation, Boolean validerReservation, Boolean reserve) {
+    public Topo(Long id, String nom, String proprietaire, String region, int nbSites, int nbVoies, String cotationMin, String cotationMax, Boolean demandeReservation, Boolean validerReservation, Boolean reserve, Site site) {
         this.id = id;
         this.nom = nom;
         this.proprietaire = proprietaire;
@@ -42,6 +44,7 @@ public class Topo {
         this.demandeReservation = demandeReservation;
         this.validerReservation = validerReservation;
         this.reserve = reserve;
+        this.site = site;
     }
 
     public Long getId() {
@@ -130,6 +133,22 @@ public class Topo {
 
     public void setReserve(Boolean reserve) {
         this.reserve = reserve;
+    }
+
+    public Site getSite() {
+        return site;
+    }
+
+    public void setSite(Site site) {
+        this.site = site;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Topo topo = (Topo) o;
+        return id.equals(topo.id);
     }
 
     @Override

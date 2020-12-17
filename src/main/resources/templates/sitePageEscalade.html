@@ -67,9 +67,9 @@
             <h4>Topo</h4>
             <table class="table">
                 <th>Nom</th><th>Reserve</th>
-                <tr th:each="t:${topoList}">
-                    <td th:text="*{t.nom}"></td>
-                    <td th:text="*{t.reserve}"></td>
+                <tr th:each="ts:${toposite}">
+                    <td th:text="${ts.nom}"></td>
+                    <td th:text="${ts.reserve}"></td>
                 </tr>
             </table>
         </div>

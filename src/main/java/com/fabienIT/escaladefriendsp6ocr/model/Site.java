@@ -2,10 +2,14 @@ package com.fabienIT.escaladefriendsp6ocr.model;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="site")
-public class Site {
+public class Site implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,9 +22,9 @@ public class Site {
     private String description;
     private String site_image;
 
-    @ManyToOne
-    @JoinColumn(name="topo_id")
-    private Topo topo;
+    @OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+    private Set<Topo> topo;
+
 
     public Site() {
     }
@@ -99,6 +103,24 @@ public class Site {
     public void setSite_image(String site_image) {
         this.site_image = site_image;
     }
+
+    public Set<Topo> getTopo() {
+        return topo;
+    }
+
+    public void setTopo(Set<Topo> topo) {
+        this.topo = topo;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Site site = (Site) o;
+        return id.equals(site.id);
+    }
+
 
     @Override
     public String toString() {

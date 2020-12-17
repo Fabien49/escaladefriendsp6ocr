@@ -1,6 +1,0 @@
-2020-10-15 01:28:25,126 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 700 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
-2020-10-15 01:28:25,151 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
-2020-10-15 01:28:25,154 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
-2020-10-15 01:28:39,531 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 15.199 seconds (JVM running for 17.501)
-2020-10-15 01:28:39,543 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
-2020-10-15 01:28:39,548 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...

@@ -1,10 +1,12 @@
 package com.fabienIT.escaladefriendsp6ocr;
 
 import com.fabienIT.escaladefriendsp6ocr.model.Role;
+import com.fabienIT.escaladefriendsp6ocr.model.Site;
 import com.fabienIT.escaladefriendsp6ocr.model.Topo;
 import com.fabienIT.escaladefriendsp6ocr.model.User;
 import com.fabienIT.escaladefriendsp6ocr.repository.TopoRepository;
 import com.fabienIT.escaladefriendsp6ocr.repository.UserRepository;
+import com.fabienIT.escaladefriendsp6ocr.service.SiteService;
 import com.fabienIT.escaladefriendsp6ocr.service.TopoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -38,6 +40,9 @@ public class EscaladeApplication implements CommandLineRunner{
 
 	@Autowired
 	TopoRepository topoRepository;
+
+	@Autowired
+	SiteService siteService;
 	
 	/*@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;*/
@@ -52,6 +57,7 @@ public class EscaladeApplication implements CommandLineRunner{
 
 		testReservationTopo();
 		ajouterTopo();
+		ajouterSite();
 		//createUser();
 	}
 
@@ -64,13 +70,33 @@ public class EscaladeApplication implements CommandLineRunner{
 
 	private void ajouterTopo (){
 
-	    topoService.ajouter(new Topo(null, "Les Alpes", "Jean Philippe","Alpes", 18, 156, "4a", "9b+", false, false, false));
+	  /*  topoService.ajouter(new Topo(null, "Les Alpes", "Jean Philippe","Alpes", 18, 156, "4a", "9b+", false, false, false));
 		topoService.ajouter(new Topo(null, "Les 1000 Vaches", "Stéphanie","Centre", 7, 39, "4a", "7c+", false, false, false));
 		topoService.ajouter(new Topo(null, "La Pente", "Clarisse","Bretagne", 10, 86, "4a", "8b", false, false, false));
 		topoService.ajouter(new Topo(null, "Les Pyrénées", "Fabien","Occitanie", 19, 147, "4a", "9b+", false, false, false));
-		topoService.ajouter(new Topo(null, "L'île de beauté", "Fabrice","Corse", 9, 52, "4a", "9b+", false, false, false));
+		topoService.ajouter(new Topo(null, "L'île de beauté", "Fabrice","Corse", 9, 52, "4a", "9b+", false, false, false));*/
+
+	}
 
 
+
+	public void ajouterSite() {
+	/*	Site site = (new Site(null, "Le Peyssin", "Alpes",125, "4a", "9b+", "Super Site", "LePeyssin.jpg"));
+		siteService.ajouter(site);
+		System.out.println("Le site ajouté est : " + site);
+		Topo topo = (new Topo(null, "Les Alpes", "Jean Philippe","Alpes", 18, 156, "4a", "9b+", false, false, false, site));
+		topoService.ajouter(topo);
+		System.out.println("le topo ajouté est: " + topo);
+		topo = (new Topo(null, "La folie", "Souleymane","Alpes", 15, 97, "4a", "9a", false, false, false, site));
+		topoService.ajouter(topo);
+		System.out.println("le topo ajouté est: " + topo);
+		site = (new Site(null, "BalmeYenne", "Alpes",115, "4a", "9b+", "Super Site", "BalmeYenne.jpg"));
+		siteService.ajouter(site);
+		System.out.println("Le site ajouté est : " + site);
+		topo = (new Topo(null, "les 1000 vaches", "Sophie","Centre", 12, 86, "4a", "8a+", false, false, false, site));
+		topoService.ajouter(topo);
+		System.out.println("le topo ajouté est: " + topo);
+*/
 	}
 
 	/*private void createUser(){
