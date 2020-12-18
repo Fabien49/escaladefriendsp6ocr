@@ -21,9 +21,9 @@ public class TopoService {
 
 	public List<Topo> findAllTopo (){return topoRepository.findAll(); }
 
-/*	public Topo findTopoById() {
-		return (Topo) topoRepository.findAllById();
-	}*/
+	public Optional<Topo> findTopoById(Long id) {
+		return topoRepository.findById(id);
+	}
 
 	public Topo findTopoByNom(String topo) {
 		return topoRepository.findByNom(topo);

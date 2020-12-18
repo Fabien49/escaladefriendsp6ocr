@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class TopoController {
@@ -82,7 +83,7 @@ public class TopoController {
 
     @GetMapping("/editerTopo")
         public String modifier (Model model, Long id){
-        List<Topo> t = topoService.findAllTopo();
+        Optional<Topo> t = topoService.findTopoById(id);
         model.addAttribute("topoModif", t );
         log.info("Le topo que l'on souhaite modofier est : " + t);
         return "topoModif";

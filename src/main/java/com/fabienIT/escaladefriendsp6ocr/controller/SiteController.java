@@ -67,12 +67,11 @@ public class SiteController {
 
 
     @GetMapping("/visiteur/sites")
-    public String sites (Model model, Long topo,
+    public String sites (Model model,
                          @RequestParam(name = "page", defaultValue = "0") int page,
                          @RequestParam(name = "size", defaultValue = "5") int size,
-                         @RequestParam(name = "keyword", defaultValue = "") String mc, String keyword) {
+                         @RequestParam(name = "keyword", defaultValue = "") String mc) {
         Page<Site> sitePage = siteRepository.findByNomContains(mc, PageRequest.of(page, size));
-
         model.addAttribute("sitePage", sitePage.getContent());
         model.addAttribute("pages", new int[sitePage.getTotalPages()]);
         model.addAttribute("currentPage", page);
@@ -83,7 +82,24 @@ public class SiteController {
 
             return "sites";
         }
+    }
 
+    @GetMapping("/siteListe")
+    public String siteListe (Model model,
+                         @RequestParam(name = "page", defaultValue = "0") int page,
+                         @RequestParam(name = "size", defaultValue = "5") int size,
+                         @RequestParam(name = "keyword", defaultValue = "") String mc) {
+        Page<Site> sitePage = siteRepository.findByNomContains(mc, PageRequest.of(page, size));
+        model.addAttribute("siteListe", sitePage.getContent());
+        model.addAttribute("pages", new int[sitePage.getTotalPages()]);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("size", size);
+        model.addAttribute("keyword", mc);
+        {
+            log.info("Le nombre de site est : " + sitePage.getTotalElements());
+
+            return "siteListe";
+        }
     }
 
 
