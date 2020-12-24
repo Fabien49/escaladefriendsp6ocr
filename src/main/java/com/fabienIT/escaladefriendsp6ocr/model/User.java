@@ -32,6 +32,20 @@ public class User {
 	@Column(name = "last_name")
 	@NotEmpty(message = "*Please provide your last name")
 	private String lastName;
+	@Column(name = "sexe")
+	@NotEmpty(message = "*Please provide your sexe")
+	private String sexe;
+	@Column(name = "voie")
+	@NotEmpty(message = "*Please provide your voie")
+	private String voie;
+	@Column(name = "codePostal")
+	@NotEmpty(message = "*Please provide your code postal")
+	private String codePostal;
+	@Column(name = "commune")
+	@NotEmpty(message = "*Please provide your commune")
+	private String commune;
+	@Column(name = "niveau")
+	private String niveau;
 	@Column(name = "active")
 	private boolean active;
 	@ManyToMany(cascade = CascadeType.ALL)
@@ -40,6 +54,25 @@ public class User {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	private Set<Topo> topo;
+
+	public User() {
+	}
+
+	public User(int id, @Email(message = "*Please provide a valid Email") @NotEmpty(message = "*Please provide an email") String email, @Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password, @NotEmpty(message = "*Please provide your name") String name, @NotEmpty(message = "*Please provide your last name") String lastName, @NotEmpty(message = "*Please provide your sexe") String sexe, @NotEmpty(message = "*Please provide your voie") String voie, @NotEmpty(message = "*Please provide your code postal") String codePostal, @NotEmpty(message = "*Please provide your commune") String commune, String niveau, boolean active, Set<Role> roles, Set<Topo> topo) {
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.name = name;
+		this.lastName = lastName;
+		this.sexe = sexe;
+		this.voie = voie;
+		this.codePostal = codePostal;
+		this.commune = commune;
+		this.niveau = niveau;
+		this.active = active;
+		this.roles = roles;
+		this.topo = topo;
+	}
 
 	public int getId() {
 		return id;
@@ -97,7 +130,66 @@ public class User {
 		this.roles = roles;
 	}
 
+	public String getSexe() {
+		return sexe;
+	}
+
+	public void setSexe(String sexe) {
+		this.sexe = sexe;
+	}
+
+	public String getVoie() {
+		return voie;
+	}
+
+	public void setVoie(String voie) {
+		this.voie = voie;
+	}
+
+	public String getCodePostal() {
+		return codePostal;
+	}
+
+	public void setCodePostal(String codePostal) {
+		this.codePostal = codePostal;
+	}
+
+	public String getCommune() {
+		return commune;
+	}
+
+	public void setCommune(String commune) {
+		this.commune = commune;
+	}
+
+	public String getNiveau() {
+		return niveau;
+	}
+
+	public void setNiveau(String niveau) {
+		this.niveau = niveau;
+	}
+
 	public Set<Topo> getTopo() {return topo;}
 
 	public void setTopo(Set<Topo> topo) {this.topo = topo;}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", email='" + email + '\'' +
+				", password='" + password + '\'' +
+				", name='" + name + '\'' +
+				", lastName='" + lastName + '\'' +
+				", sexe='" + sexe + '\'' +
+				", voie='" + voie + '\'' +
+				", codePostal='" + codePostal + '\'' +
+				", commune='" + commune + '\'' +
+				", niveau='" + niveau + '\'' +
+				", active=" + active +
+				", roles=" + roles +
+				", topo=" + topo +
+				'}';
+	}
 }

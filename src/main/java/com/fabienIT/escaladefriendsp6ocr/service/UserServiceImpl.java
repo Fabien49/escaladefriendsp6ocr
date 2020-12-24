@@ -1,9 +1,6 @@
 package com.fabienIT.escaladefriendsp6ocr.service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import javax.transaction.Transactional;
 
@@ -41,14 +38,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		user.setActive(true);
 		HashSet<Role> roles = new HashSet<Role>();
 		Role role = new Role();
-		role.setRole("ADMIN");
+		role.setRole("UTILISATEURCONNECTE");
 		roles.add(role);
 		user.setRoles(roles);
 		userRepository.save(user);
+		System.out.println("L'utilisateur enregistré est : " + user);
 	}
 	
-	/*
-	 * INSERT INTO `role` VALUES (1,'ADMIN');
+
+/*	 * INSERT INTO `role` VALUES (1,'ADMIN');
 	@Override
 	public void saveUser(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -56,8 +54,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         Role userRole = roleRepository.findByRole("ADMIN");
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
 		userRepository.save(user);
-	}
-	*/
+	}*/
+
 	
 	
 	@Transactional

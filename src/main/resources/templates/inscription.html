@@ -59,34 +59,35 @@
 		<img src="img/ban6.jpg" alt="Bannière du site" class="banner" />
 	</div>
 	<div class="inner-banner">
-		<h1>INSCRIPTION</h1>
+
 		<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
-					<form action="#" th:action="@{/utilisateurAjouter}" th:object="${utilisateur}" method="post">
+					<form autocomplete="off" action="#" th:action="@{/inscription}" th:object="${user}" method="post">
+						<h1>INSCRIPTION</h1>
 
 						<div class="form-group">
-							<label for="nom" class="cols-sm-2 control-label">Nom</label>
+							<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" for="name" class="cols-sm-2 control-label">Prénom</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text"  th:field="*{nom}" class="form-control" name="nom" id="nom" placeholder="Nom"/>
+									<input type="text" th:field="*{name}" placeholder="Name" class="form-control" name="name" id="name"/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label for="prenom" class="cols-sm-2 control-label">Prénom</label>
+							<label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" for="lastName" class="cols-sm-2 control-label">Nom</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text"  th:field="*{prenom}" class="form-control" name="prenom" id="prenom" placeholder="Prénom"/>
+									<input type="text"  th:field="*{lastName}" placeholder="Last Name" class="form-control" name="lastName" id="lastName"/>
 								</div>
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="cols-sm-2 control-label">Sexe</label>
+							<label th:if="${#fields.hasErrors('sexe')}" th:errors="*{sexe}" class="cols-sm-2 control-label">Sexe</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -100,18 +101,17 @@
 							</div>
 						</div>
 
-
 						<div class="form-group">
-							<label for="mail" class="cols-sm-2 control-label">Adresse mail</label>
+							<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" for="email" class="cols-sm-2 control-label">Adresse mail</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" th:field="*{mail}" class="form-control" name="mail" id="mail"  placeholder="Adresse mail"/>
+									<input type="text" th:field="*{email}" placeholder="Email" class="form-control" name="email" id="email"/>
 								</div>
 							</div>
 						</div>
 
-						<div class="form-group">
+						<!--<div class="form-group">
 							<label for="confirm_mail" class="cols-sm-2 control-label">Confirmation de l'adresse mail</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
@@ -119,19 +119,19 @@
 									<input type="text" class="form-control" name="confirm_mail" id="confirm_mail"  placeholder="Confirmation mail"/>
 								</div>
 							</div>
-						</div>
+						</div>-->
 
 						<div class="form-group">
-							<label for="mdp" class="cols-sm-2 control-label">Mot de passe</label>
+							<label th:if="${#fields.hasErrors('password')}" th:errors="*{password}" for="password" class="cols-sm-2 control-label">Mot de passe</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" th:field="*{mdp}" class="form-control" name="mdp" id="mdp"  placeholder="Mot de passe"/>
+									<input type="password" th:field="*{password}" placeholder="Password" class="form-control" name="password" id="password"/>
 								</div>
 							</div>
 						</div>
 
-						<div class="form-group">
+						<!--<div class="form-group">
 							<label for="confirm_mdp" class="cols-sm-2 control-label">Confirmation du mot de passe</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
@@ -139,10 +139,10 @@
 									<input type="password" class="form-control" name="confirm" id="confirm_mdp"  placeholder="Confirmation mdp"/>
 								</div>
 							</div>
-						</div>
+						</div>-->
 
 						<div class="form-group">
-							<label for="voie" class="cols-sm-2 control-label">Voie</label>
+							<label th:if="${#fields.hasErrors('voie')}" th:errors="*{voie}" for="voie" class="cols-sm-2 control-label">Voie</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
@@ -152,7 +152,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="codePostal" class="cols-sm-2 control-label">Code postal</label>
+							<label th:if="${#fields.hasErrors('codePostal')}" th:errors="*{codePostal}" for="codePostal" class="cols-sm-2 control-label">Code postal</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
@@ -162,7 +162,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="commune" class="cols-sm-2 control-label">Commune</label>
+							<label th:if="${#fields.hasErrors('commune')}" th:errors="*{commune}" for="commune" class="cols-sm-2 control-label">Commune</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
@@ -172,7 +172,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="niveau" class="cols-sm-2 control-label">Niveau</label>
+							<label th:if="${#fields.hasErrors('niveau')}" th:errors="*{niveau}" for="niveau" class="cols-sm-2 control-label">Niveau</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-signal" aria-hidden="true"></i></span>
@@ -211,43 +211,10 @@
 
 					</form>
 
-				<!-- <form autocomplete="off" action="#" th:action="@{/enregistrer}"
-					th:object="${user}" method="post" class="form-horizontal"
-					role="form">
-					<h2>Registration Form</h2>
-					<div class="form-group">
-						<div class="col-sm-9">
-						<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-								class="validation-message"></label>
-						<input type="text" th:field="*{name}" placeholder="Name"
-								class="form-control" /> 
-						</div>
-					</div>
+				<!-- <form th:action="@{/}" method="get">
+		<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
+	</form>
 
-					<div class="form-group">
-						<div class="col-sm-9">
-						<label	th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-								class="validation-message"></label>
-							<input type="text" th:field="*{lastName}"
-								placeholder="Last Name" class="form-control" /> 
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="text" th:field="*{email}" placeholder="Email"
-								class="form-control" /> <label
-								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-								class="validation-message"></label>
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="password" th:field="*{password}"
-								placeholder="Password" class="form-control" /> <label
-								th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-								class="validation-message"></label>
-						</div>
-					</div>
 
 					<div class="form-group">
 						<div class="col-sm-9">
@@ -256,7 +223,6 @@
 					</div>
 					
 					<span th:utext="${successMessage}"></span>
-					
 					
 				</form>-->
 				</div>

@@ -27,7 +27,7 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
             httpServletResponse.sendRedirect("/membre");
 
 
-        } else if (roles.contains("ROLE_UTILISATEURCONNECTE")) {
+        } else if (roles.contains("UTILISATEURCONNECTE")) {
             System.out.println("Redirection vers la page des utilisateurs connecté");
             httpServletResponse.sendRedirect("/utilisateurCo");
 

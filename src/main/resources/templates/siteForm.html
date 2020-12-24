@@ -63,11 +63,11 @@
             <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
         </form>-->
     <p><div class="">
-        <h1>FORMULAIRE DES TOPOS</h1>
+        <h1>FORMULAIRE DES SITES</h1>
         <div class="container">
             <div class="row main">
                 <div class="main-login main-center">
-                    <form method="post" action="#" th:action="@{/enregistre}" th:object="${topo}">
+                    <form method="post" action="#" th:action="@{/ajouterSite}" th:object="${site}">
 
                         <div class="form-group">
                             <label for="nom" class="cols-sm-2 control-label">Nom : </label>
@@ -80,31 +80,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="proprietaire" class="cols-sm-2 control-label">Propriétaire : </label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text"  th:field="*{proprietaire}" class="form-control" name="proprietaire" id="proprietaire" placeholder="Propriétaire"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label for="region" class="cols-sm-2 control-label">Région : </label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
                                     <input type="text"  th:field="*{region}" class="form-control" name="region" id="region" placeholder="Région"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="nbSites" class="cols-sm-2 control-label">Nombre de sites : </label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                    <input type="text" th:field="*{nbSites}" class="form-control" name="nbSites" id="nbSites"  placeholder="Nombre de sites"/>
                                 </div>
                             </div>
                         </div>
@@ -138,29 +118,21 @@
                                 </div>
                             </div>
                         </div>
-
-
-<!--                        TODO: Mettre la liste des sites qui se trouve en DB pour rattacher le topo que l'on va enregistrer-->
-                        <!--<div class="form-group">
-                            <label for="site" class="cols-sm-2 control-label">Site : </label>
+                        <div class="form-group">
+                            <label for="description" class="cols-sm-2 control-label">Description : </label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
-                                    <input type="text" th:field="*{site}" class="form-control" name="site" id="site"  placeholder="site"/>
+                                    <input type="text" th:field="*{description}" class="form-control" name="description" id="description"  placeholder="description"/>
                                 </div>
                             </div>
-                        </div>-->
-
+                        </div>
                         <div class="form-group">
-                            <label class="cols-sm-2 control-label">Réservé : </label>
+                            <label for="site_image" class="cols-sm-2 control-label">Image : </label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    <span class="input-group-addon"></span>
-                                    <label for="oui" class="cols-sm-2 control-label">
-                                        <input type="radio"  th:field="*{reserve}" class="form-control" value="true" name="oui" id="oui"/>Oui</label>
-
-                                    <label for="non" class="cols-sm-2 control-label">
-                                        <input type="radio"  th:field="*{reserve}" class="form-control" value="false" name="non" id="non"/>Non</label>
+                                    <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
+                                    <input type="text" th:field="*{site_image}" class="form-control" name="site_image" id="site_image"  placeholder="Image"/>
                                 </div>
                             </div>
                         </div>

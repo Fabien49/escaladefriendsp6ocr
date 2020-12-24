@@ -102,6 +102,43 @@ public class SiteController {
         }
     }
 
+    @GetMapping("/siteForm")
+    public String topo(Model model) {
+        model.addAttribute("site", new Site());
+        return "siteForm";
+    }
+
+
+    @PostMapping("/ajouterSite")
+    public String siteEnregistrer(Site site){
+        siteService.ajouter(site);
+        log.info("Le site que l'on ajoute est : " + site);
+        return "redirect:/siteListe";
+    }
+
+    @GetMapping("/editerSite")
+    public String modifier (Model model, Long id){
+        Optional<Site> s = siteService.findById(id);
+        model.addAttribute("siteModif", s);
+        log.info("Le site que l'on souhaite modofier est : " + s);
+        return "siteModif";
+    }
+
+    @PostMapping("/saveUpdateSite")
+    public String saveUpdateSite (Model model, Site site){
+        siteService.updateSite(site);
+        model.addAttribute("update", site);
+        log.info("Le topo qque l'on édite est : " + site);
+        return "redirect:/siteListe";
+    }
+
+    @GetMapping("/effacerSite")
+    public String effacer (Long id) {
+        siteService.effacer(id);
+        log.info("Le site que l'on vient d'effacer est : " + id);
+        return "redirect:/siteListe";
+    }
+
 
     @GetMapping("/admin/sitesMe")
     public String membre (Model model, Authentication authentication ) {

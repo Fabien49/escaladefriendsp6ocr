@@ -27,10 +27,19 @@ public class LoginController {
 		modelAndView.setViewName("login");
 		return modelAndView;
 	}
-	
+
+	@RequestMapping(value="/inscription", method = RequestMethod.GET)
+	public ModelAndView registration(){
+		ModelAndView modelAndView = new ModelAndView();
+		User user = new User();
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("inscription");
+		return modelAndView;
+	}
 
 
-	@RequestMapping(value = "/enregistrer", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
 		User userExists = userService.findUserByEmail(user.getEmail());

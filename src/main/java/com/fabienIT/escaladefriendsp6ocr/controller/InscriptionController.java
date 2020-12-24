@@ -19,7 +19,7 @@ public class InscriptionController {
     InscriptionService inscriptionService;
     // mettre USERsERVICEiMPL
 
-   /* @GetMapping("/inscription")
+/*   @GetMapping("/inscription")
     public String resultsForm (Model model) {
         model.addAttribute("user", new User());
         return "inscription";

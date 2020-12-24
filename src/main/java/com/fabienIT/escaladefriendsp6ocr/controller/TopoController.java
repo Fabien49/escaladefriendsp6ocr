@@ -34,7 +34,7 @@ public class TopoController {
     @PostMapping("/enregistre")
         public String topoEnregistrer(Topo topo){
         topoService.ajouter(topo);
-        log.info("Le topo qque l'on ajoute est : " + topo);
+        log.info("Le topo que l'on ajoute est : " + topo);
         return "redirect:/topoListe";
     }
 

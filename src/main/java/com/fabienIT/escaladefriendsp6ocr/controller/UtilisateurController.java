@@ -26,11 +26,11 @@ public class UtilisateurController {
     @Autowired
     UtilisateurService utilisateurService;
 
-    @GetMapping("/inscription")
+/*    @GetMapping("/inscription")
     public String utilisateur(Model model) {
         model.addAttribute("utilisateur", new Utilisateur());
         return "/inscription";
-    }
+    }*/
 
     @PostMapping("/utilisateurAjouter")
     public String ajouter (Utilisateur utilisateur) {

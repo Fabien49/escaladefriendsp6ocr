@@ -1,0 +1,12 @@
+2020-12-22 17:08:02,085 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 9960 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-12-22 17:08:02,166 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-12-22 17:08:02,168 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-12-22 17:08:15,858 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 14.67 seconds (JVM running for 16.616)
+2020-12-22 17:08:15,862 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-12-22 17:08:15,866 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...
+2020-12-22 17:27:50,989 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Starting EscaladeApplication on FABPC with PID 10720 (C:\Users\FaB\Git\escaladefriendsp6ocr\target\classes started by FaB PC in C:\Users\FaB\Git\escaladefriendsp6ocr)
+2020-12-22 17:27:50,994 DEBUG com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Running with Spring Boot v2.1.0.RELEASE, Spring v5.1.2.RELEASE
+2020-12-22 17:27:50,996 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
+2020-12-22 17:28:04,988 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Started EscaladeApplication in 14.804 seconds (JVM running for 16.508)
+2020-12-22 17:28:04,992 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Le chemin des images des sites est : img/site
+2020-12-22 17:28:04,995 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] Start Les Amis de l'Escalade Application ...

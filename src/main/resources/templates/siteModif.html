@@ -49,60 +49,20 @@
 
     <!-- end header -->
 
-    <div class="card">
-        <table class="table">
-            <tr>
-                <th><h1>LISTE DES SITES</h1></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th><a class="btn btn-info" href="/siteForm">Ajouter</a></th>
-            </tr>
-        </table>
+    <h1>MODIFICATION DES SITES</h1>
 
-        <form th:action="@{siteListe}">
-            Filtre: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
-            &nbsp;
-            <input class="btn btn-info" type="submit" value="Filtrer" />
-            &nbsp;
-            <input class="btn btn-info" type="button" value="Réinitialiser" id="btnClear" onclick="clearSearch()" />
-        </form>
-    </div>
+    <form method="post" action="#" th:action="@{/saveUpdateSite}" th:object="${siteModif}">
+        <p><input type="hidden" name="id" th:field="*{id}" /></p>
+        <p>Nom : <input type="text" name="nom" th:field="*{nom}" /></p>
+        <p>Région : <input type="text" name="region" th:field="*{region}" /></p>
+        <p>Nombre de voies : <input type="text" name="nbVoies" th:field="*{nbVoies}" /></p>
+        <p>Cotation mini : <input type="text" name="cotationMin" th:field="*{cotationMin}" /></p>
+        <p>Cotation max : <input type="text" name="cotationMax" th:field="*{cotationMax}" /></p>
+        <p>Cotation max : <input type="text" name="cotationMax" th:field="*{description}" /></p>
+        <p>Cotation max : <input type="text" name="cotationMax" th:field="*{site_image}" /></p>
+        <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+    </form>
 
-    <div class="card-body">
-        <table class="table table-striped" border="1" cellpadding="10">
-
-            <tr></tr>
-
-            <tr class="p-3 mb-2 bg-dark text-white">
-                <th class="align-middle text-center">NOM</th><th class="align-middle text-center">REGION</th><th class="align-middle text-center">NB VOIES</th><th class="align-middle text-center">COTATION MINI</th><th class="align-middle text-center">COTATION MAX</th><th class="align-middle text-center">DESCRIPTION</th><th class="align-middle text-center">IMAGE</th><th class="align-middle text-center">CERTIFIE</th>
-            </tr>
-            <tr th:each="s:${siteListe}">
-                <td th:text="${s.nom}"></td>
-                <td th:text="${s.region}"></td>
-                <td th:text="${s.nbVoies}"></td>
-                <td th:text="${s.cotationMin}"></td>
-                <td th:text="${s.cotationMax}"></td>
-                <td th:text="${s.description}"></td>
-                <td th:text="${s.site_image}"></td>
-                <td>
-                    <span><a>Certifier</a></span>
-                </td>
-                <td>
-                    <div>
-                        <a class="btn btn-success" th:href="@{editerSite/(id=${s.id})}"> Editer</a>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;
-                    <div>
-                        <a class="btn btn-danger"  th:href="@{effacerSite/(id=${s.id})}">Effacer</a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-
-        <ul class="nav nav-pills">
-            <li  th:each="page,status:${pages}">
-                <a  th:class="${status.index == currentPage?'btn btn-primary' : 'btn'}" th:href="@{siteListe(page=${status.index}, keyword=${keyword})}" th:text="${status.index}"></a>
-            </li>
-        </ul>
-    </div>
-    </div>
 
     <footer class="text-muted">
         <div class="container">
@@ -120,11 +80,7 @@
     <script src="../../js/vendor/popper.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/holderjs@2.9.4/holder.js"></script>
-    <script type="text/javascript">
-        function clearSearch() {
-            window.location = "[[@{/topoListe}]]";
-        }
-    </script>
+
 
     <svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
     </html>
