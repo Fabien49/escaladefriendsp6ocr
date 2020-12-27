@@ -35,12 +35,12 @@ public class CommentaireController {
         return "redirect:/commentaire";
     }
 
-   /* @GetMapping("commentaire")
+    @GetMapping("/commentaireAfficher")
     public  String commentaireAfficher (Model model){
         List<Commentaire> commentaireList = commentaireService.findAllCom();
         model.addAttribute("commentaireList", commentaireList);
         return "redirect:/commentaire";
-    }*/
+    }
 
 
 }

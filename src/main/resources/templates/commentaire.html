@@ -53,14 +53,14 @@
 <!-- end header -->
 
 
-<!--
+
 <div class="container-fluid">
-    <div th:each="c:${commentaire}" class="row">
+    <div th:each="c:${commentaireList}" class="row">
         <div class="d-inline p-2 col-sm-4">
             <div class="card mb-4 box-shadow">
                 <table>
                     <tr class="card-body">
-                        <td>Date : </td><th></th><td th:text="${c.#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></td>
+                        <td>Date : </td><th></th><td th:text="${c.comDate)}"></td>
                     </tr>
                     <tr class="card-body">
                         <td>Commentaire : </td><th></th><td th:text="${c.com}"></td>
@@ -76,7 +76,7 @@
     </div>
 </div>
 </div>
--->
+
 
 <div class="container-fluid">
 <form class="form-horizontal" method="post" action="#" th:action="@{/commentaireAjouter}" th:object="${commentaireForm}">
@@ -89,7 +89,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="textarea">Commentaire</label>
             <div class="col-md-4">
-                <input type="datetime-local" th:field="*{dateTime}" class="form-control" id="date" name="date"></input>
+                <input type="text" th:field="*{comDate}" class="form-control" id="date" name="date"></input>
                 <input type="text" th:field="*{com}" class="form-control" id="textarea" name="textarea"></input>
             </div>
         </div>

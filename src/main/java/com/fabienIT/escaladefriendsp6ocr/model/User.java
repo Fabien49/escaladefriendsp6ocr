@@ -52,13 +52,18 @@ public class User {
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
 	private Set<Topo> topo;
+
+	@OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+	private Set<Commentaire> commentaire;
 
 	public User() {
 	}
 
-	public User(int id, @Email(message = "*Please provide a valid Email") @NotEmpty(message = "*Please provide an email") String email, @Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password, @NotEmpty(message = "*Please provide your name") String name, @NotEmpty(message = "*Please provide your last name") String lastName, @NotEmpty(message = "*Please provide your sexe") String sexe, @NotEmpty(message = "*Please provide your voie") String voie, @NotEmpty(message = "*Please provide your code postal") String codePostal, @NotEmpty(message = "*Please provide your commune") String commune, String niveau, boolean active, Set<Role> roles, Set<Topo> topo) {
+
+
+	public User(int id, @Email(message = "*Please provide a valid Email") @NotEmpty(message = "*Please provide an email") String email, @Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password, @NotEmpty(message = "*Please provide your name") String name, @NotEmpty(message = "*Please provide your last name") String lastName, @NotEmpty(message = "*Please provide your sexe") String sexe, @NotEmpty(message = "*Please provide your voie") String voie, @NotEmpty(message = "*Please provide your code postal") String codePostal, @NotEmpty(message = "*Please provide your commune") String commune, String niveau, boolean active, Set<Role> roles, Set<Topo> topo, Set<Commentaire> commentaire) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
@@ -72,6 +77,8 @@ public class User {
 		this.active = active;
 		this.roles = roles;
 		this.topo = topo;
+		this.commentaire = commentaire;
+
 	}
 
 	public int getId() {
@@ -173,6 +180,22 @@ public class User {
 	public Set<Topo> getTopo() {return topo;}
 
 	public void setTopo(Set<Topo> topo) {this.topo = topo;}
+
+	public Set<Commentaire> getCommentaire() {
+		return commentaire;
+	}
+
+	public void setCommentaire(Set<Commentaire> commentaire) {
+		this.commentaire = commentaire;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		User user = (User) o;
+		return equals(user.id);
+	}
 
 	@Override
 	public String toString() {

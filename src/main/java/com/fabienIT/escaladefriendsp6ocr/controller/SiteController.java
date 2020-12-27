@@ -152,6 +152,7 @@ public class SiteController {
 
         log.info("Le membre connecté est : " + userName);
 
+
         return "sitesMe";
     }
 
@@ -160,13 +161,28 @@ public class SiteController {
                                 @RequestParam(name = "page", defaultValue = "0") int page,
                                 @RequestParam(name = "size", defaultValue = "5") int size,
                                 @RequestParam(name = "keyword", defaultValue = "") String keyword){
-        Site s = siteService.findSiteById(id);
-        model.addAttribute("sitePageEscalade", s );
+        Site site = siteService.findSiteById(id);
+        model.addAttribute("sitePageEscalade", site );
         Set<Topo> toposite= siteService.findById(id).get().getTopo();
         model.addAttribute("toposite", toposite);
-        log.info("La page d'escalade est : " + s);
+        Set<Commentaire> comSite = siteService.findById(id).get().getCommentaire();
+        model.addAttribute("comSite", comSite);
+        Commentaire commentaire = new Commentaire();
+        commentaire.setSite(site);
+        model.addAttribute("commentaire", commentaire);
+        log.info("La page d'escalade est : " + site);
         log.info("Le topo est : " + toposite);
+        log.info("Le commentaire est : " +comSite);
         return "sitePageEscalade";
+    }
+
+
+    @PostMapping("/ajouterCommentaire")
+    public String ajouterCom (Model model, Commentaire commentaire){
+        log.info("Le commentaire que l'on ajoute est : " + commentaire);
+        //commentaireService.ajouterCom(commentaire);
+        model.addAttribute(commentaire);
+        return "redirect:/sitePageEscalade";
     }
 
 }

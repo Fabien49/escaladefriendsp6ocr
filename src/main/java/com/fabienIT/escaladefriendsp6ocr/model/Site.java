@@ -25,6 +25,9 @@ public class Site implements Serializable {
     @OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
     private Set<Topo> topo;
 
+    @OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+    private Set<Commentaire> commentaire;
+
 
     public Site() {
     }
@@ -112,6 +115,13 @@ public class Site implements Serializable {
         this.topo = topo;
     }
 
+    public Set<Commentaire> getCommentaire() {
+        return commentaire;
+    }
+
+    public void setCommentaire(Set<Commentaire> commentaire) {
+        this.commentaire = commentaire;
+    }
 
     @Override
     public boolean equals(Object o) {

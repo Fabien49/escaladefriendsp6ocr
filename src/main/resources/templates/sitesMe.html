@@ -97,8 +97,9 @@
 
 
                 <table>
+                    <th>COMMENTAIRES</th>
                     <tr class="card-body">
-                        <td>Date : </td><th></th><td th:text="${c.#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></td>
+                        <td>Date : </td><th></th><td th:text="${c.comDate)}"></td>
                     </tr>
                     <tr class="card-body">
                         <td>Commentaire : </td><th></th><td th:text="${c.com}"></td>
@@ -119,13 +120,13 @@
 </div>
 
 
-<form class="form-horizontal" method="post" action="#" th:action="@{/commentaireAjouter}" th:object="${sitePage}">
+<!--<form class="form-horizontal" method="post" action="#" th:action="@{/commentaireAjouter}" th:object="${sitePage}">
     <fieldset>
 
-        <!-- Form Name -->
+        &lt;!&ndash; Form Name &ndash;&gt;
         <legend>Commentaire</legend>
 
-        <!-- Textarea -->
+        &lt;!&ndash; Textarea &ndash;&gt;
         <div class="form-group">
             <label class="col-md-4 control-label" for="textarea">Commentaire</label>
             <div class="col-md-4">
@@ -133,7 +134,7 @@
             </div>
         </div>
 
-        <!-- Button -->
+        &lt;!&ndash; Button &ndash;&gt;
         <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div class="col-md-4">
@@ -142,7 +143,7 @@
         </div>
 
     </fieldset>
-</form>
+</form>-->
 
 
 <footer class="text-muted">

@@ -1,6 +1,12 @@
 package com.fabienIT.escaladefriendsp6ocr.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -17,17 +23,31 @@ public class Commentaire {
     @Column(name = "commentaire_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateTime;
+   /* @Temporal(TemporalType.TIMESTAMP)
+    private Date dateTime;*/
+    /*@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime comDate;*/
+
+    private Date date;
     private String com;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "site_id", nullable = false)
+    private Site site;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     public Commentaire() {
     }
 
-    public Commentaire(Long id, Date dateTime, String com) {
+    public Commentaire(Long id, Date date, String com, Site site, User user) {
         this.id = id;
-        this.dateTime = dateTime;
+        this.date = date;
         this.com = com;
+        this.site = site;
+        this.user = user;
     }
 
     public Long getId() {
@@ -38,12 +58,12 @@ public class Commentaire {
         this.id = id;
     }
 
-    public Date getDateTime() {
-        return dateTime;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDateTime(Date dateTime) {
-        this.dateTime = dateTime;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getCom() {
@@ -54,11 +74,35 @@ public class Commentaire {
         this.com = com;
     }
 
+    public Site getSite() {
+        return site;
+    }
+
+    public void setSite(Site site) {
+        this.site = site;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Commentaire commentaire = (Commentaire) o;
+        return id.equals(commentaire.id);
+    }
+
     @Override
     public String toString() {
         return "Commentaire{" +
                 "id=" + id +
-                ", dateTime=" + dateTime +
+                ", comDate=" + date +
                 ", com='" + com + '\'' +
                 '}';
     }

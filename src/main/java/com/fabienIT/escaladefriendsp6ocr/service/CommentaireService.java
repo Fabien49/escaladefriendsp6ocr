@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CommentaireService {
@@ -23,5 +24,8 @@ public class CommentaireService {
 
     public Commentaire findAllById(Long id) {
         return commentaireRepository.findAllById(id);
+    }
+
+    public Optional <Commentaire>findById(Long id) { return  commentaireRepository.findById(id);
     }
 }

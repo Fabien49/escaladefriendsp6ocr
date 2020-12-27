@@ -27,12 +27,15 @@ public class Topo implements Serializable {
     @JoinColumn(name = "site_id", nullable = false)
     private Site site;
 
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
 
     public Topo() {
     }
 
-    public Topo(Long id, String nom, String proprietaire, String region, int nbSites, int nbVoies, String cotationMin, String cotationMax, Boolean demandeReservation, Boolean validerReservation, Boolean reserve, Site site) {
+    public Topo(Long id, String nom, String proprietaire, String region, int nbSites, int nbVoies, String cotationMin, String cotationMax, Boolean demandeReservation, Boolean validerReservation, Boolean reserve, Site site, User user) {
         this.id = id;
         this.nom = nom;
         this.proprietaire = proprietaire;
@@ -45,6 +48,7 @@ public class Topo implements Serializable {
         this.validerReservation = validerReservation;
         this.reserve = reserve;
         this.site = site;
+        this.user = user;
     }
 
     public Long getId() {
@@ -141,6 +145,14 @@ public class Topo implements Serializable {
 
     public void setSite(Site site) {
         this.site = site;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

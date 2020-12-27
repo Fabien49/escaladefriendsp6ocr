@@ -75,52 +75,11 @@
         </div>
     </div>
 </div>
-
-<div th:each="cs:${comSite}" class="media">
-    <img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
-         alt="Avatar">
-    <div class="media-body">
-        <h5 th:text="${cs.user.name}" class="mt-0 font-weight-bold blue-text">Anna Smith</h5>
-        <span th:text="${cs.date}"></span>
-        <span th:text="${cs.com}"></span>
-    </div>
-</div>
-
-        <div class="media mt-3 shadow-textarea">
-            <img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
-                 alt="Generic placeholder image">
-            <div class="media-body">
-                <h5 class="mt-0 font-weight-bold blue-text">Danny Tatuum</h5>
-                <form method="post" action="#" th:action="@{/ajouterCommentaire}" th:object="${commentaire}">
-                    <div class="form-group basic-textarea rounded-corners">
-                        <input type="hidden" th:field="*{site.id}" class="form-control z-depth-1" rows="3"></input>
-                    </div>
-                <div class="form-group basic-textarea rounded-corners">
-                    <textarea th:field="*{com}" class="form-control z-depth-1"  rows="3" placeholder="Commentaire..."></textarea>
-                </div>
-                    <div class="form-group ">
-                        <input type="submit"  id="button" class="btn btn-primary btn-lg btn-block login-button"></input>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-
-
-<!--<h4>Commentaires</h4>
-<table class="table">
-    <th>Date</th><th>Commentaire</th>
-    <tr th:each="cs:${comSite}">
-        <td th:text="${cs.comDate}"></td>
-        <td th:text="${cs.com}"></td>
-    </tr>
-</table>-->
-</div>
-</div>
-</div>
-
-
 <!-- /container -->
+
+
+
+
 
 
 
