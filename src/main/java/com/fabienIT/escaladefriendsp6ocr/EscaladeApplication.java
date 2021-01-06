@@ -1,13 +1,11 @@
 package com.fabienIT.escaladefriendsp6ocr;
 
-import com.fabienIT.escaladefriendsp6ocr.model.Role;
-import com.fabienIT.escaladefriendsp6ocr.model.Site;
-import com.fabienIT.escaladefriendsp6ocr.model.Topo;
-import com.fabienIT.escaladefriendsp6ocr.model.User;
+import com.fabienIT.escaladefriendsp6ocr.model.*;
 import com.fabienIT.escaladefriendsp6ocr.repository.TopoRepository;
 import com.fabienIT.escaladefriendsp6ocr.repository.UserRepository;
 import com.fabienIT.escaladefriendsp6ocr.service.SiteService;
 import com.fabienIT.escaladefriendsp6ocr.service.TopoService;
+import com.fabienIT.escaladefriendsp6ocr.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -16,10 +14,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @SpringBootApplication
@@ -58,8 +58,65 @@ public class EscaladeApplication implements CommandLineRunner{
 		testReservationTopo();
 		ajouterTopo();
 		ajouterSite();
+		//saveAdmin();
+		//saveMembre();
+
+
 		//createUser();
 	}
+
+/*	public void saveAdmin() {
+		HashSet<Role> roles = null;
+		User user = new User();
+		user.setEmail("admin@admin.com");
+		user.setPassword("admin");
+		user.setName("ad");
+		user.setLastName("min");
+		user.setSexe("Homme");
+		user.setVoie("42 rue de l'admin");
+		user.setCodePostal("75000");
+		user.setCommune("Paris");
+		user.setTopo(null);
+		user.setCommentaire(null);
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setActive(true);
+		roles = new HashSet<Role>();
+		Role role = new Role();
+		role.setRole("ADMIN");
+		roles.add(role);
+		user.setRoles(roles);
+		userRepository.save(user);
+		System.out.println("L'admin enregistré est : " + user);
+	}*/
+
+/*
+		public void saveMembre() {
+		HashSet<Role> roles = null;
+		User user = new User();
+		user.setEmail("membre@membre.com");
+		BCryptPasswordEncoder bCryptPasswordEncoderLocal = new BCryptPasswordEncoder();
+		String encodepwd = bCryptPasswordEncoderLocal.encode("membre");
+		user.setPassword(encodepwd);
+		//user.setPassword("membre");
+		user.setName("mem");
+		user.setLastName("bre");
+		user.setSexe("Homme");
+		user.setVoie("15 rue du membre");
+		user.setCodePostal("75000");
+		user.setCommune("Paris");
+		user.setTopo(null);
+		user.setCommentaire(null);
+//		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setActive(true);
+		roles = new HashSet<Role>();
+		Role role = new Role();
+		role.setRole("MEMBRE");
+		roles.add(role);
+		user.setRoles(roles);
+		userRepository.save(user);
+		System.out.println("Le membre enregistré est : " + user);
+	}
+*/
 
 
 

@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
+
 	@Autowired
 	private RoleRepository roleRepository;
 	@Autowired
@@ -32,7 +33,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		return userRepository.findByEmail(email);
 	}
 
-	
+	public User findUser(Long id){
+		return userRepository.findUserById(id);
+
+	}
+
+
+
 	public void saveUser(User user) {
 		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		user.setActive(true);
@@ -44,6 +51,35 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		userRepository.save(user);
 		System.out.println("L'utilisateur enregistré est : " + user);
 	}
+
+	public void saveMembre(User user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setActive(true);
+		HashSet<Role> roles = new HashSet<Role>();
+		Role role = new Role();
+		role.setRole("MEMBRE");
+		roles.add(role);
+		user.setRoles(roles);
+		userRepository.save(user);
+		System.out.println("Le membre enregistré est : " + user);
+	}
+
+
+
+
+
+
+/*	public void saveAdmin(User user) {
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setActive(true);
+		HashSet<Role> roles = new HashSet<Role>();
+		Role role = new Role();
+		role.setRole("ADMIN");
+		roles.add(role);
+		user.setRoles(roles);
+		userRepository.save(user);
+		System.out.println("L'admin enregistré est : " + user);
+	}*/
 	
 
 /*	 * INSERT INTO `role` VALUES (1,'ADMIN');
@@ -56,8 +92,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		userRepository.save(user);
 	}*/
 
-	
-	
+
+
+
+
 	@Transactional
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
 		User user = userRepository.findByEmail(userName);
@@ -79,3 +117,4 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), user.isActive(), true, true, true, authorities);
 	}
 }
+

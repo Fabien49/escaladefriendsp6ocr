@@ -22,11 +22,11 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
 
         System.out.println("La liste des rôle est : " + roles.toString());
 
-        if (roles.contains("SUPER_ADMIN")) {
-            System.out.println("Redirection vers la page des super admins");
-            httpServletResponse.sendRedirect("/superAdmin");
+        if (roles.contains("ADMIN")) {
+            System.out.println("Redirection vers la page des admins");
+            httpServletResponse.sendRedirect("admin/accueilAdmin");
 
-        } else if (roles.contains("ADMIN")) {
+        } else if (roles.contains("MEMBRE")) {
             System.out.println("Redirection vers la page des membres");
             httpServletResponse.sendRedirect("/membre");
 

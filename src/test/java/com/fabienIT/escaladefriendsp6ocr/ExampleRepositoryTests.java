@@ -36,12 +36,12 @@ public class ExampleRepositoryTests {
 		user.setPassword("$2a$10$fE7BKQcc.tesDzaptjL8luXZB6MV5rvUJ13ub5aVYKqnoPmMqYd8m");
 		user.setActive(true);
 		
-		this.entityManager.persist(user);
+/*		this.entityManager.persist(user);
 		List<User> userList = this.repository.findByName("toto");
 		user = userList.get(0);
 		assertThat(user.getName()).isEqualTo("toto");
 		assertThat(user.getLastName()).isEqualTo("titi");
-	}
+	}*/
 	
 	/**
 		
@@ -62,4 +62,5 @@ public class ExampleRepositoryTests {
 			}
 	**/
 
+}
 }

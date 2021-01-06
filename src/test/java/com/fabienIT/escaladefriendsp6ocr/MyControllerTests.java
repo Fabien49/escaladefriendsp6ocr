@@ -45,7 +45,7 @@ public class MyControllerTests {
 	@Test
 	public void testExample()  {
 		
-		given(this.userService.findUserByEmail("admin@test.com"))
+		given(this.userService.findUserByEmail("admin@admin.com"))
 				.willReturn(new User());
 				
 	/*			

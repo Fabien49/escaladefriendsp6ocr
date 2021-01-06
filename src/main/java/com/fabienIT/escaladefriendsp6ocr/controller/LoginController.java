@@ -37,9 +37,18 @@ public class LoginController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value="/inscriptionAdmin", method = RequestMethod.GET)
+	public ModelAndView registrationMembre(){
+		ModelAndView modelAndView = new ModelAndView();
+		User user = new User();
+		modelAndView.addObject("user", user);
+		modelAndView.setViewName("inscriptionAdmin");
+		return modelAndView;
+	}
 
 
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+
+/*	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
 		User userExists = userService.findUserByEmail(user.getEmail());
@@ -55,6 +64,27 @@ public class LoginController {
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());
 			modelAndView.setViewName("inscription");
+
+		}
+		return modelAndView;
+	}*/
+
+	@RequestMapping(value = "/saveMembre", method = RequestMethod.POST)
+	public ModelAndView createNewMembre(@Valid User user, BindingResult bindingResult) {
+		ModelAndView modelAndView = new ModelAndView();
+		User userExists = userService.findUserByEmail(user.getEmail());
+		if (userExists != null) {
+			bindingResult
+					.rejectValue("email", "error.user",
+							"There is already a user registered with the email provided");
+		}
+		if (bindingResult.hasErrors()) {
+			modelAndView.setViewName("inscriptionAdmin");
+		} else {
+			userService.saveMembre(user);
+			modelAndView.addObject("successMessage", "User has been registered successfully");
+			modelAndView.addObject("user", new User());
+			modelAndView.setViewName("inscriptionAdmin");
 
 		}
 		return modelAndView;

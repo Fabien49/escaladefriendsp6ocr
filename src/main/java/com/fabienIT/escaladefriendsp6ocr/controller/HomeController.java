@@ -13,7 +13,7 @@ public class HomeController {
         return "hello";
     }*/
 
-@GetMapping("/")
+    @GetMapping("/")
     public String accueil() {
 
         return "home";

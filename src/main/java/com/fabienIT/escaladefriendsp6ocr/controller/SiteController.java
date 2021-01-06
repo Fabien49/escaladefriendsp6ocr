@@ -128,7 +128,7 @@ public class SiteController {
     public String saveUpdateSite (Model model, Site site){
         siteService.updateSite(site);
         model.addAttribute("update", site);
-        log.info("Le topo qque l'on édite est : " + site);
+        log.info("Le topo que l'on édite est : " + site);
         return "redirect:/siteListe";
     }
 

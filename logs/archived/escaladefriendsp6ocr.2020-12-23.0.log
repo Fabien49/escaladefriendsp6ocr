@@ -2699,7 +2699,7 @@ java.lang.IllegalStateException: Neither BindingResult nor plain target object f
 2020-12-23 12:42:30,721 INFO com.fabienIT.escaladefriendsp6ocr.EscaladeApplication [restartedMain] The following profiles are active: prod
 2020-12-23 12:42:40,083 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'utilisateurController' method 
-public java.lang.String com.fabienIT.escaladefriendsp6ocr.controller.UtilisateurController.utilisateur(org.springframework.ui.Model)
+public java.lang.String com.fabienIT.escaladefriendsp6ocr.controller.UserController.utilisateur(org.springframework.ui.Model)
 to {[/inscription],methods=[GET]}: There is already 'inscriptionController' bean method
 public java.lang.String com.fabienIT.escaladefriendsp6ocr.controller.InscriptionController.resultsForm(org.springframework.ui.Model) mapped.
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1745)
@@ -2725,7 +2725,7 @@ public java.lang.String com.fabienIT.escaladefriendsp6ocr.controller.Inscription
 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
 Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'utilisateurController' method 
-public java.lang.String com.fabienIT.escaladefriendsp6ocr.controller.UtilisateurController.utilisateur(org.springframework.ui.Model)
+public java.lang.String com.fabienIT.escaladefriendsp6ocr.controller.UserController.utilisateur(org.springframework.ui.Model)
 to {[/inscription],methods=[GET]}: There is already 'inscriptionController' bean method
 public java.lang.String com.fabienIT.escaladefriendsp6ocr.controller.InscriptionController.resultsForm(org.springframework.ui.Model) mapped.
 	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.assertUniqueMethodMapping(AbstractHandlerMethodMapping.java:599)
