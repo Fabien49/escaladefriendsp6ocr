@@ -62,6 +62,10 @@ body {
 	text-decoration: none;
 }
 
+.nav-item dropdown .nav-link dropdown-toggle .dropdown-menu .dropdown-item  {
+    background-color: #78C7FF;
+}
+
 /* Hide the link that should open and close the topnav on small screens */
 .icon {
   display: none;
@@ -146,6 +150,8 @@ container-fluid {
 	background-color: #5DAFFF;
 	color: #ffffff;
 }
+
+
 
 .main{
  	margin:50px 15px;

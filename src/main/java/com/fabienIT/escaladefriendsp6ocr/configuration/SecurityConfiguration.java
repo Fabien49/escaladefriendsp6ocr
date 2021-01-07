@@ -43,6 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/home").permitAll()
 				.antMatchers("/login").permitAll()
 				.antMatchers("/inscription").permitAll()
+				.antMatchers("/save").permitAll()
 				.antMatchers("/visiteur/**").permitAll()
 				.antMatchers("/admin/**","/h2web/**").hasAuthority("ADMIN").anyRequest()
 				.authenticated().and().csrf().disable().formLogin()

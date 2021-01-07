@@ -48,7 +48,7 @@ public class LoginController {
 
 
 
-/*	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
 		User userExists = userService.findUserByEmail(user.getEmail());
@@ -67,7 +67,7 @@ public class LoginController {
 
 		}
 		return modelAndView;
-	}*/
+	}
 
 	@RequestMapping(value = "/saveMembre", method = RequestMethod.POST)
 	public ModelAndView createNewMembre(@Valid User user, BindingResult bindingResult) {

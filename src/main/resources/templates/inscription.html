@@ -41,7 +41,6 @@
 		<nav class="menu">
 			<a href="/">Accueil</a>
 			<a href="/sites">Sites d'escalade</a>
-			<a href="#">Topos</a>
 			<a href="#about">A propos</a>
 			<!-- <a href="#contact">Contact</a> -->
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -63,7 +62,7 @@
 		<div class="container">
 			<div class="row main">
 				<div class="main-login main-center">
-					<form autocomplete="off" action="#" th:action="@{/inscription}" th:object="${user}" method="post">
+					<form autocomplete="off" action="#" th:action="@{/save}" th:object="${user}" method="post">
 						<h1>INSCRIPTION</h1>
 
 						<div class="form-group">
