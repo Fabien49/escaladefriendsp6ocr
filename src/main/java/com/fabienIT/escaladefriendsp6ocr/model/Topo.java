@@ -1,6 +1,5 @@
 package com.fabienIT.escaladefriendsp6ocr.model;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
@@ -19,9 +18,6 @@ public class Topo implements Serializable {
     private int nbVoies;
     private String cotationMin;
     private String cotationMax;
-    private Boolean demandeReservation = false;
-    private Boolean validerReservation = false;
-    private Boolean reserve;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "site_id", nullable = false)
@@ -31,11 +27,18 @@ public class Topo implements Serializable {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+   /* @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservation*/;
+
+    @OneToMany(mappedBy = "topo", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+    private Set<Reservation> reservation;
+
 
     public Topo() {
     }
 
-    public Topo(Long id, String nom, String proprietaire, String region, int nbSites, int nbVoies, String cotationMin, String cotationMax, Boolean demandeReservation, Boolean validerReservation, Boolean reserve, Site site, User user) {
+    public Topo(Long id, String nom, String proprietaire, String region, int nbSites, int nbVoies, String cotationMin, String cotationMax, Site site, User user, Reservation reservation) {
         this.id = id;
         this.nom = nom;
         this.proprietaire = proprietaire;
@@ -44,9 +47,6 @@ public class Topo implements Serializable {
         this.nbVoies = nbVoies;
         this.cotationMin = cotationMin;
         this.cotationMax = cotationMax;
-        this.demandeReservation = demandeReservation;
-        this.validerReservation = validerReservation;
-        this.reserve = reserve;
         this.site = site;
         this.user = user;
     }
@@ -115,30 +115,6 @@ public class Topo implements Serializable {
         this.cotationMax = cotationMax;
     }
 
-    public Boolean getDemandeReservation() {
-        return demandeReservation;
-    }
-
-    public void setDemandeReservation(Boolean demandeReservation) {
-        this.demandeReservation = demandeReservation;
-    }
-
-    public Boolean getValiderReservation() {
-        return validerReservation;
-    }
-
-    public void setValiderReservation(Boolean validerReservation) {
-        this.validerReservation = validerReservation;
-    }
-
-    public Boolean getReserve() {
-        return reserve;
-    }
-
-    public void setReserve(Boolean reserve) {
-        this.reserve = reserve;
-    }
-
     public Site getSite() {
         return site;
     }
@@ -153,6 +129,14 @@ public class Topo implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Set<Reservation> reservation) {
+        this.reservation = reservation;
     }
 
     @Override
@@ -174,9 +158,6 @@ public class Topo implements Serializable {
                 ", nbVoies=" + nbVoies +
                 ", cotationMin='" + cotationMin + '\'' +
                 ", cotationMax='" + cotationMax + '\'' +
-                ", demandeReservation=" + demandeReservation +
-                ", validerReservation=" + validerReservation +
-                ", reserve=" + reserve +
                 '}';
     }
 }

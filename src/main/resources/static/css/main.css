@@ -62,8 +62,8 @@ body {
 	text-decoration: none;
 }
 
-.nav-item dropdown .nav-link dropdown-toggle .dropdown-menu .dropdown-item  {
-    background-color: #78C7FF;
+#topNav {
+  margin-bottom:0;
 }
 
 /* Hide the link that should open and close the topnav on small screens */

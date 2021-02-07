@@ -55,6 +55,9 @@ public class User {
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
 	private Set<Topo> topo;
 
+	/*@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+	private Set<Reservation> reservation;*/
+
 	@OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
 	private Set<Commentaire> commentaire;
 
@@ -62,8 +65,7 @@ public class User {
 	}
 
 
-
-	public User(int id, @Email(message = "*Please provide a valid Email") @NotEmpty(message = "*Please provide an email") String email, @Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password, @NotEmpty(message = "*Please provide your name") String name, @NotEmpty(message = "*Please provide your last name") String lastName, @NotEmpty(message = "*Please provide your sexe") String sexe, @NotEmpty(message = "*Please provide your voie") String voie, @NotEmpty(message = "*Please provide your code postal") String codePostal, @NotEmpty(message = "*Please provide your commune") String commune, String niveau, boolean active, Set<Role> roles, Set<Topo> topo, Set<Commentaire> commentaire) {
+	public User(int id, @Email(message = "*Please provide a valid Email") @NotEmpty(message = "*Please provide an email") String email, @Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password, @NotEmpty(message = "*Please provide your name") String name, @NotEmpty(message = "*Please provide your last name") String lastName, @NotEmpty(message = "*Please provide your sexe") String sexe, @NotEmpty(message = "*Please provide your voie") String voie, @NotEmpty(message = "*Please provide your code postal") String codePostal, @NotEmpty(message = "*Please provide your commune") String commune, String niveau, boolean active, Set<Role> roles, Set<Topo> topo, Set<Reservation> reservation, Set<Commentaire> commentaire) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
@@ -82,7 +84,7 @@ public class User {
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
@@ -213,6 +215,7 @@ public class User {
 				", active=" + active +
 				", roles=" + roles +
 				", topo=" + topo +
+				", commentaire=" + commentaire +
 				'}';
 	}
 }

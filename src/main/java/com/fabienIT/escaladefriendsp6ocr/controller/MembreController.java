@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MembreController {
 
-    @GetMapping("/membre")
+/*    @GetMapping("/membre")
     public String admin(Model model, Authentication authentication ) {
 
         String userName = authentication . getName ();
@@ -20,5 +20,5 @@ public class MembreController {
         model.addAttribute("userName", userName);
 
         return "membre";
-    }
+    }*/
 }

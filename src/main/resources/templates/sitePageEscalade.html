@@ -31,19 +31,7 @@
 
 <body>
 <!-- header -->
-<header class="container-fluid header">
-    <div class="container-logo">
-        <a href="/" class="active">Les Amis de l'Escalade</a>
-        <nav class="menu">
-            <a href="/">Accueil</a>
-            <a href="/visiteur/sites">Sites d'escalade</a>
-            <a href="/#about">A propos</a>
-            <!-- <a href="#contact">Contact</a> -->
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i></a>
-        </nav>
-    </div>
-</header>
+<header th:replace="fragments/header::header"></header>
 <!-- end header -->
 
 
@@ -52,7 +40,6 @@
     <div class="col-lg-6">
         <h4 th:object="${sitePageEscalade}" th:text="*{nom}"></h4>
         <div th:object="${sitePageEscalade}"><img src="#" th:src ="@{|/img/site/*{site_image}|}"  width="50%" height="50%">
-
             <table class="table">
                 <tr>
                     <th class="bg-info text-white">Nombre de Voie : </th><th th:object="${sitePageEscalade}" th:text="*{nbVoies}"></th>
@@ -66,35 +53,63 @@
 
             <h4>Topo</h4>
             <table class="table">
-                <th>Nom</th><th>Reserve</th>
+                <th>Nom</th>
                 <tr th:each="ts:${toposite}">
                     <td th:text="${ts.nom}"></td>
-                    <td th:text="${ts.reserve}"></td>
+<!--                    <td th:text="${ts.reservation.reserve} ? 'Réservé' : 'Disponible'"></td>-->
+                    <!--<td th:if="${{ts.reserve} == 'false'}">Disponible</td>
+                    <td th:if="${{ts.reserve} != 'false'}">Réservé</td>-->
                 </tr>
             </table>
         </div>
     </div>
 </div>
-
-<div th:each="cs:${comSite}" class="media">
-    <img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
-         alt="Avatar">
-    <div class="media-body">
+<table class="table table-striped" border="0" cellpadding="0">
+    <tr></tr>
+    <tr class="p-3 mb-2 bg-dark text-white">
+        <th class="align-middle text-center">Commentaire</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th class="align-middle text-center">GESTION</th>
+    </tr>
+    <tr th:each="cs:${comSite}" class="media">
+    <td><img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
+         alt="Avatar"></td>
+    <td class="media-body">
         <h5 th:text="${cs.user.name}" class="mt-0 font-weight-bold blue-text">Anna Smith</h5>
-        <span th:text="${cs.date}"></span>
+        <span th:text="${cs.comDate}"></span>
+<!--        <p th:text="${#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></p>-->
         <span th:text="${cs.com}"></span>
-    </div>
-</div>
+    </td>
+<!--        <td th:if = "${{role} == ('ADMIN') or ('MEMBRE')}">
+            <div>
+                <a class="btn btn-success" th:href="@{editerCommentaire/(id=${cs.id})}">Editer</a>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div>
+                <a class="btn btn-danger" th:href="@{effacerCommentaire/(id=${cs.id})}">Effacer</a>
+            </div>
+        </td>-->
+        <td>
+            <div>
+                <a class="btn btn-success" th:href="@{editerCommentaire/(id=${cs.id})}">Editer</a>
+            </div>
+            &nbsp;&nbsp;&nbsp;
+            <div>
+                <a class="btn btn-danger" th:href="@{effacerCommentaire/(id=${cs.id})}">Effacer</a>
+            </div>
+        </td>
+    </tr>
+</table>
 
-        <div class="media mt-3 shadow-textarea">
+
+        <div th:if="${role}" class="media mt-3 shadow-textarea">
             <img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
                  alt="Generic placeholder image">
             <div class="media-body">
                 <h5 class="mt-0 font-weight-bold blue-text">Danny Tatuum</h5>
-                <form method="post" action="#" th:action="@{/ajouterCommentaire}" th:object="${commentaire}">
-                    <div class="form-group basic-textarea rounded-corners">
-                        <input type="hidden" th:field="*{site.id}" class="form-control z-depth-1" rows="3"></input>
-                    </div>
+                <form method="post" action="#" th:action="@{/visiteur/pageEscalade}" th:object="${commentaireForm}">
+                    <!--<div class="form-group basic-textarea rounded-corners">
+                        <input type="hidden" th:object="${sitePageEscalade}" th:text="*{id}" class="form-control z-depth-1" rows="3"></input>
+                    </div>-->
+
                 <div class="form-group basic-textarea rounded-corners">
                     <textarea th:field="*{com}" class="form-control z-depth-1"  rows="3" placeholder="Commentaire..."></textarea>
                 </div>

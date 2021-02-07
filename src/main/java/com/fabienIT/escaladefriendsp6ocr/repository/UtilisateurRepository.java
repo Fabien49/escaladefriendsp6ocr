@@ -1,3 +1,4 @@
+/*
 package com.fabienIT.escaladefriendsp6ocr.repository;
 
 
@@ -18,6 +19,6 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> 
     Utilisateur findAllById(Long utilisateur);
 
 
-    @Query("SELECT t FROM Topo t WHERE CONCAT(t.nom, t.proprietaire, t.region, t.nbSites, t.nbVoies, t.cotationMin, t.cotationMax, t.demandeReservation, t.validerReservation,t.reserve) LIKE %?1%")
+    @Query("SELECT t FROM Topo t WHERE CONCAT(t.nom, t.proprietaire, t.region, t.nbSites, t.nbVoies, t.cotationMin, t.cotationMax) LIKE %?1%")
     public Page<Utilisateur> search(String keyword, Pageable pageable);
-}
+}*/

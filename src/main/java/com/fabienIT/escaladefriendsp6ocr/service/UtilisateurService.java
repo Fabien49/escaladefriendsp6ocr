@@ -1,3 +1,4 @@
+/*
 package com.fabienIT.escaladefriendsp6ocr.service;
 
 
@@ -58,3 +59,4 @@ public class UtilisateurService {
 
 // public Page<Utilisateur> findByNomContains(String mc, Pageable pageable);
 
+*/

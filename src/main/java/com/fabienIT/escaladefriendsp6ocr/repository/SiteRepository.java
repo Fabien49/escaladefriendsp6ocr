@@ -12,11 +12,15 @@ import java.util.Optional;
 @Service
 public interface SiteRepository extends JpaRepository<Site, Long> {
 
-    public Page<Site> findByNomContains(String mc, Pageable pageable);
+    public Page<Site> findByNomContainsAndRegionContains(String mc, String region, Pageable pageable);
 
-    public String findByNom(String nom);
+    public Site findByNom(String nom);
 
     Optional<Site> findById(Long id);
 
     Site findAllById(Long id);
 }
+   /* private String region;
+    private int nbVoies;
+    private String cotationMin;
+    private String cotationMax;*/

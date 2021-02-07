@@ -57,7 +57,7 @@
 	</div>
 	<div class="inner-banner">
 		<h1>Bienvenue  dans l'espace des membres</h1>
-		<p th:text="'Bonjour ' + ${userName}"></p>
+		<p th:object="'Bonjour ' + ${userIdentity}"></p>
 		<!-- <a href="/callFormInscription"type="button" class="btn btn-custom">Inscritpion</a>
 		<button type="button "class="btn btn-custom" data-toggle="modal" data-target="#sem-login">Connexion</button> -->
 	</div>

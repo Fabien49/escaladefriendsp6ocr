@@ -49,31 +49,29 @@
 
     <!-- end header -->
 
+    <h1>LISTE DES UTILISATEURS</h1>
     <div class="card">
         <table class="table">
             <tr>
-                <th><h1>LISTE DES UTILISATEURS</h1></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th><a class="btn btn-info" href="/topoForm">Ajouter</a></th>
+                <th><form th:action="@{/userListe}">
+                    Filtre: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+                    &nbsp;
+                    <input class="btn btn-info" type="submit" value="Filtrer" />
+                    &nbsp;
+                    <input class="btn btn-info" type="button" value="Réinitialiser" id="btnClear" onclick="clearSearch()" />
+                </form></th><th></th><th></th><th></th><th th:if="${successMessage}"><th th:text="${successMessage}"></th></th><th></th><th></th><th></th><th><a class="btn btn-info" href="/userForm">Ajouter Utilisateur</a></th>
+                <th><a class="btn btn-info" href="/membreForm">Ajouter Membre</a></th>
             </tr>
         </table>
-
-        <form th:action="@{/userListe}">
-            Filtre: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
-            &nbsp;
-            <input class="btn btn-info" type="submit" value="Filtrer" />
-            &nbsp;
-            <input class="btn btn-info" type="button" value="Réinitialiser" id="btnClear" onclick="clearSearch()" />
-        </form>
     </div>
 
     <div class="card-body">
-        <table class="table table-striped" border="1" cellpadding="10">
-
-            <tr></tr>
+        <table class="table table-striped" border="1" cellpadding="5">
 
             <tr class="p-3 mb-2 bg-dark text-white">
-                <th class="align-middle text-center">NOM</th><th class="align-middle text-center">PROPRIETAIRE</th><th class="align-middle text-center">REGION</th><th class="align-middle text-center">Nb DE SITES</th><th class="align-middle text-center">Nb DE VOIES</th><th class="align-middle text-center">COTATION MINI</th><th class="align-middle text-center">COTATION MAX</th><th class="align-middle text-center">DEMANDE RESERATION</th><th class="align-middle text-center">RESERVE</th><th class="align-middle text-center">GESTION</th>
+                <th class="align-middle text-center">PRENOM</th><th class="align-middle text-center">NOM</th><th class="align-middle text-center">SEXE</th><th class="align-middle text-center">VOIE</th><th class="align-middle text-center">CODE POSTAL</th><th class="align-middle text-center">COMMUNE</th><th class="align-middle text-center">NIVEAU</th><th class="align-middle text-center">ACTIF</th><th class="align-middle text-center">GESTION</th>
             </tr>
-            <tr th:each="ul:${userList}">
+            <tr th:each="ul:${userListe}">
                 <td th:text="${ul.name}"></td>
                 <td th:text="${ul.lastName}"></td>
                 <td th:text="${ul.sexe}"></td>
@@ -82,8 +80,9 @@
                 <td th:text="${ul.commune}"></td>
                 <td th:text="${ul.niveau}"></td>
                 <td th:text="${ul.active}"></td>
+                <td th:each="ru:${roleUser}" th:text="{ru.role"></td>
 
-                <td>
+               <!-- <td>
                     <div>
                         <a class="btn btn-success" th:href="@{editerTopo/(id=${t.id})}">Editer</a>
                     </div>
@@ -91,15 +90,15 @@
                     <div>
                         <a class="btn btn-danger" th:href="@{effacerTopo/(id=${t.id})}">Effacer</a>
                     </div>
-                </td>
+                </td>-->
             </tr>
         </table>
 
-        <!--<ul class="nav nav-pills">
+        <ul class="nav nav-pills">
             <li  th:each="page,status:${pages}">
-                <a  th:class="${status.index == currentPage?'btn btn-primary' : 'btn'}" th:href="@{topoListe(page=${status.index}, keyword=${keyword})}" th:text="${status.index}"></a>
+                <a  th:class="${status.index == currentPage?'btn btn-primary' : 'btn'}" th:href="@{userListe(page=${status.index}, keyword=${keyword})}" th:text="${status.index}"></a>
             </li>
-        </ul>-->
+        </ul>
     </div>
     </div>
 
@@ -121,7 +120,7 @@
     <script src="https://cdn.jsdelivr.net/npm/holderjs@2.9.4/holder.js"></script>
     <script type="text/javascript">
         function clearSearch() {
-            window.location = "[[@{/topoListe}]]";
+            window.location = "[[@{/userListe}]]";
         }
     </script>
 

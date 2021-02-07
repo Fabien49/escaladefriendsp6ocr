@@ -31,24 +31,30 @@
 
 <body>
 <!-- header -->
-<header class="container-fluid header">
-    <div class="container-logo">
-        <a href="/" class="active">Les Amis de l'Escalade</a>
-        <nav class="menu">
-            <a href="/">Accueil</a>
-            <a href="/visiteur/sites">Sites d'escalade</a>
-            <a href="/#about">A propos</a>
-            <!-- <a href="#contact">Contact</a> -->
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i></a>
-        </nav>
+<header th:replace="fragments/header::header"></header>
 
-    </div>
+<div th:if="${role}">
+<div th:replace="fragments/headerAdmin::menuAdmin"></div>
+</div>
 
-</header>
-
-<!-- end header -->
-
+<div class="card">
+    <table class="table">
+        <tr>
+            <th><form th:action="@{/visiteur/sites}">
+                Nom <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}"/>
+                Région <input type="text" name="region" id="region" size="50" th:value="${region}"/><br>
+                Nombre de voies <input type="text" name="nbVoies" id="nbVoies" size="50" th:value="${nbVoies}"/><br>
+                Cotation minimum <input type="text" name="cotationMin" id="cotationMin" size="50" th:value="${cotationMin}"/>
+                Cotation maximum <input type="text" name="cotationMax" id="cotationMax" size="50" th:value="${cotationMax}"/>
+                &nbsp;
+                <input class="btn btn-info" type="submit" value="Filtrer" />
+                &nbsp;
+                <input class="btn btn-info" type="reset" value="Reset">
+            </form></th><th></th><th></th><th></th><th th:if="${successMessage}"><th th:text="${successMessage}"></th></th><th></th><th></th><th></th><th><a class="btn btn-info" href="/userForm">Ajouter Utilisateur</a></th>
+            <th><a class="btn btn-info" href="/membreForm">Ajouter Membre</a></th>
+        </tr>
+    </table>
+</div>
 
 
 <main th:each="s:${sitePage}" >
@@ -67,6 +73,9 @@
                             <td>Nom : </td><th></th><td th:text="${s.nom}"></td>
                         </tr>
                         <tr class="card-body">
+                            <td>Région : </td><th></th><td th:text="${s.region}"></td>
+                        </tr>
+                        <tr class="card-body">
                             <td>Nombre de voie : </td><th></th><td th:text="${s.nbVoies}"></td>
                         </tr>
                         <tr class="card-body">
@@ -77,7 +86,8 @@
                     <div class="d-flex justify-content-between align-items-center">
 
                         <div class="btn-group">
-                            <a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/visiteur/pageEscalade/(id=${s.id})}">View</a>
+                            <a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{/visiteur/pageEscalade/
+                            (id=${s.id})}">View</a>
                         </div>
                     </div>
 
@@ -104,7 +114,5 @@
 <script src="../../js/vendor/popper.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/holderjs@2.9.4/holder.js"></script>
-
-
 <svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
 </html>

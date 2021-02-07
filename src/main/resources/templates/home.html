@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
-
-<head>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header::headerlink"></head>
+<!--<head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- font -->
+	&lt;!&ndash; font &ndash;&gt;
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-	<!-- css -->
+	&lt;!&ndash; css &ndash;&gt;
 	<link rel="stylesheet" href="/css/main.css">
 
 
-	<!-- bootstrap -->
+	&lt;!&ndash; bootstrap &ndash;&gt;
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript" src="bootstrap/js/jquery-3.5.0.min.js"></script>
@@ -21,27 +21,33 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
 	<title>Les Amis de l'Escalade</title>
-</head>
+</head>-->
 
 <!-- contenu du site -->
 <body>
 <!-- header -->
-<header class="container-fluid header">
+<!--<header class="container-fluid header">
 	<div class="container-logo">
 		<a href="/" class="active">Les Amis de l'Escalade</a>
 		<nav class="menu">
 			<a href="/">Accueil</a>
 			<a href="/visiteur/sites">Sites d'escalade</a>
 			<a href="#about">A propos</a>
-			<!-- <a href="#contact">Contact</a> -->
+			&lt;!&ndash; <a href="#contact">Contact</a> &ndash;&gt;
 			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 				<i class="fa fa-bars"></i></a>
 		</nav>
 
 	</div>
 
-</header>
+</header>-->
 <!-- end header -->
+<!-- header -->
+<header th:replace="fragments/header::header"></header>
+<!-- end header -->
+<div th:if="${role}">
+	<div th:replace="fragments/headerAdmin::menuAdmin"></div>
+</div>
 
 <!-- banniere -->
 <section class="container-fluid">
@@ -50,9 +56,11 @@
 	</div>
 	<div class="inner-banner">
 		<h1>Bienvenue chez les Amis de l'Escalade</h1>
-		<a href="/inscription" type="button" class="btn btn-custom">Inscritpion</a>
-		<a href="/login" type="button" class="btn btn-custom">Connexion</a>
-
+		<div th:if="${user}">
+			<p th:text="${successMessage}"></p>
+		</div>
+		<a th:unless="${role}" href="/inscription" type="button" class="btn btn-custom">Inscritpion</a>
+		<a th:unless="${role}" href="/login" type="button" class="btn btn-custom">Connexion</a>
 	</div>
 
 

@@ -1,11 +1,17 @@
 package com.fabienIT.escaladefriendsp6ocr.service;
 
+import com.fabienIT.escaladefriendsp6ocr.controller.UserController;
 import com.fabienIT.escaladefriendsp6ocr.model.Topo;
+import com.fabienIT.escaladefriendsp6ocr.model.User;
 import com.fabienIT.escaladefriendsp6ocr.repository.TopoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -21,8 +27,8 @@ public class TopoService {
 
 	public List<Topo> findAllTopo (){return topoRepository.findAll(); }
 
-	public Optional<Topo> findTopoById(Long id) {
-		return topoRepository.findById(id);
+	public Topo findTopoById(Long id) {
+		return topoRepository.findTopoById(id);
 	}
 
 	public Topo findTopoByNom(String topo) {
@@ -35,6 +41,14 @@ public class TopoService {
 	/*public List <Topo> findAllTopo (){
 		return topoRepository.findAll();
 	}*/
+
+	public Page<Topo> findAllNotId (Pageable pageable, @Param("model") Model model, @Param("user") User user, @Param("authentification") Authentication authentication, UserController userController){
+
+		user = userController.userCo(model, authentication);
+
+		return topoRepository.findAllNotId(pageable, user);
+	}
+
 
 	public Page<Topo> findByNameContains (String keyword, Pageable pageable) {
 		if (keyword != null) {
@@ -61,12 +75,8 @@ public class TopoService {
 		dbTopo.setNbVoies(topo.getNbVoies());
 		dbTopo.setCotationMin(topo.getCotationMin());
 		dbTopo.setCotationMax(topo.getCotationMax());
-		dbTopo.setDemandeReservation(topo.getDemandeReservation());
-		dbTopo.setValiderReservation(topo.getValiderReservation());
-		dbTopo.setReserve(topo.getReserve());
 		//mise à jour dans la bdd (sauvegarde)
 		topoRepository.save(dbTopo);
-
 	}
 }
 

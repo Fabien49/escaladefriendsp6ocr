@@ -82,17 +82,17 @@
                 <td th:text="${t.cotationMin}"></td>
                 <td th:text="${t.cotationMax}"></td>
                 <td>
-                    <span th:if="${!t.demandeReservation}"><a th:href="@{demandeReservation/(id=${t.id})}">Demande de réservation</a></span>
+                    <span th:if="${!t.reservation.demandeReservation} and ${!t.reservation.reserve}"><a th:href="@{demandeReservation/(id=${t.id})}">Demande de réservation</a></span>
 
-                    <span th:if="${t.demandeReservation} and ${!t.reserve}"><a th:href="@{validerReservation/(id=${t.id})}">Validation réservation</a></span>
+                    <span th:if="${t.reservation.demandeReservation} and ${!t.reservation.reserve}"><a th:href="@{validerReservation/(id=${t.id})}">Validation réservation</a></span>
 
-                    <span th:if="${t.demandeReservation} and ${t.reserve}">Déjà pris !</span>
+                    <span th:if="${t.reservation.demandeReservation} and ${t.reservation.reserve}">Déjà pris !</span>
                     </form>
                 </td>
                 <td>
-                        <span th:if="${!t.demandeReservation}">Disponible</span>
-                        <span th:if="${t.demandeReservation} and ${!t.reserve}">En attente de validation</span>
-                        <span th:if="${t.reserve}">Réservé</span>
+                        <span th:if="${!t.reservation.demandeReservation}">Disponible</span>
+                        <span th:if="${t.reservation.demandeReservation} and ${!t.reserve}">En attente de validation</span>
+                        <span th:if="${t.reservation.reserve}">Réservé</span>
 
                 </td>
                 <td>

@@ -8,6 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -61,15 +62,15 @@ public class LoginController {
 			modelAndView.setViewName("inscription");
 		} else {
 			userService.saveUser(user);
-			modelAndView.addObject("successMessage", "User has been registered successfully");
+			modelAndView.addObject("successMessage", "Votre inscription a bien été prise en compte");
 			modelAndView.addObject("user", new User());
-			modelAndView.setViewName("inscription");
+			modelAndView.setViewName("/home");
 
 		}
 		return modelAndView;
 	}
 
-	@RequestMapping(value = "/saveMembre", method = RequestMethod.POST)
+/*	@RequestMapping(value = "/saveMembre", method = RequestMethod.POST)
 	public ModelAndView createNewMembre(@Valid User user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
 		User userExists = userService.findUserByEmail(user.getEmail());
@@ -85,21 +86,23 @@ public class LoginController {
 			modelAndView.addObject("successMessage", "User has been registered successfully");
 			modelAndView.addObject("user", new User());
 			modelAndView.setViewName("inscriptionAdmin");
-
 		}
 		return modelAndView;
-	}
+	}*/
 	
-	@RequestMapping(value="/home", method = RequestMethod.GET)
-	public ModelAndView home(){
+/*	@RequestMapping(value="/membre", method = RequestMethod.GET)
+	public ModelAndView home(Long id){
 		ModelAndView modelAndView = new ModelAndView();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
+	*//*	User user = userService.findUserByEmail(auth.getName());
+		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");*//*
 		//modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
-		modelAndView.setViewName("index");
+		String user =
+		userService.findUser(id).getCommune();
+		modelAndView.addObject("userIdentity", user);
+		modelAndView.setViewName("membre");
 		return modelAndView;
-	}
+	}*/
 	
 
 }

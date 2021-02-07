@@ -2,6 +2,7 @@ package com.fabienIT.escaladefriendsp6ocr.controller;
 
 
 import com.fabienIT.escaladefriendsp6ocr.model.Commentaire;
+import com.fabienIT.escaladefriendsp6ocr.model.Topo;
 import com.fabienIT.escaladefriendsp6ocr.service.CommentaireService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,18 +23,18 @@ public class CommentaireController {
     CommentaireService commentaireService;
 
 
-    @GetMapping("/commentaire")
+/*    @GetMapping("/commentaire")
     public String commentaire(Model model) {
         model.addAttribute("commentaireForm", new Commentaire());
         return "commentaire";
-    }
+    }*/
 
-    @PostMapping("/commentaireAjouter")
+/*    @PostMapping("/commentaireAjouter")
     public String commentaireAjouter(Commentaire commentaire){
         commentaireService.ajouterCom(commentaire);
         log.info("Le commentaire que l'on ajoute est : " + commentaire);
         return "redirect:/commentaire";
-    }
+    }*/
 
     @GetMapping("/commentaireAfficher")
     public  String commentaireAfficher (Model model){
@@ -41,6 +42,31 @@ public class CommentaireController {
         model.addAttribute("commentaireList", commentaireList);
         return "redirect:/commentaire";
     }
+
+/*
+    @GetMapping("/effacerCommentaire")
+    public String effacer (Long id) {
+        commentaireService.effacer(id);
+        log.info("Le topo que l'on vient d'effacer est : " + id);
+        return "sitePageEscalade";
+    }
+
+    @GetMapping("/editerCommentaire")
+    public String modifier (Model model, Long id){
+        Commentaire c = commentaireService.findCommentaireById(id);
+        model.addAttribute("commentaireModif", c );
+        log.info("Le topo que l'on souhaite modifier est : " + c);
+        return "commentaireModif";
+    }
+
+    @PostMapping("/saveUpdateCommentaire")
+    public String saveUpdateTopo (Model model, Commentaire commentaire){
+        commentaireService.updateCommentaire(commentaire);
+        model.addAttribute("update", commentaire);
+        log.info("Le topo que l'on édite est : " + commentaire);
+        return "redirect:/sitePageEscalade";
+    }
+*/
 
 
 }

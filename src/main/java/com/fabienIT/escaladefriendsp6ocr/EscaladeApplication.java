@@ -15,6 +15,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -58,11 +60,21 @@ public class EscaladeApplication implements CommandLineRunner{
 		testReservationTopo();
 		ajouterTopo();
 		ajouterSite();
+		afficherTopo();
 		//saveAdmin();
 		//saveMembre();
 
 
 		//createUser();
+	}
+
+	public void afficherTopo(){
+			List<Topo> topoList = topoService.findAllTopo();
+
+		System.out.println("+" +
+				"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++La liste des topos est : *******+++++++++++++++++********************" + topoList);
+
+
 	}
 
 /*	public void saveAdmin() {

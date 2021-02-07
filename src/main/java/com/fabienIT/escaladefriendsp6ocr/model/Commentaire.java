@@ -25,10 +25,10 @@ public class Commentaire {
     private Long id;
    /* @Temporal(TemporalType.TIMESTAMP)
     private Date dateTime;*/
-    /*@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime comDate;*/
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime comDate;
 
-    private Date date;
+    /*private Date date;*/
     private String com;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
@@ -42,9 +42,9 @@ public class Commentaire {
     public Commentaire() {
     }
 
-    public Commentaire(Long id, Date date, String com, Site site, User user) {
+    public Commentaire(Long id, LocalDateTime comDate, String com, Site site, User user) {
         this.id = id;
-        this.date = date;
+        this.comDate = comDate;
         this.com = com;
         this.site = site;
         this.user = user;
@@ -54,16 +54,16 @@ public class Commentaire {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId() {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public LocalDateTime getComDate() {
+        return comDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setComDate(LocalDateTime comDate) {
+        this.comDate = comDate;
     }
 
     public String getCom() {
@@ -102,7 +102,7 @@ public class Commentaire {
     public String toString() {
         return "Commentaire{" +
                 "id=" + id +
-                ", comDate=" + date +
+                ", comDate=" + comDate +
                 ", com='" + com + '\'' +
                 '}';
     }
