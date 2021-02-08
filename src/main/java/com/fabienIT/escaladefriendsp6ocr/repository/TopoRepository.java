@@ -25,15 +25,10 @@ public interface TopoRepository extends JpaRepository<Topo, Long> {
 //@Query("SELECT t FROM Topo t WHERE CONCAT (t.nom, ' ',t.proprietaire, ' ',t.region, ' ',t.nbSites, ' ',t.nbVoies, ' ',t.cotationMin, ' ',t.cotationMax, ' ') LIKE %?1%")
    public Page<Topo> findByNomContains(String keyword, Pageable pageable);
 
-
-
     @Query("SELECT t FROM Topo t WHERE t.user NOT LIKE :user ")
-    public  Page<Topo> findAllNotId(Pageable pageable,  @Param("user") User user);
+    public  Page<Topo> findAllNotId(Pageable pageable, @Param("user") User user);
         /*user = userController.userCo(model, authentication);
         email = user.getEmail();*/
-
-
-
 
     public Optional <Topo> findById (Long id);
 

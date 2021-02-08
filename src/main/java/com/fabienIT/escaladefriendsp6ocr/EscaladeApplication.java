@@ -60,7 +60,7 @@ public class EscaladeApplication implements CommandLineRunner{
 		testReservationTopo();
 		ajouterTopo();
 		ajouterSite();
-		afficherTopo();
+		//afficherTopo();
 		//saveAdmin();
 		//saveMembre();
 
@@ -68,14 +68,14 @@ public class EscaladeApplication implements CommandLineRunner{
 		//createUser();
 	}
 
-	public void afficherTopo(){
+/*	public void afficherTopo(){
 			List<Topo> topoList = topoService.findAllTopo();
 
 		System.out.println("+" +
 				"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++La liste des topos est : *******+++++++++++++++++********************" + topoList);
 
 
-	}
+	}*/
 
 /*	public void saveAdmin() {
 		HashSet<Role> roles = null;

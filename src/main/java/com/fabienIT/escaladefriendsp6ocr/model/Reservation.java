@@ -11,7 +11,6 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long user_id_demande;
     private Boolean demandeReservation = false;
     private Boolean validerReservation = false;
     private Boolean reserve;
@@ -20,20 +19,20 @@ public class Reservation implements Serializable {
     @JoinColumn(name = "topo_id")
     private Topo topo;
 
-  /*  @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "user_id_demande", nullable = true)
-    private User user;*/
+    private User user;
 
     public Reservation() {
     }
 
-    public Reservation(Long id,Long user_id_demande, Boolean demandeReservation, Boolean validerReservation, Boolean reserve, Topo topo, User user) {
+    public Reservation(Long id, Boolean demandeReservation, Boolean validerReservation, Boolean reserve, Topo topo, User user) {
         this.id = id;
-        this.user_id_demande = user_id_demande;
         this.demandeReservation = demandeReservation;
         this.validerReservation = validerReservation;
         this.reserve = reserve;
         this.topo = topo;
+        this.user = user;
     }
 
     public Long getId() {
@@ -42,14 +41,6 @@ public class Reservation implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getUser_id_demande() {
-        return user_id_demande;
-    }
-
-    public void setUser_id_demande(Long user_id_demande) {
-        this.user_id_demande = user_id_demande;
     }
 
     public Boolean getDemandeReservation() {
@@ -82,6 +73,14 @@ public class Reservation implements Serializable {
 
     public void setTopo(Topo topo) {
         this.topo = topo;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

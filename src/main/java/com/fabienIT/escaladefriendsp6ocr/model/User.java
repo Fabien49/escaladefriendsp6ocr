@@ -55,8 +55,8 @@ public class User {
 	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
 	private Set<Topo> topo;
 
-	/*@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
-	private Set<Reservation> reservation;*/
+	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+	private Set<Reservation> reservation;
 
 	@OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
 	private Set<Commentaire> commentaire;
@@ -183,6 +183,14 @@ public class User {
 
 	public void setTopo(Set<Topo> topo) {this.topo = topo;}
 
+	public Set<Reservation> getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Set<Reservation> reservation) {
+		this.reservation = reservation;
+	}
+
 	public Set<Commentaire> getCommentaire() {
 		return commentaire;
 	}
@@ -215,6 +223,7 @@ public class User {
 				", active=" + active +
 				", roles=" + roles +
 				", topo=" + topo +
+				", reservation=" + reservation +
 				", commentaire=" + commentaire +
 				'}';
 	}
