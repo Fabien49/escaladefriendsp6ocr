@@ -1,11 +1,10 @@
 package com.fabienIT.escaladefriendsp6ocr.controller;
 
 
-import com.fabienIT.escaladefriendsp6ocr.model.Reservation;
-import com.fabienIT.escaladefriendsp6ocr.model.Site;
-import com.fabienIT.escaladefriendsp6ocr.model.Topo;
-import com.fabienIT.escaladefriendsp6ocr.model.User;
+import com.fabienIT.escaladefriendsp6ocr.model.*;
 import com.fabienIT.escaladefriendsp6ocr.repository.SiteRepository;
+import com.fabienIT.escaladefriendsp6ocr.service.ReservationService;
+import com.fabienIT.escaladefriendsp6ocr.service.SiteService;
 import com.fabienIT.escaladefriendsp6ocr.service.TopoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +36,12 @@ public class TopoController {
     @Autowired
     SiteRepository siteRepository;
 
+    @Autowired
+    SiteService siteService;
+
+    @Autowired
+    ReservationService reservationService;
+
 
     @GetMapping("/topoForm")
     public String topo(Model model) {
@@ -45,15 +50,20 @@ public class TopoController {
     }
 
     @PostMapping("/enregistre")
-    public String topoEnregistrer(Topo topo){
+    public String topoEnregistrer(Topo topo, HttpSession session){
+        Site site = (Site) session.getAttribute("site");
+        Long siteId = site.getId();
+
+
         topoService.ajouter(topo);
+        topo.getSite().getId();
         log.info("Le topo que l'on ajoute est : " + topo);
         return "redirect:/topoListe";
     }
 
     @GetMapping("/monTopoForm")
-    public String monTopo(Model model, Authentication authentication, Long id, HttpSession session) {
-        List<Site> site = siteRepository.findAll();
+    public String monTopo(Model model, Authentication authentication, Long id, HttpSession session, Site site) {
+        site = siteService.findSiteById(id);
         model.addAttribute("site", site);
         session.setAttribute("site", site);
         System.out.println("Les sites sont : " + site);
@@ -67,12 +77,14 @@ public class TopoController {
         int userId = user.getId();
         System.out.println("L'id de l'utilisateur qui enregistre le topo est : " + userId);
         topo.setUser(user);
-        System.out.println("L'Id de l'utilisateur que de l'enregistrement est : " + user.getId());
+        System.out.println("L'Id de l'utilisateur pour la table topo est : " + user.getId());
         /*Site site = siteService.findByNom(nom);
         model.addAttribute(site);*/
         Site site = (Site) session.getAttribute("site");
         topo.setSite(site);
+        System.out.println("L'Id du site du topo que l'on enregistre est : " + topo.getSite().getId());
         topoService.ajouter(topo);
+        model.addAttribute("topo", topo);
         log.info("Le topo que l'on ajoute est : " + topo);
         return "redirect:/mesTopos";
     }
@@ -97,8 +109,8 @@ public class TopoController {
                                     @RequestParam(name = "keyword", defaultValue = "") String keyword, User user, Authentication authentication){
         //List<Topo> topoList = topoService.findAllTopo();
         user = userController.userCo(model, authentication);
-        model.addAttribute("role", user);
-        System.out.println("Le role esst : " + user);
+        model.addAttribute("role", user.getId());
+        System.out.println("Le role esst : " + user.getId());
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         model.addAttribute("role", roles.toString());
         System.out.println("Le role est : " + roles.toString());
@@ -121,7 +133,18 @@ public class TopoController {
 
         Set<Topo> pageTopo = userController.userCo(model, authentication).getTopo();
         model.addAttribute("mesTopos", pageTopo);
+
+        try {
+            Set<Reservation> reservation = userController.userCo(model, authentication).getReservation();
+            model.addAttribute("reservation", reservation);
+            System.out.println("Les réservations de l'utilisateur sont : " + reservation);
+        } catch (NullPointerException e) {
+            log.error("Vous n'avez pas de de demande de réservation");
+        }
+
+
         System.out.println("Les topos de l'utilisateur  sont  " + pageTopo);
+
 
         return "mesTopos";
     }
@@ -144,6 +167,7 @@ public class TopoController {
         log.info("Le topo que l'on souhaite réserver est : " + t);
         return "topoDemandeReservation";
     }
+
     @GetMapping("/validerReservation")
     public String topoValider (Model model, Long id){
         List<Topo> t = topoService.findAllTopo();
@@ -163,7 +187,9 @@ public class TopoController {
         public String modifier (Model model, Long id){
         Topo t = topoService.findTopoById(id);
         model.addAttribute("topoModif", t );
-        log.info("Le topo que l'on souhaite modifier est : " + t);
+        log.info("Le topo que l'on souhaite modifier est : " + t);/*
+         int userId = t.getUser().getId();
+         model.addAttribute("userId", userId);*/
         return "topoModif";
     }
 
@@ -191,6 +217,11 @@ public class TopoController {
         model.addAttribute("pages", new int[pageTopo.getTotalPages()]);
         model.addAttribute("currentPage", page);
         model.addAttribute("size", size);
+        Set<Reservation> reservation = userController.userCo(model, authentication).getReservation();
+        model.addAttribute("reservation", reservation);
+        System.out.println("L'Id de l'utilisateur qui fait la demande de réservation est : " + user.getReservation());
+
+
 
        /* int userId = user.getId();
 
@@ -208,8 +239,37 @@ public class TopoController {
         }*/
 
         log.info("*********Le nombre de topo est : " + pageTopo.getTotalElements());
-
+        System.out.println("*****Les réservations sont : " + reservation);
         return "monTopoListe";
+    }
+
+    @GetMapping("/monTopoReservation")
+    public String topoAfficherDemande (Model model, Long id, HttpSession session){
+        Topo topo = topoService.findTopoById(id);
+        model.addAttribute("topoAfficherDemande", topo);
+        session.setAttribute("topo", topo);
+        model.addAttribute("reservation", new Reservation());
+        log.info("Le topo que l'on souhaite réserver est : " + topo);
+        return "monTopoReservation";
+    }
+
+    @PostMapping("/saveUpdateMaDemande")
+    public String saveUpdateMaDemande (Model model, Topo topo){
+        topoService.updateTopo(topo);
+        model.addAttribute("update", topo);
+        log.info("Le topo que l'on édite est : " + topo);
+        return "redirect:/mesDemandes";
+    }
+
+    @GetMapping("/mesDemandes")
+    public  String  mesDemandes (Model model, HttpSession session, Authentication authentication, Long id) {
+        Set<Reservation> pageReservation = userController.userCo(model, authentication).getReservation();
+        /*TODO: trouver le moyen de rammener la liste de topo et non de reservation*/
+        /*Set<Topo> topoDemande = userController.userCo(model, authentication).getTopo();
+        model.addAttribute("mesDemandes", pageReservation);*/
+
+        System.out.println("Les topos que je demande sont : " + pageReservation);
+        return "mesDemandes";
     }
 
 
@@ -229,21 +289,31 @@ public class TopoController {
         return "monTopoModif";
     }
 
-    @PostMapping("/saveUpdateMonTopo")
-    public String saveUpdateMonTopo (Model model, Topo topo){
-        topoService.updateTopo(topo);
-        model.addAttribute("update", topo);
-        log.info("Le topo que l'on édite est : " + topo);
+
+
+    @PostMapping("/saveReservation")
+    public String saveReservation (Model model, Reservation reservation, Long id, HttpSession session, Authentication authentication){
+        Topo topo = (Topo) session.getAttribute("topo");
+        id = topo.getId();
+        reservation.setTopo(topo);
+        System.out.println("L'id du topo est : " + reservation.getTopo().getId());
+        User user = userController.userCo(model, authentication);
+        int userId = user.getId();
+        System.out.println("L'id de l'utilisateur qui souhaite réserver est : " + userId);
+        reservation.setUser(user);
+        reservationService.ajouter(reservation);
+        model.addAttribute("reservation", reservation);
+        log.info("La réservation est : " + reservation);
         return "redirect:/mesTopos";
     }
 
-    @GetMapping("/demandeReservationMonTopo")
+/*    @GetMapping("/monTopoReservation")
     public String topoAfficherMonTopo (Model model, Long id){
         Topo t = topoService.findTopoById(id);
         model.addAttribute("topoAfficherMonTopo", t);
         log.info("Le topo que l'on souhaite réserver est : " + t);
-        return "topoDemandeReservationMonTopo";
-    }
+        return "monTopoReservation";
+    }*/
 
     @GetMapping("/validerReservationMonTopo")
     public String topoValiderMonTopo (Model model, Long id){

@@ -18,7 +18,6 @@ public interface TopoRepository extends JpaRepository<Topo, Long> {
 
 
    Topo findAllById(Long id);
-    //Topo  deleteById();
 
    Topo findByNom(String nom);
 
@@ -35,9 +34,6 @@ public interface TopoRepository extends JpaRepository<Topo, Long> {
     Topo findTopoById (Long id);
 
 //    Topo findByIdNotIn ();
-
-
-
 
 
 }

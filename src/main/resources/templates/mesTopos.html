@@ -67,19 +67,35 @@
                 <td th:text="${t.nbVoies}"></td>
                 <td th:text="${t.cotationMin}"></td>
                 <td th:text="${t.cotationMax}"></td>
-                <td>
-                    <span th:if="${!t.reservation.demandeReservation}">Pas de demande de réservation</span>
 
-                    <span th:if="${t.reservation.demandeReservation} and ${!t.reserve}"><a th:href="@{validerReservationMonTopo/(id=${t.id})}">Validation réservation</a></span>
+<!--                TODO: Corriger le bug, appel de l'objet demandeReservation du model reservation dans le controller-->
+               <td th:object="${reservation}">
+                   <div th:if="${demandeReservation != null}">
+                    <span th:if="${!demandeReservation}">Pas de demande de réservation</span>
 
-                    <span th:if="${t.reservation.demandeReservation} and ${t.reserve}">Déjà pris !</span>
+                    <span th:if="${demandeReservation} and ${!reserve}"><a th:href="@{validerReservationMonTopo/(id=${t.id})}">Validation réservation</a></span>
+
+                    <span th:if="${demandeReservation} and ${reserve}">Déjà pris !</span>
                     </form>
+                   </div>
+                   <div th:if="${demandeReservation == null}">
+                       <span th:if="${demandeReservation == null or !demandeReservation}">Pas de demande de réservation</span>
+                       </form>
+                   </div>
                 </td>
+
+
                 <td>
-                        <span th:if="${!t.reservation.demandeReservation}">Disponible</span>
-                        <span th:if="${t.reservation.demandeReservation} and ${!t.reserve}">En attente de validation</span>
-                        <span th:if="${t.reservation.reserve}">Réservé</span>
+                    <div th:if="${demandeReservation != null}">
+                        <span th:if="${!demandeReservation}">Disponible</span>
+                        <span th:if="${demandeReservation} and ${!reserve}">En attente de validation</span>
+                        <span th:if="${reserve}">Réservé</span>
+                    </div>
+                    <div th:if="${demandeReservation == null}">
+                        <span th:if="${demandeReservation == null or !demandeReservation}">Disponible</span>
+                    </div>
                 </td>
+
                 <td>
                     <div th:if="${role != UTILISATEURCONNECTE}">
                         <a class="btn btn-success" th:href="@{editerMonTopo/(id=${t.id})}">Editer</a>

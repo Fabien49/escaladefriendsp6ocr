@@ -1,4 +1,3 @@
-/*
 package com.fabienIT.escaladefriendsp6ocr.service;
 
 import com.fabienIT.escaladefriendsp6ocr.controller.UserController;
@@ -25,7 +24,7 @@ public class ReservationService {
 		reservationRepository.save(reservation);
 	}
 
-	public List<Reservation> findAllReservation (){return reservationRepository.findAll(); }
+/*	public List<Reservation> findAllReservation (){return reservationRepository.findAll(); }
 
 	public Reservation findReservationById(Long id) {
 		return reservationRepository.findReservationById(id);
@@ -35,10 +34,10 @@ public class ReservationService {
 		return reservationRepository.findByNom(reservation);
 	}
 
-	public Optional<Reservation> findTopoSite(Long reservation){return reservationRepository.findById(reservation);}
+	public Optional<Reservation> findTopoSite(Long reservation){return reservationRepository.findById(reservation);}*/
 
 
-	*/
+
 /*public List <Topo> findAllTopo (){
 		return topoRepository.findAll();
 	}*//*
@@ -66,9 +65,10 @@ public class ReservationService {
 		reservationRepository.deleteById(id);
 	}
 
-
 */
-/*	public void updateTopo(Reservation reservation) {
+/*
+
+	public void updateTopo(Reservation reservation) {
 		//recuparation du topo en base via l'id
 		Long id = topo.getId();
 		Topo dbTopo = reservationRepository.findById(id).get();
@@ -83,10 +83,6 @@ public class ReservationService {
 		//mise à jour dans la bdd (sauvegarde)
 		reservationRepository.save(dbTopo);
 
-	}*//*
+	}*/
 
 }
-
-
-
-*/

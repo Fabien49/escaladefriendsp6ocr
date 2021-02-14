@@ -43,16 +43,16 @@
     <tr>
         <th>NOM</th><th>PROPRIETAIRE</th><th>REGION</th><th>Nb DE SITES</th><th>Nb DE VOIES</th><th>COTATION MINI</th><th>COTATION MAX</th><th>DEMANDE RESERATION</th>
 
-    <tr>
-        <td th:text="*{topoAfficher.nom}"> </td>
-        <td th:text="*{topoAfficher.proprietaire}"> </td>
-        <td th:text="*{topoAfficher.region}"> </td>
-        <td th:text="*{topoAfficher.nbSites}"> </td>
-        <td th:text="*{topoAfficher.nbVoies}"> </td>
-        <td th:text="*{topoAfficher.cotationMin}"> </td>
-        <td th:text="*{topoAfficher.cotationMax}"> </td>
-    <form method="post" action="#" th:action="@{/saveUpdateTopo}" th:object="${topoAfficher}">
-        <td>
+    <tr th:object="${topoAfficherDemande}">
+        <td th:text="*{nom}"> </td>
+        <td th:text="*{proprietaire}"> </td>
+        <td th:text="*{region}"> </td>
+        <td th:text="*{nbSites}"> </td>
+        <td th:text="*{nbVoies}"> </td>
+        <td th:text="*{cotationMin}"> </td>
+        <td th:text="*{cotationMax}"> </td>
+    <form method="post" action="#" th:action="@{/saveReservation}" th:object="${reservation}">
+        <td><!--
         <input type="hidden" name="id" th:field="*{id}"/>
         <input type="hidden" th:field="*{nom}"/>
         <input type="hidden" th:field="*{proprietaire}"/>
@@ -60,7 +60,7 @@
         <input type="hidden" th:field="*{nbSites}"/>
         <input type="hidden" th:field="*{nbVoies}"/>
         <input type="hidden" th:field="*{cotationMin}"/>
-        <input type="hidden" th:field="*{cotationMax}"/>
+        <input type="hidden" th:field="*{cotationMax}"/>-->
         <input type="checkbox" th:field="*{demandeReservation} "/>
         <input type="hidden" th:field="*{validerReservation}"th:value="false"/>
         <input type="hidden" th:field="*{reserve}" th:value="false"/>

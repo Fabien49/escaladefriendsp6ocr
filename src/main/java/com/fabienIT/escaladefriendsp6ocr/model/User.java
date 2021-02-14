@@ -223,7 +223,6 @@ public class User {
 				", active=" + active +
 				", roles=" + roles +
 				", topo=" + topo +
-				", reservation=" + reservation +
 				", commentaire=" + commentaire +
 				'}';
 	}

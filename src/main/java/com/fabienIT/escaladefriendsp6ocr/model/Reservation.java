@@ -99,6 +99,7 @@ public class Reservation implements Serializable {
                 ", validerReservation=" + validerReservation +
                 ", reserve=" + reserve +
                 ", topo=" + topo +
+                ", user=" + user +
                 '}';
     }
 }

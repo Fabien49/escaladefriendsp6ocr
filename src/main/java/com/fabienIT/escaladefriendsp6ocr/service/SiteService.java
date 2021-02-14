@@ -8,6 +8,7 @@ import com.fabienIT.escaladefriendsp6ocr.repository.SiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -20,6 +21,9 @@ public class SiteService {
     public void ajouter(Site site) {
         siteRepository.save(site);
     }
+
+
+
 
     public Site findSiteById(Long id) {
         return (Site) siteRepository.findAllById(id);

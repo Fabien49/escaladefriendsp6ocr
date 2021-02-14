@@ -314,7 +314,6 @@ public class SiteController {
         return "redirect:/visiteur/pageEscalade";
     }
 
-
     @GetMapping("/effacerCommentaire")
     public String effacerCommentaire (Long id) {
         commentaireService.effacer(id);
@@ -322,21 +321,21 @@ public class SiteController {
         return "redirect:/visiteur/pageEscalade";
     }
 
-    @GetMapping("/editerCommentaire")
+/*    @GetMapping("/editerCommentaire")
     public String modifierCom (Model model, Long id){
         Commentaire c = commentaireService.findCommentaireById(id);
         model.addAttribute("commentaireModif", c );
         log.info("Le commentaire que l'on souhaite modifier est : " + c);
         return "commentaireModif";
-    }
+    }*/
 
-    @PostMapping("/saveUpdateCommentaire")
+/*    @PostMapping("/saveUpdateCommentaire")
     public String saveUpdateTopo (Model model, Commentaire commentaire){
         commentaireService.updateCommentaire(commentaire);
-        model.addAttribute("update", commentaire);
+        model.addAttribute("commentaireModif", commentaire);
         log.info("Le commentaire que l'on édite est : " + commentaire);
         return "redirect:/visiteur/pageEscalade";
-    }
+    }*/
 
 }
 

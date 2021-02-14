@@ -46,8 +46,9 @@
         <p>Nombre de voies : <input type="text" name="nbVoies" th:field="*{nbVoies}" /></p>
         <p>Cotation mini : <input type="text" name="cotationMin" th:field="*{cotationMin}" /></p>
         <p>Cotation max : <input type="text" name="cotationMax" th:field="*{cotationMax}" /></p>
-        <p>Réservé : <label><input type="radio" th:field="*{reserve}"th:value="true"/>Oui</label>
-        <label><input type="radio" th:field="*{reserve}"th:value="false"/>Non</label></p>
+        <!--TODO: mettre le bon object une fois le controller corrigé (appel de la table reservation et mise des données dans le model)-->
+<!--        <p>Réservé : <label><input type="radio" th:field="*{reserve}"th:value="true"/>Oui</label>
+        <label><input type="radio" th:field="*{reserve}"th:value="false"/>Non</label></p>-->
 
         <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
     </form>

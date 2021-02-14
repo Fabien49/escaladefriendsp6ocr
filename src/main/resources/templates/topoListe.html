@@ -36,7 +36,7 @@
             <a href="/" class="active">Les Amis de l'Escalade</a>
             <nav class="menu">
                 <a href="/">Accueil</a>
-                <a href="/sites">Sites d'escalade</a>
+                <a href="/visiteur/sites">Sites d'escalade</a>
                 <a href="/#about">A propos</a>
                 <!-- <a href="#contact">Contact</a> -->
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -81,6 +81,8 @@
                 <td th:text="${t.nbVoies}"></td>
                 <td th:text="${t.cotationMin}"></td>
                 <td th:text="${t.cotationMax}"></td>
+
+                <!--                TODO: Corriger le bug, appel de l'objet demandeReservation du model reservation dans le controller-->
                 <!--<td>
                     <span th:if="${!t.reservation.demandeReservation} and ${!t.reservation.reserve}"><a th:href="@{demandeReservation/(id=${t.id})}">Demande de réservation</a></span>
 

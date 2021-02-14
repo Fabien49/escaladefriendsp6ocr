@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -19,6 +20,7 @@ public interface SiteRepository extends JpaRepository<Site, Long> {
     Optional<Site> findById(Long id);
 
     Site findAllById(Long id);
+
 }
    /* private String region;
     private int nbVoies;
