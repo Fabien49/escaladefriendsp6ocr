@@ -64,7 +64,7 @@ public class LoginController {
 			userService.saveUser(user);
 			modelAndView.addObject("successMessage", "Votre inscription a bien été prise en compte");
 			modelAndView.addObject("user", new User());
-			modelAndView.setViewName("/home");
+			modelAndView.setViewName("/inscription");
 
 		}
 		return modelAndView;

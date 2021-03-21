@@ -11,9 +11,12 @@
 
     <!-- Bootstrap core CSS
      <link href="../../css/editor.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 
     <!-- bootstrap -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+ <!--   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="bootstrap/js/jquery-3.5.0.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/script.js"></script>
@@ -23,17 +26,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
 
     <!-- Custom styles for this template -->
-    <link href="/css/main.css" rel="stylesheet">
+    <!--<link href="/css/main.css" rel="stylesheet">-->
 </head>
 
 <body>
 <!-- header -->
 <header th:replace="fragments/header::header"></header>
 
-<div th:if="${role}">
+<div th:if="${role == 'ADMIN'}">
 <div th:replace="fragments/headerAdmin::menuAdmin"></div>
 </div>
 
@@ -51,7 +54,7 @@
                 &nbsp;
                 <input class="btn btn-info" type="reset" value="Reset">
             </form></th><th></th><th></th><th></th><th th:if="${successMessage}"><th th:text="${successMessage}"></th></th><th></th><th></th><th></th><th><a class="btn btn-info" href="/userForm">Ajouter Utilisateur</a></th>
-            <th><a class="btn btn-info" href="/membreForm">Ajouter Membre</a></th>
+            <th th:if="${role == 'ADMIN'}"><a class="btn btn-info" href="/membreForm">Ajouter Membre</a></th><th><a class="btn btn-info" href="/siteForm">Ajouter</a></th>
         </tr>
     </table>
 </div>
@@ -107,12 +110,15 @@
     </div>
 </footer>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="../../js/vendor/popper.min.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/holderjs@2.9.4/holder.js"></script>
-<svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
+<!-- Optional JavaScript -->
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
 </html>

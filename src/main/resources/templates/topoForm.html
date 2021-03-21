@@ -141,15 +141,21 @@
 
 
 <!--                        TODO: Mettre la liste des sites qui se trouve en DB pour rattacher le topo que l'on va enregistrer-->
-                        <!--<div class="form-group">
+                        <div class="form-group">
                             <label for="site" class="cols-sm-2 control-label">Site : </label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
-                                    <input type="text" th:field="*{site}" class="form-control" name="site" id="site"  placeholder="site"/>
+                                            <select name="site" id="site"  placeholder="site" th:field="*{site}">
+                                                <option value=""> -- </option>
+                                                <option  th:each="s : ${site}"
+                                                         th:value="${s.id}"
+                                                         th:utext="${s.nom}"/>
+                                             </select>
+<!--                                    <input type="text" th:field="*{site}" class="form-control" name="site" id="site"  placeholder="site"/>-->
                                 </div>
                             </div>
-                        </div>-->
+                        </div>
 
                         <!--TODO: mettre le bon object une fois le controller corrigé (appel de la table reservation et mise des données dans le model)-->
 

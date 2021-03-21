@@ -138,10 +138,8 @@ public class UserController {
       {
 //        log.info("Le role est : " + roleUser);
           log.info("Le nombre d'utilisateur est : " + userListe.getTotalElements());
-
           return "userListe";
       }
-
     }
 
 /*    @GetMapping("/deleteUser")

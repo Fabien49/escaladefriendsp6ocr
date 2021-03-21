@@ -21,6 +21,7 @@ public class Site implements Serializable {
     private String cotationMax;
     private String description;
     private String site_image;
+    private boolean certifie;
 
     @OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
     private Set<Topo> topo;
@@ -32,7 +33,7 @@ public class Site implements Serializable {
     public Site() {
     }
 
-    public Site(Long id, String nom, String region, int nbVoies, String cotationMin, String cotationMax, String description, String site_image) {
+    public Site(Long id, String nom, String region, int nbVoies, String cotationMin, String cotationMax, String description, String site_image, boolean certifie) {
         this.id = id;
         this.nom = nom;
         this.region = region;
@@ -41,13 +42,14 @@ public class Site implements Serializable {
         this.cotationMax = cotationMax;
         this.description = description;
         this.site_image = site_image;
+        this.certifie = certifie;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId() {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -123,6 +125,14 @@ public class Site implements Serializable {
         this.commentaire = commentaire;
     }
 
+    public boolean isCertifie() {
+        return certifie;
+    }
+
+    public void setCertifie(boolean certifie) {
+        this.certifie = certifie;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -143,6 +153,9 @@ public class Site implements Serializable {
                 ", cotationMax='" + cotationMax + '\'' +
                 ", description='" + description + '\'' +
                 ", site_image='" + site_image + '\'' +
+                ", certifie=" + certifie +
+                ", topo=" + topo +
+                ", commentaire=" + commentaire +
                 '}';
     }
 }

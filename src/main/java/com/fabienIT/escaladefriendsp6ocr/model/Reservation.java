@@ -13,7 +13,7 @@ public class Reservation implements Serializable {
     private Long id;
     private Boolean demandeReservation = false;
     private Boolean validerReservation = false;
-    private Boolean reserve;
+    private Boolean reserve = false;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "topo_id")

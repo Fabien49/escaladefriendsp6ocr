@@ -14,6 +14,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -54,7 +55,6 @@ public class TopoController {
         Site site = (Site) session.getAttribute("site");
         Long siteId = site.getId();
 
-
         topoService.ajouter(topo);
         topo.getSite().getId();
         log.info("Le topo que l'on ajoute est : " + topo);
@@ -79,9 +79,10 @@ public class TopoController {
         topo.setUser(user);
         System.out.println("L'Id de l'utilisateur pour la table topo est : " + user.getId());
         /*Site site = siteService.findByNom(nom);
-        model.addAttribute(site);*/
+        model.addAttribute("site", site);*/
         Site site = (Site) session.getAttribute("site");
         topo.setSite(site);
+        System.out.println("Les sites sont : " + site);
         System.out.println("L'Id du site du topo que l'on enregistre est : " + topo.getSite().getId());
         topoService.ajouter(topo);
         model.addAttribute("topo", topo);
@@ -138,6 +139,7 @@ public class TopoController {
             Set<Reservation> reservation = userController.userCo(model, authentication).getReservation();
             model.addAttribute("reservation", reservation);
             System.out.println("Les réservations de l'utilisateur sont : " + reservation);
+            model.addAttribute("mesTopos", pageTopo);
         } catch (NullPointerException e) {
             log.error("Vous n'avez pas de de demande de réservation");
         }
@@ -199,7 +201,7 @@ public class TopoController {
                                     @RequestParam(name = "page", defaultValue = "0") int page,
                                     @RequestParam(name = "size", defaultValue = "10") int size,
                                     @RequestParam(name = "keyword", defaultValue = "") String keyword,
-                                    Long id, @Param("user") User user, @Param("authentification") Authentication authentication){
+                                    Long id, @Param("user") User user, @Param("authentification") Authentication authentication, Reservation reservation){
         //List<Topo> topoList = topoService.findAllTopo();
         user = userController.userCo(model, authentication);
         model.addAttribute("role", user);
@@ -210,16 +212,17 @@ public class TopoController {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         model.addAttribute("role", roles.toString());
         System.out.println("Le role est : " + roles.toString());
-
         Page<Topo> pageTopo = topoService.findAllNotId(PageRequest.of(page, size), model, user, authentication, userController);
         model.addAttribute("monTopoListe", pageTopo.getContent());
         model.addAttribute("keyword", keyword);
         model.addAttribute("pages", new int[pageTopo.getTotalPages()]);
         model.addAttribute("currentPage", page);
         model.addAttribute("size", size);
-        Set<Reservation> reservation = userController.userCo(model, authentication).getReservation();
+        /*Set<Reservation> reservation = userController.userCo(model, authentication).getReservation();
+        model.addAttribute("reservation", reservation);*/
         model.addAttribute("reservation", reservation);
-        System.out.println("L'Id de l'utilisateur qui fait la demande de réservation est : " + user.getReservation());
+        System.out.println("*****Les réservations sont : " + reservation);
+        System.out.println("L'Id de l'utilisateur qui fait la demande de réservation est : " + user.getId());
 
 
 
@@ -262,13 +265,14 @@ public class TopoController {
     }
 
     @GetMapping("/mesDemandes")
-    public  String  mesDemandes (Model model, HttpSession session, Authentication authentication, Long id) {
-        Set<Reservation> pageReservation = userController.userCo(model, authentication).getReservation();
-        /*TODO: trouver le moyen de rammener la liste de topo et non de reservation*/
-        /*Set<Topo> topoDemande = userController.userCo(model, authentication).getTopo();
-        model.addAttribute("mesDemandes", pageReservation);*/
+    public  String  mesDemandes (Model model, HttpSession session, Authentication authentication) {
+        User user = userController.userCo(model, authentication);
+        int userId = user.getId();
+        System.out.println("L'id de l'utilisateur des demandes est : " + userId);
+        List<Reservation> reservation = reservationService.mesDemandes(userId);
+        model.addAttribute("mesDemandes", reservation);
 
-        System.out.println("Les topos que je demande sont : " + pageReservation);
+        System.out.println("Les topos que je demande sont : " + reservation);
         return "mesDemandes";
     }
 
@@ -323,8 +327,40 @@ public class TopoController {
         return "monTopoValidation";
     }
 
+    @GetMapping("coordonnees")
+    public String coordonnees (Model model, Long id){
+        Topo topo = topoService.findTopoById(id);
+        User user = topo.getUser();
+        model.addAttribute("coordonnees", user);
+        System.out.println("Les coordonnées de l'utilisateur sont : " +
+                "Prénom : " + user.getName() +
+                "Nom : " + user.getLastName() +
+                "Adresse Mail : " + user.getEmail() +
+                "Code Postal : " + user.getCodePostal());
+        return "coordonnees";
+    }
 
+    @GetMapping("/validerAnnuler")
+    public String effacerReservation (Long id, HttpSession session) {
+        session.getAttribute("reservation");
+        session.getId();
+        System.out.println("L'Id de le la reservation est : " + session.getId());
 
+        reservationService.effacerReservation(id);
+        log.info("La réservation que l'on vient d'annuler/effacer est : " + id);
+        return "redirect:/mesDemandes";
+    }
+
+    @GetMapping("/annulerDemande")
+    public String annulerDemande (Model model, Long id, HttpSession session){
+        Reservation reservation = reservationService.findReservationById(id);
+        Topo topo = reservation.getTopo();
+        model.addAttribute("topoAfficherDemande", topo);
+        model.addAttribute("annulerDemande", reservation );
+        session.setAttribute("reservation", reservation);
+        log.info("La réservation que l'on souhaite annuler est : " + reservation);
+        return "annulerDemande";
+    }
 
 
  /*   @PostMapping("/")

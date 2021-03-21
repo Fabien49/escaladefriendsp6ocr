@@ -29,6 +29,10 @@
         <link href="/css/main.css" rel="stylesheet">
     </head>
 
+    <h2>
+        <span th:text="'Hello, ' + ${role}"></span>
+    </h2>
+
     <body>
     <!-- header -->
     <header th:replace="fragments/header::header"></header>
@@ -69,23 +73,25 @@
                 <td th:text="${t.cotationMax}"></td>
 
 <!--                TODO: Corriger le bug, appel de l'objet demandeReservation du model reservation dans le controller-->
-               <td th:object="${reservation}">
-                   <div th:if="${demandeReservation != null}">
-                    <span th:if="${!demandeReservation}">Pas de demande de réservation</span>
 
-                    <span th:if="${demandeReservation} and ${!reserve}"><a th:href="@{validerReservationMonTopo/(id=${t.id})}">Validation réservation</a></span>
+             <td th:object="${reservation}">
+                 <div th:if="${reservation != null}">
+                    <span th:if="${demandeReservation == false}">Pas de demande de réservation</span>
 
-                    <span th:if="${demandeReservation} and ${reserve}">Déjà pris !</span>
-                    </form>
-                   </div>
+                    <span th:if="${demandeReservation == true} and ${reserve == false}"><a th:href="@{validerReservationMonTopo/(id=${t.id})}">Validation réservation</a></span>
+
+                    <span th:if="${demandeReservation == true} and ${reserve == true}">Déjà pris !</span>
+
                    <div th:if="${demandeReservation == null}">
-                       <span th:if="${demandeReservation == null or !demandeReservation}">Pas de demande de réservation</span>
-                       </form>
+                       <span>Pas de demande de réservation</span>
+
                    </div>
+                 </div>
                 </td>
 
 
-                <td>
+
+<!--                <td>
                     <div th:if="${demandeReservation != null}">
                         <span th:if="${!demandeReservation}">Disponible</span>
                         <span th:if="${demandeReservation} and ${!reserve}">En attente de validation</span>
@@ -94,14 +100,14 @@
                     <div th:if="${demandeReservation == null}">
                         <span th:if="${demandeReservation == null or !demandeReservation}">Disponible</span>
                     </div>
-                </td>
+                </td>-->
 
                 <td>
-                    <div th:if="${role != UTILISATEURCONNECTE}">
+                    <div th:if="${role}">
                         <a class="btn btn-success" th:href="@{editerMonTopo/(id=${t.id})}">Editer</a>
                     </div>
                     &nbsp;&nbsp;&nbsp;
-                    <div th:if="${role != UTILISATEURCONNECTE}">
+                    <div th:if="${role}">
                         <a class="btn btn-danger" th:href="@{effacerTopo/(id=${t.id})}">Effacer</a>
                     </div>
                 </td>

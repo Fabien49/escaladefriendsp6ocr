@@ -38,28 +38,40 @@
     <div class="card">
         <table class="table">
             <tr>
-                <th><h1>LISTE DE MES DEMANDES</h1></th><th></th><th></th><th></th><th></th><th><a class="btn btn-info" href="/monTopoListe">Réserver un topo</a></th><th></th><th></th><th><a class="btn btn-info" href="/monTopoForm">Ajouter un topo</a></th>
+                <th><h1>COORDONNEES</h1></th>
             </tr>
         </table>
-
-        <form th:action="@{/topoListe}">
-            Filtre: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
-            &nbsp;
-            <input class="btn btn-info" type="submit" value="Filtrer" />
-            &nbsp;
-            <input class="btn btn-info" type="button" value="Réinitialiser" id="btnClear" onclick="clearSearch()" />
-        </form>
     </div>
 
-    <div class="card-body">
+    <div th:object="${coordonnees}" class="card-body">
         <table class="table table-striped" border="1" cellpadding="10">
 
             <tr></tr>
 
-            <tr class="p-3 mb-2 bg-dark text-white">
-                <th class="align-middle text-center">NOM</th><th class="align-middle text-center">PROPRIETAIRE</th><th class="align-middle text-center">REGION</th><th class="align-middle text-center">Nb DE SITES</th><th class="align-middle text-center">Nb DE VOIES</th><th class="align-middle text-center">COTATION MINI</th><th class="align-middle text-center">COTATION MAX</th><th class="align-middle text-center">DEMANDE RESERVATION</th><th class="align-middle text-center">RESERVE</th><th class="align-middle text-center">GESTION</th>
+            <tr>
+                <td class="p-3 mb-2 bg-dark text-white align-middle text-center">NOM</td>
+                <td th:text="*{lastName}"></td>
             </tr>
-            <tr th:each="t:${mesDemandes}">
+            <tr>
+                <td class="p-3 mb-2 bg-dark text-white align-middle text-center">PRENOM</td>
+                <td th:text="*{name}"></td>
+            </tr>
+            <tr>
+                <td class="p-3 mb-2 bg-dark text-white align-middle text-center">ADRESSE MAIL</td>
+                <td th:text="*{email}"></td>
+            </tr>
+            <tr>
+                <td class="p-3 mb-2 bg-dark text-white align-middle text-center">TELEPHONE</td>
+            </tr>
+            <tr>
+                <td class="align-middle text-center">CODE POSTAL</td>
+                <td th:text="*{codePostal}"></td>
+            </tr>
+        </table>
+    </div>
+
+
+<!--            <tr th:each="t:${coordonnees}">
                 <td th:text="${t.topo.nom}"></td>
                 <td th:text="${t.topo.proprietaire}"></td>
                 <td th:text="${t.topo.region}"></td>
@@ -67,58 +79,15 @@
                 <td th:text="${t.topo.nbVoies}"></td>
                 <td th:text="${t.topo.cotationMin}"></td>
                 <td th:text="${t.topo.cotationMax}"></td>
-
-<!--                TODO: Corriger le bug, appel de l'objet demandeReservation du model reservation dans le controller-->
-               <td th:if="${t.id != null}">
-                   <div th:if="${t.validerReservation != null}">
-                    <span th:if="${!t.validerReservation}">Demande en attente de validation</span>
-                    <span th:if="${t.validerReservation}"><a th:href="@{coordonnees/(id=${t.user.id})}">Voir les coordonnées</a></span>
-                   </div>
-
-                   <div th:if="${t.id == null}">
-                       <span th:if="${t.demandeReservation == null or !t.demandeReservation}">Pas de demande de réservation</span>
-                   </div>
-                </td>
+            </tr>-->
 
 
-                <td>
-                    <div th:if="${t.id != null}">
-                        <div th:if="${t.demandeReservation != null}">
-                            <span th:if="${!t.demandeReservation}">Disponible</span>
-                            <span th:if="${!t.validerReservation}">En attente de validation</span>
-                            <span th:if="${t.reserve}">Réservé</span>
-                        </div>
-                    <div th:if="${t.demandeReservation == null}">
-                        <span th:if="${t.demandeReservation == null or !t.demandeReservation}">Disponible</span>
-                    </div>
-                </td>
-
-                <td>
-                    <div th:if="${role != UTILISATEURCONNECTE}">
-                        <a class="btn btn-success" th:href="@{editerMonTopo/(id=${t.id})}">Editer</a>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;
-                    <div th:if="${role != UTILISATEURCONNECTE}">
-                        <a class="btn btn-danger" th:href="@{effacerTopo/(id=${t.id})}">Effacer</a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-
-        <!--<ul class="nav nav-pills">
-            <li  th:each="page,status:${pages}">
-                <a  th:class="${status.index == currentPage?'btn btn-primary' : 'btn'}" th:href="@{topoListe(page=${status.index}, keyword=${keyword})}" th:text="${status.index}"></a>
-            </li>
-        </ul>-->
-    </div>
-    </div>
 
     <footer class="text-muted">
         <div class="container">
             <p class="float-right">
                 <a href="#">Back to top</a>
             </p>
-            <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
         </div>
     </footer>
 
@@ -135,5 +104,6 @@
         }
     </script>
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
+    <svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg>
+    </body>
     </html>

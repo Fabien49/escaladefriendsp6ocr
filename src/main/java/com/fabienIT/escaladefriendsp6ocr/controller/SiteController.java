@@ -254,6 +254,10 @@ public class SiteController {
             Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
             model.addAttribute("role", roles.toString());
             System.out.println("Le role est : " + roles.toString());
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            User user = userService.findUserByEmail(auth.getName());
+            model.addAttribute("userId", user.getId());
+            System.out.println("L'id de l'utilisateur est : " + user.getId());
         } catch (NullPointerException e) {
             log.error("Pas de role");
         }

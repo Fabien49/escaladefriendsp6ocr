@@ -83,8 +83,8 @@
                 <td th:text="${t.cotationMax}"></td>
 
                 <!--                TODO: Corriger le bug, appel de l'objet demandeReservation du model reservation dans le controller-->
-                <!--<td>
-                    <span th:if="${!t.reservation.demandeReservation} and ${!t.reservation.reserve}"><a th:href="@{demandeReservation/(id=${t.id})}">Demande de réservation</a></span>
+                <td>
+                    <span th:if="${!t.reservation.id} and ${!t.reservation.reserve}"><a th:href="@{demandeReservation/(id=${t.id})}">Demande de réservation</a></span>
 
                     <span th:if="${t.reservation.demandeReservation} and ${!t.reservation.reserve}"><a th:href="@{validerReservation/(id=${t.id})}">Validation réservation</a></span>
 
@@ -96,7 +96,7 @@
                         <span th:if="${t.reservation.demandeReservation} and ${!t.reserve}">En attente de validation</span>
                         <span th:if="${t.reservation.reserve}">Réservé</span>
 
-                </td>-->
+                </td>
                 <td>
                     <div>
                         <a class="btn btn-success" th:href="@{editerTopo/(id=${t.id})}">Editer</a>

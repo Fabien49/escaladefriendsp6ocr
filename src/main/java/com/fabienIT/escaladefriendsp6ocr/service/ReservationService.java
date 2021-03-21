@@ -1,18 +1,11 @@
 package com.fabienIT.escaladefriendsp6ocr.service;
 
-import com.fabienIT.escaladefriendsp6ocr.controller.UserController;
 import com.fabienIT.escaladefriendsp6ocr.model.Reservation;
-import com.fabienIT.escaladefriendsp6ocr.model.User;
 import com.fabienIT.escaladefriendsp6ocr.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.repository.query.Param;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ReservationService {
@@ -24,11 +17,28 @@ public class ReservationService {
 		reservationRepository.save(reservation);
 	}
 
-/*	public List<Reservation> findAllReservation (){return reservationRepository.findAll(); }
+	public void effacerReservation(Long id) {
+		reservationRepository.deleteById(id);
+	}
+
+	public List<Reservation> mesDemandes(int id){
+		return reservationRepository.findByUserId(id);
+	}
+
+	public List<Reservation> mesTopos(int id){
+		return reservationRepository.findByUserId(id);
+	}
+
+	public List<Reservation> mesDemandesTopos(Long id){
+		return reservationRepository.findByTopoId(id);
+	}
+
+/*	public List<Reservation> findAllReservation (){return reservationRepository.findAll(); }*/
 
 	public Reservation findReservationById(Long id) {
 		return reservationRepository.findReservationById(id);
 	}
+	/*
 
 	public Reservation findReservationByNom(String reservation) {
 		return reservationRepository.findByNom(reservation);

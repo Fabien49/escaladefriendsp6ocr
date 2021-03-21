@@ -60,6 +60,8 @@
         <p>Cotation max : <input type="text" name="cotationMax" th:field="*{cotationMax}" /></p>
         <p>Cotation max : <input type="text" name="cotationMax" th:field="*{description}" /></p>
         <p>Cotation max : <input type="text" name="cotationMax" th:field="*{site_image}" /></p>
+        <p>Certifié : <label><input type="radio" th:field="*{certifie}"th:value="true"/>Oui</label>
+         <label><input type="radio" th:field="*{certifie}"th:value="false"/>Non</label>
         <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
     </form>
 

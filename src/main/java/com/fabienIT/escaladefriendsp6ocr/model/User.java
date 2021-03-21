@@ -32,8 +32,8 @@ public class User {
 	@Column(name = "last_name")
 	@NotEmpty(message = "*Please provide your last name")
 	private String lastName;
-	@Column(name = "sexe")
-	@NotEmpty(message = "*Please provide your sexe")
+	/*@Column(name = "sexe")
+	@NotEmpty(message = "*Please provide your sexe")*/
 	private String sexe;
 	@Column(name = "voie")
 	@NotEmpty(message = "*Please provide your voie")
@@ -65,13 +65,12 @@ public class User {
 	}
 
 
-	public User(int id, @Email(message = "*Please provide a valid Email") @NotEmpty(message = "*Please provide an email") String email, @Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password, @NotEmpty(message = "*Please provide your name") String name, @NotEmpty(message = "*Please provide your last name") String lastName, @NotEmpty(message = "*Please provide your sexe") String sexe, @NotEmpty(message = "*Please provide your voie") String voie, @NotEmpty(message = "*Please provide your code postal") String codePostal, @NotEmpty(message = "*Please provide your commune") String commune, String niveau, boolean active, Set<Role> roles, Set<Topo> topo, Set<Reservation> reservation, Set<Commentaire> commentaire) {
+	public User(int id, @Email(message = "*Please provide a valid Email") @NotEmpty(message = "*Please provide an email") String email, @Length(min = 5, message = "*Your password must have at least 5 characters") @NotEmpty(message = "*Please provide your password") String password, @NotEmpty(message = "*Please provide your name") String name, @NotEmpty(message = "*Please provide your last name") String lastName, @NotEmpty(message = "*Please provide your voie") String voie, @NotEmpty(message = "*Please provide your code postal") String codePostal, @NotEmpty(message = "*Please provide your commune") String commune, String niveau, boolean active, Set<Role> roles, Set<Topo> topo, Set<Reservation> reservation, Set<Commentaire> commentaire) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.name = name;
 		this.lastName = lastName;
-		this.sexe = sexe;
 		this.voie = voie;
 		this.codePostal = codePostal;
 		this.commune = commune;
@@ -137,14 +136,6 @@ public class User {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
-	}
-
-	public String getSexe() {
-		return sexe;
-	}
-
-	public void setSexe(String sexe) {
-		this.sexe = sexe;
 	}
 
 	public String getVoie() {
@@ -215,7 +206,6 @@ public class User {
 				", password='" + password + '\'' +
 				", name='" + name + '\'' +
 				", lastName='" + lastName + '\'' +
-				", sexe='" + sexe + '\'' +
 				", voie='" + voie + '\'' +
 				", codePostal='" + codePostal + '\'' +
 				", commune='" + commune + '\'' +

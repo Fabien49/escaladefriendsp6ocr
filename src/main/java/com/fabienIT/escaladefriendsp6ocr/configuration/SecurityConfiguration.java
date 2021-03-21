@@ -44,6 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/login").permitAll()
 				.antMatchers("/inscription").permitAll()
 				.antMatchers("/save").permitAll()
+				.antMatchers("/saveUser").permitAll()
 				.antMatchers("/visiteur/**").permitAll()
 				.antMatchers("/admin/**","/h2web/**").hasAuthority("ADMIN").anyRequest()
 				.authenticated().and().csrf().disable().formLogin()
@@ -88,7 +89,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 	    web
 	       .ignoring()
-	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/img/**", "/bootstrap/**", "/img/site/**");
+	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/img/**", "/bootstrap/**", "/img/site/**", "/templates/fragments/**");
 	}
 	
 	@Bean

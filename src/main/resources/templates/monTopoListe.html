@@ -49,6 +49,7 @@
 
     <!-- end header -->
 
+
     <div class="card">
         <table class="table">
             <tr>
@@ -71,7 +72,7 @@
             <tr></tr>
 
             <tr class="p-3 mb-2 bg-dark text-white">
-                <th class="align-middle text-center">NOM</th><th class="align-middle text-center">PROPRIETAIRE</th><th class="align-middle text-center">REGION</th><th class="align-middle text-center">Nb DE SITES</th><th class="align-middle text-center">Nb DE VOIES</th><th class="align-middle text-center">COTATION MINI</th><th class="align-middle text-center">COTATION MAX</th><th class="align-middle text-center">DEMANDE RESERATION</th><th class="align-middle text-center">RESERVE</th><th th:if = "${{role} == ('ADMIN') or {role} == ('MEMBRE')}" class="align-middle text-center">GESTION</th>
+                <th class="align-middle text-center">NOM</th><th class="align-middle text-center">PROPRIETAIRE</th><th class="align-middle text-center">REGION</th><th class="align-middle text-center">Nb DE SITES</th><th class="align-middle text-center">Nb DE VOIES</th><th class="align-middle text-center">COTATION MINI</th><th class="align-middle text-center">COTATION MAX</th><th class="align-middle text-center">DEMANDE RESERATION</th><th th:if = "${{role} == ('ADMIN') or {role} == ('MEMBRE')}" class="align-middle text-center">GESTION</th>
             </tr>
             <tr  th:each="t:${monTopoListe}">
                 <td th:text="${t.nom}"></td>
@@ -82,34 +83,36 @@
                 <td th:text="${t.cotationMin}"></td>
                 <td th:text="${t.cotationMax}"></td>
 
-                <td th:object="${reservation}">
-                    <div th:if="${id != ''}">
-                        <span th:unless="${demandeReservation == true}"><a th:href="@{monTopoReservation/(id=${t.id})}">Demande de réservation</a></span>
+                <td th:each="r:${reservation}">
+                        <span th:if="${r.id == null}"><a th:href="@{monTopoReservation/(id=${t.id})}">Demande de réservation</a></span>
 
-                        <span th:if="${demandeReservation == true} and ${!reserve == false}"><a th:href="@{validerReservationMonTopo/(id=${t.id})}">Validation réservation</a></span>
+                    <div th:if="${r.id != null}">
+                        <span th:if="${r.demandeReservation == true} and ${r.reserve == false}">En attente de validation</span>
 
-                        <span th:if="${demandeReservation == true} and ${reserve == true}">Déjà pris !</span>
-                        </form>
+                        <span th:if="${r.demandeReservation == true} and ${r.reserve == true}">Déjà pris !</span>
                     </div>
-                    <div th:if="${id == null}">
+                        </form>
+                </td>
+                    <!--<div th:if="${id == null}">
                         <span th:if="${demandeReservation == null or demandeReservation == false}"><a th:href="@{monTopoReservation/(id=${t.id})}">Demande de réservation</a></span>
                         </form>
                     </div>
-                </td>
+                </td>-->
 
-                <td>
-                    <div th:if="${id != null}">
-                        <span th:unless="${demandeReservation == true}">Disponible</span>
-                        <span th:if="${demandeReservation == true} and ${reserve == false}">En attente de validation</span>
-                        <span th:if="${reserve == true}">Réservé</span>
+            <!--    <td th:each="r:${reservation}">
+                    <div th:if="${r.id != null}">
+                        <span th:if="${r.demandeReservation == false}">Disponible</span>
+                        <span th:if="${r.demandeReservation == true} and ${r.reserve == false}">En attente de validation</span>
+                        <span th:if="${r.reserve == true}">Réservé</span>
                     </div>
-                    <div th:if="${id == null}">
-                        <span th:if="${demandeReservation == null or demandeReservation == false}">Disponible</span>
+                    <div th:if="${r.id == null}">
+                        <span th:if="${r.demandeReservation == null or r.demandeReservation == false}">Disponible</span>
                     </div>
-                </td>
+                </td>-->
 
                 <td th:if = "${{role} == ('ADMIN') or {role} == ('MEMBRE')}">
                     <div>
+
                         <a class="btn btn-success" th:href="@{editerTopo/(id=${t.id})}">Editer</a>
                     </div>
                     &nbsp;&nbsp;&nbsp;

@@ -28,7 +28,9 @@
     <!-- Custom styles for this template -->
     <link href="/css/main.css" rel="stylesheet">
 </head>
-
+<h2>
+    <span th:text="'Hello, ' + ${role}"></span>
+</h2>
 <body>
 <!-- header -->
 <header th:replace="fragments/header::header"></header>
@@ -41,6 +43,9 @@
         <h4 th:object="${sitePageEscalade}" th:text="*{nom}"></h4>
         <div th:object="${sitePageEscalade}"><img src="#" th:src ="@{|/img/site/*{site_image}|}"  width="50%" height="50%">
             <table class="table">
+                <tr th:object="${sitePageEscalade}" th:if="${{certifie} == true}">
+                    <th>Certifié Les Amis de l'Escalade</th>
+                </tr>
                 <tr>
                     <th class="bg-info text-white">Nombre de Voie : </th><th th:object="${sitePageEscalade}" th:text="*{nbVoies}"></th>
                 </tr>
@@ -67,7 +72,7 @@
 <table class="table table-striped" border="0" cellpadding="0">
     <tr></tr>
     <tr class="p-3 mb-2 bg-dark text-white">
-        <th class="align-middle text-center">Commentaire</th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th class="align-middle text-center">GESTION</th>
+        <th class="align-middle text-center">Commentaire</th><th></th></th><th th:if="${role}" class="align-middle text-center">GESTION</th>
     </tr>
     <tr th:each="cs:${comSite}" class="media">
     <td><img class="d-flex rounded-circle avatar z-depth-1-half mr-3" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
@@ -78,25 +83,15 @@
 <!--        <p th:text="${#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></p>-->
         <span th:text="${cs.com}"></span>
     </td>
-<!--        <td th:if = "${{role} == ('ADMIN') or ('MEMBRE')}">
-            <div>
+        <td th:if = "${role}">
+            <div th:if ="${cs.user.id} == ${userId}">
                 <a class="btn btn-success" th:href="@{editerCommentaire/(id=${cs.id})}">Editer</a>
             </div>
             &nbsp;&nbsp;&nbsp;
-            <div>
-                <a class="btn btn-danger" th:href="@{effacerCommentaire/(id=${cs.id})}">Effacer</a>
-            </div>
-        </td>-->
-        <td>
-            <div>
-                <a class="btn btn-success" th:href="@{editerCommentaire/(id=${cs.id})}">Editer</a>
-            </div>
-            &nbsp;&nbsp;&nbsp;
-            <div>
+            <div th:if ="${{cs.user.id} == {userId} or {role} == ('ADMIN')}">
                 <a class="btn btn-danger" th:href="@{effacerCommentaire/(id=${cs.id})}">Effacer</a>
             </div>
         </td>
-    </tr>
 </table>
 
 

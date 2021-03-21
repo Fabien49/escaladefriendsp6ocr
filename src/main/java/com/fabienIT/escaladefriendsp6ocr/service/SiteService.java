@@ -23,8 +23,6 @@ public class SiteService {
     }
 
 
-
-
     public Site findSiteById(Long id) {
         return (Site) siteRepository.findAllById(id);
     }
@@ -38,6 +36,8 @@ public class SiteService {
     }
 
     public Site findByNom(String nom){return  siteRepository.findByNom(nom);}
+
+
 
     public void updateSite(Site site) {
         //recuparation du topo en base via l'id
@@ -54,6 +54,7 @@ public class SiteService {
         dbSite.setCotationMax(site.getCotationMax());
         dbSite.setDescription(site.getDescription());
         dbSite.setSite_image(site.getSite_image());
+        dbSite.setCertifie(site.isCertifie());
         dbSite.setTopo(topo);
         dbSite.setCommentaire(commentaire);
         //mise à jour dans la bdd (sauvegarde)

@@ -11,9 +11,11 @@
 
 	<!-- Bootstrap core CSS
      <link href="../../css/editor.css" rel="stylesheet">-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 
 	<!-- bootstrap -->
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<!--	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript" src="bootstrap/js/jquery-3.5.0.min.js"></script>
 	<script type="text/javascript" src="bootstrap/js/script.js"></script>
@@ -23,27 +25,19 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
 
 	<!-- Custom styles for this template -->
-	<link href="css/main.css" rel="stylesheet">
+	<!--<link href="css/main.css" rel="stylesheet">-->
 </head>
 
-<p>
-	<!-- header -->
-	<header class="container-fluid header">
-		<div class="container-logo">
-			<a href="/" class="active">Les Amis de l'Escalade</a>
-			<nav class="menu">
-				<a href="/">Accueil</a>
-				<a href="/sites">Sites d'escalade</a>
-				<a href="/#about">A propos</a>
-				<!-- <a href="#contact">Contact</a> -->
-				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-					<i class="fa fa-bars"></i></a>
-			</nav>
 
-		</div>
+	<!-- header -->
+<header th:replace="fragments/header::header"></header>
+
+<div th:if="${role == 'ADMIN'}">
+	<div th:replace="fragments/headerAdmin::menuAdmin"></div>
+</div>
 
 	</header>
 

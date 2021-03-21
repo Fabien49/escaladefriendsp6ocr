@@ -23,12 +23,12 @@ body {
 
 /* header */
 
-.header {
+/*.header {
 
 	background-color: #78C7FF;
 	height: 70px;
 	line-height: 70px;
-}
+}*/
 
 
 .active {
@@ -45,10 +45,10 @@ body {
 	text-decoration: none;
 }
 
-.menu {
+/*.menu {
 	float: right;
   	display: block;
- 	background-color: #78C7FF;
+ 	background-color: #78C7FF;*/
 
 }
 

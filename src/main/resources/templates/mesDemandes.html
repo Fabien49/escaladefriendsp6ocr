@@ -57,52 +57,42 @@
             <tr></tr>
 
             <tr class="p-3 mb-2 bg-dark text-white">
-                <th class="align-middle text-center">NOM</th><th class="align-middle text-center">PROPRIETAIRE</th><th class="align-middle text-center">REGION</th><th class="align-middle text-center">Nb DE SITES</th><th class="align-middle text-center">Nb DE VOIES</th><th class="align-middle text-center">COTATION MINI</th><th class="align-middle text-center">COTATION MAX</th><th class="align-middle text-center">DEMANDE RESERATION</th><th class="align-middle text-center">RESERVE</th><th class="align-middle text-center">GESTION</th>
+                <th class="align-middle text-center">NOM</th><th class="align-middle text-center">PROPRIETAIRE</th><th class="align-middle text-center">REGION</th><th class="align-middle text-center">Nb DE SITES</th><th class="align-middle text-center">Nb DE VOIES</th><th class="align-middle text-center">COTATION MINI</th><th class="align-middle text-center">COTATION MAX</th><th class="align-middle text-center">DEMANDE RESERVATION</th><th class="align-middle text-center">RESERVE</th><th class="align-middle text-center">GESTION</th>
             </tr>
             <tr th:each="t:${mesDemandes}">
-                <td th:text="${t.nom}"></td>
-                <td th:text="${t.proprietaire}"></td>
-                <td th:text="${t.region}"></td>
-                <td th:text="${t.nbSites}"></td>
-                <td th:text="${t.nbVoies}"></td>
-                <td th:text="${t.cotationMin}"></td>
-                <td th:text="${t.cotationMax}"></td>
+                <td th:text="${t.topo.nom}"></td>
+                <td th:text="${t.topo.proprietaire}"></td>
+                <td th:text="${t.topo.region}"></td>
+                <td th:text="${t.topo.nbSites}"></td>
+                <td th:text="${t.topo.nbVoies}"></td>
+                <td th:text="${t.topo.cotationMin}"></td>
+                <td th:text="${t.topo.cotationMax}"></td>
 
 <!--                TODO: Corriger le bug, appel de l'objet demandeReservation du model reservation dans le controller-->
-               <td th:object="${reservation}">
-                   <div th:if="${demandeReservation != null}">
-                    <span th:if="${!demandeReservation}">Pas de demande de réservation</span>
+               <td th:if="${t.id != null}">
+                   <div th:if="${t.validerReservation != null}">
+                    <span th:if="${!t.validerReservation}">Demande en attente de validation</span>
+                    <span th:if="${t.reserve}">Demande acceptée</span>
 
-                    <span th:if="${demandeReservation} and ${!reserve}"><a th:href="@{validerReservationMonTopo/(id=${t.id})}">Validation réservation</a></span>
-
-                    <span th:if="${demandeReservation} and ${reserve}">Déjà pris !</span>
-                    </form>
                    </div>
-                   <div th:if="${demandeReservation == null}">
-                       <span th:if="${demandeReservation == null or !demandeReservation}">Pas de demande de réservation</span>
-                       </form>
-                   </div>
-                </td>
+               </td>
 
 
                 <td>
-                    <div th:if="${demandeReservation != null}">
-                        <span th:if="${!demandeReservation}">Disponible</span>
-                        <span th:if="${demandeReservation} and ${!reserve}">En attente de validation</span>
-                        <span th:if="${reserve}">Réservé</span>
+                    <div th:if="${t.id != null}">
+                        <div th:if="${t.demandeReservation != null}">
+                            <span th:if="${t.validerReservation}"><a th:href="@{coordonnees/(id=${t.topo.id})}">Voir les coordonnées</a></span>
+
+                        </div>
+                    <div th:if="${t.demandeReservation == null}">
+                        <span th:if="${t.demandeReservation == null or !t.demandeReservation}">Disponible</span>
                     </div>
-                    <div th:if="${demandeReservation == null}">
-                        <span th:if="${demandeReservation == null or !demandeReservation}">Disponible</span>
                     </div>
                 </td>
 
                 <td>
-                    <div th:if="${role != UTILISATEURCONNECTE}">
-                        <a class="btn btn-success" th:href="@{editerMonTopo/(id=${t.id})}">Editer</a>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;
-                    <div th:if="${role != UTILISATEURCONNECTE}">
-                        <a class="btn btn-danger" th:href="@{effacerTopo/(id=${t.id})}">Effacer</a>
+                    <div th:if="${role}">
+                        <a class="btn btn-success" th:href="@{annulerDemande/(id=${t.id})}">Annuler ma demande</a>
                     </div>
                 </td>
             </tr>

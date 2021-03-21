@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/header::headerlink"></head>
+<head>
+
+	<!-- Required meta tags -->
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<title>Les Amis de l'Escalade</title>
+
+</head>
 <!-- contenu du site -->
 <body>
 <!-- header -->
@@ -10,9 +24,9 @@
 
 <!-- banniere -->
 <section class="container-fluid">
-	<div class="ban">
+<!--	<div class="ban">
 		<img src="img/ban5.jpg" alt="Bannière du site" class="banner" />
-	</div>
+	</div>-->
 	<div class="inner-banner">
 		<h1>Bienvenue dans l'espace des utlisateurs connectés</h1>
 		<p th:text="${userName}"></p>
