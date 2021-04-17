@@ -3,7 +3,7 @@ package com.fabienIT.escaladefriendsp6ocr.service;
 
 
 import com.fabienIT.escaladefriendsp6ocr.repository.InscriptionRepository;
-import com.fabienIT.escaladefriendsp6ocr.model.Utilisateur;
+import com.fabienIT.escaladefriendsp6ocr.model.UtilisateurOld;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +13,9 @@ public class InscriptionService {
     @Autowired
     InscriptionRepository inscriptionRepository;
 
-    public void ajouter (Utilisateur utilisateur){
+    public void ajouter (UtilisateurOld utilisateurOld){
 
-        inscriptionRepository.save(utilisateur);
+        inscriptionRepository.save(utilisateurOld);
     }
 
    /* public void saveUser(User user) {

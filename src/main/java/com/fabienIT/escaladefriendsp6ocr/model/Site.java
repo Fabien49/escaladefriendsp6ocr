@@ -23,10 +23,10 @@ public class Site implements Serializable {
     private String site_image;
     private boolean certifie;
 
-    @OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
-    private Set<Topo> topo;
+    /*@OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+    private Set<Topo> topo;*/
 
-    @OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+    @OneToMany(mappedBy = "site", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
     private Set<Commentaire> commentaire;
 
 
@@ -109,14 +109,6 @@ public class Site implements Serializable {
         this.site_image = site_image;
     }
 
-    public Set<Topo> getTopo() {
-        return topo;
-    }
-
-    public void setTopo(Set<Topo> topo) {
-        this.topo = topo;
-    }
-
     public Set<Commentaire> getCommentaire() {
         return commentaire;
     }
@@ -154,7 +146,6 @@ public class Site implements Serializable {
                 ", description='" + description + '\'' +
                 ", site_image='" + site_image + '\'' +
                 ", certifie=" + certifie +
-                ", topo=" + topo +
                 ", commentaire=" + commentaire +
                 '}';
     }

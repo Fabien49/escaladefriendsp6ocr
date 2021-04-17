@@ -12,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,7 +51,7 @@ public class TopoService {
 	}
 
 
-	public Page<Topo> findByNameContains (String keyword, Pageable pageable) {
+	public Page<Topo> findByNameContains (@Param("keyword") String keyword, @Param("page") Pageable pageable) {
 		if (keyword != null) {
 			return topoRepository.findByNomContains(keyword, pageable);
 		}
@@ -58,7 +59,7 @@ public class TopoService {
 		return topoRepository.findAll(pageable);
 	}
 
-	public void effacer(Long id) {
+	public void delete (Long id) {
 		topoRepository.deleteById(id);
 	}
 
@@ -69,12 +70,11 @@ public class TopoService {
 		Topo dbTopo = topoRepository.findById(id).get();
 		//mise à jour (récupération) du nom depuis le formulaire d'edition
 		dbTopo.setNom(topo.getNom());
-		dbTopo.setProprietaire(topo.getProprietaire());
 		dbTopo.setRegion(topo.getRegion());
-		dbTopo.setNbSites(topo.getNbSites());
-		dbTopo.setNbVoies(topo.getNbVoies());
-		dbTopo.setCotationMin(topo.getCotationMin());
-		dbTopo.setCotationMax(topo.getCotationMax());
+		dbTopo.setDate(topo.getDate());
+		dbTopo.setDisponible(topo.isDisponible());
+		dbTopo.setDescription(topo.getDescription());
+		dbTopo.setReservation(topo.getReservation());
 		//mise à jour dans la bdd (sauvegarde)
 		topoRepository.save(dbTopo);
 	}

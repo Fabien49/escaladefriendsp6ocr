@@ -1,6 +1,7 @@
 package com.fabienIT.escaladefriendsp6ocr.service;
 
 import com.fabienIT.escaladefriendsp6ocr.model.Reservation;
+import com.fabienIT.escaladefriendsp6ocr.model.Topo;
 import com.fabienIT.escaladefriendsp6ocr.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,26 @@ public class ReservationService {
 	public Reservation findReservationById(Long id) {
 		return reservationRepository.findReservationById(id);
 	}
+
+	public Reservation findReservationByTopoId(long id){return reservationRepository.findReservationByTopoId(id);}
+
+	public Reservation findReservationByUserId(int id){return reservationRepository.findReservationByUserId(id);}
+
+	public void updateReservation(Reservation reservation) {
+		//recuparation du topo en base via l'id
+		Long id = reservation.getId();
+		Reservation dbReservation = reservationRepository.findById(id).get();
+		//mise à jour (récupération) du nom depuis le formulaire d'edition
+		dbReservation.setDemandeReservation(reservation.getDemandeReservation());
+		dbReservation.setValiderReservation(reservation.getValiderReservation());
+		dbReservation.setReserve(reservation.getReserve());
+//		dbReservation.setUser(reservation.getUseur());
+		dbReservation.setTopo(reservation.getTopo());
+		//mise à jour dans la bdd (sauvegarde)
+		reservationRepository.save(dbReservation);
+	}
+
+
 	/*
 
 	public Reservation findReservationByNom(String reservation) {
@@ -54,11 +75,11 @@ public class ReservationService {
 
 
 */
-/*	public Page<Reservation> findAllNotId (Pageable pageable, @Param("model") Model model, @Param("user") User user, @Param("authentification") Authentication authentication, UserController userController){
+/*	public Page<Reservation> findAllNotId (Pageable pageable, @Param("model") Model model, @Param("user") User utilisateur, @Param("authentification") Authentication authentication, UserController utilisateurController){
 
-		user = userController.userCo(model, authentication);
+		utilisateur = utilisateurController.utilisateurCo(model, authentication);
 
-		return reservationRepository.findAllNotId(pageable, user);
+		return reservationRepository.findAllNotId(pageable, utilisateur);
 	}
 
 

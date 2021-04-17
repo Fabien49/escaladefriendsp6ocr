@@ -48,17 +48,17 @@ public class User {
 	private String niveau;
 	@Column(name = "active")
 	private boolean active;
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
 	private Set<Topo> topo;
 
-	@OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
 	private Set<Reservation> reservation;
 
-	@OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
+	@OneToMany(mappedBy = "site", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
 	private Set<Commentaire> commentaire;
 
 	public User() {
@@ -206,6 +206,7 @@ public class User {
 				", password='" + password + '\'' +
 				", name='" + name + '\'' +
 				", lastName='" + lastName + '\'' +
+				", sexe='" + sexe + '\'' +
 				", voie='" + voie + '\'' +
 				", codePostal='" + codePostal + '\'' +
 				", commune='" + commune + '\'' +
@@ -213,6 +214,7 @@ public class User {
 				", active=" + active +
 				", roles=" + roles +
 				", topo=" + topo +
+				", reservation=" + reservation +
 				", commentaire=" + commentaire +
 				'}';
 	}

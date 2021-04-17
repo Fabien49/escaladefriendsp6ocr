@@ -3,9 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="icon" href="../../../../favicon.ico">
 
         <title>Les Amis de l'Escalade</title>
 
@@ -37,19 +34,6 @@
 
         <!-- end header -->
 
-        <!--<h1>TOPOS</h1>
-
-        <form method="post" action="#" th:action="@{/enregistre}" th:object="${topo}">
-            <p>Nom : <input type="text" name="nom" th:field="*{nom}" /></p>
-            <p>Proprietaire : <input type="text" name="proprietaire" th:field="*{proprietaire}" /></p>
-            <p>Région : <input type="text" name="region" th:field="*{region}" /></p>
-            <p>Nombre de sites : <input type="text" name="nbSites" th:field="*{nbSites}" /></p>
-            <p>Nombre de voies : <input type="text" name="nbVoies" th:field="*{nbVoies}" /></p>
-            <p>Cotation mini : <input type="text" name="cotationMin" th:field="*{cotationMin}" /></p>
-            <p>Cotation max : <input type="text" name="cotationMax" th:field="*{cotationMax}" /></p>
-            <p>Réservé : <input type="text" name="reserve" th:field="*{reserve}" /></p>
-            <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
-        </form>-->
     <p><div class="">
         <h1>FORMULAIRE DES TOPOS</h1>
         <div class="container">
@@ -67,16 +51,6 @@
                             </div>
                         </div>
 
-                        <!--<div class="form-group">
-                            <label for="proprietaire" class="cols-sm-2 control-label">Propriétaire : </label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text"  th:field="*{proprietaire}" class="form-control" name="proprietaire" id="proprietaire" placeholder="Propriétaire"/>
-                                </div>
-                            </div>
-                        </div>-->
-
                         <div class="form-group">
                             <label for="region" class="cols-sm-2 control-label">Région : </label>
                             <div class="cols-sm-10">
@@ -87,34 +61,8 @@
                             </div>
                         </div>
 
-                       <!-- <div class="form-group">
-                            <label for="region" class="cols-sm-2 control-label">Id du site : </label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <input type="text"  th:field="*{site.id}" class="form-control" name="region" id="siteId" placeholder="Site id"/>
-                                </div>
-                            </div>
-                        </div>
--->
                         <div class="form-group">
-                            <label for="region" class="cols-sm-2 control-label">Site : </label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                    <select th:object="${site}" type="text" class="form-control" name="siteNom" id="siteNom" placeholder="Site">
-                                        <option value=""> &#45;&#45; </option>
-                                        <option th:each="s : ${site}"
-                                                th:value="${s.id}"
-                                                th:text="${s.nom}"
-                                                />
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="nbSites" class="cols-sm-2 control-label">Nombre de sites : </label>
+                            <label for="nbSites" class="cols-sm-2 control-label">Date : </label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -124,7 +72,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="nbVoies" class="cols-sm-2 control-label">Nombre de voies : </label>
+                            <label for="nbVoies" class="cols-sm-2 control-label">Disponible : </label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -134,7 +82,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="cotationMin" class="cols-sm-2 control-label">Cotation mini : </label>
+                            <label for="cotationMin" class="cols-sm-2 control-label">Description : </label>
                             <div class="cols-sm-10">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
@@ -142,30 +90,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group">
-                            <label for="cotationMax" class="cols-sm-2 control-label">Cotation max : </label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
-                                    <input type="text" th:field="*{cotationMax}" class="form-control" name="cotationMax" id="cotationMax"  placeholder="Cotation max"/>
-                                </div>
-                            </div>
-                        </div>
-
-
-<!--                        TODO: Mettre la liste des sites qui se trouve en DB pour rattacher le topo que l'on va enregistrer-->
-                        <!--<div class="form-group">
-                            <label for="site" class="cols-sm-2 control-label">Site : </label>
-                            <div class="cols-sm-10">
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
-                                    <input type="text" th:field="*{site}" class="form-control" name="site" id="site"  placeholder="site"/>
-                                </div>
-                            </div>
-                        </div>-->
-
-
 
                         <div class="form-group ">
                             <input type="submit"  id="button" class="btn btn-primary btn-lg btn-block login-button"></input>

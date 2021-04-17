@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		roles.add(role);
 		user.setRoles(roles);
 		userRepository.save(user);
-		System.out.println("L'utilisateur enregistré est : " + user);
+		System.out.println("L'user enregistré est : " + user);
 	}
 
 	public void saveMembre(User user) {

@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/style.css" />
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     <title>Les Amis de l'Escalade</title>
 
 </head>
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 my-4 col-lg-6">
+        <div th:if="${role == null}" class="col-12 my-4 col-lg-6">
             <div class="border-secondary shadow card h-100">
                 <img class="card-img-top" src="/img/insctiption.jpg" alt="insctiption" height="300">
                 <div class="card-body">
@@ -55,13 +55,45 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 my-4 col-lg-6">
+        <div th:if="${role == null}" class="col-12 my-4 col-lg-6">
             <div class="border-secondary shadow card h-100">
                 <img class="card-img-top" src="/img/site.jpg" alt="site" height="300">
                 <div class="card-body">
                     <h5 class="card-title">Sites d'escalades</h5>
                     <p class="card-text">Ici vous trouverez tous les sites que les utilisateurs ont partagé. Il y en a pour tous les niveaux car les cotations y sont indiquées. Ainsi que plein d'autres informations.</p>
-                    <a class="btn btn-secondary" href="/visiteur/sites" role="button">Voir les sites</a>
+                    <a class="stretched-link btn btn-secondary" href="/sites" role="button">Voir les sites</a>
+                </div>
+            </div>
+        </div>
+
+        <div th:if="${role}" class="col-12 my-4 col-lg-4">
+            <div class="border-secondary shadow card h-100">
+                <img class="card-img-top" src="/img/site.jpg" alt="site" height="300">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Sites d'escalades</h5>
+                    <p class="card-text">Ici vous trouverez tous les sites que les utilisateurs ont partagé. Il y en a pour tous les niveaux car les cotations y sont indiquées. Ainsi que plein d'autres informations.</p>
+                    <a class="stretched-link btn btn-primary mt-auto" href="/sites" role="button">Voir les sites</a>
+                </div>
+            </div>
+        </div>
+
+        <div th:if="${role}" class="col-12 my-4 col-lg-4">
+            <div class="border-secondary shadow card h-100">
+                <img class="card-img-top" src="img/topo/topo_diois.jpg" alt="topo" height="300">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Topos</h5>
+                    <p class="card-text">Vous pourrez chercher, et faire des demandes de prêt de topos</p>
+                    <a class="stretched-link btn btn-primary mt-auto" href="/topos" role="button">Voir les topos</a>
+                </div>
+            </div>
+        </div>
+        <div th:if="${role}" class="col-12 my-4 col-lg-4">
+            <div class="border-secondary shadow card h-100">
+                <img class="card-img-top" src="img/inscription.jpg" alt="compte" height="300">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">Mon compte</h5>
+                    <p class="card-text">C'est ici que tu pourras enregistrer tes propres topos, accepter ou refuser des demandes de prêt de tes topos, suivre tes demandes également</p>
+                    <a class="stretched-link btn btn-primary mt-auto" href="/monCompte" role="button">Voir mon compte</a>
                 </div>
             </div>
         </div>
@@ -76,6 +108,7 @@
           </div> -->
     </div>
 </div>
+<footer>
 <div class="container">
     <div class="row">
         <div class="col">
@@ -86,10 +119,9 @@
                 <li class="list-inline-item">&middot;</li>
             </ul>
         </div>
-        </nav>
     </div>
 </div>
-</div>
+</footer>
 
 
 <!-- Optional JavaScript -->

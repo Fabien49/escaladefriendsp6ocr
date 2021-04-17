@@ -76,12 +76,10 @@
             </tr>
             <tr  th:each="t:${monTopoListe}">
                 <td th:text="${t.nom}"></td>
-                <td th:text="${t.proprietaire}"></td>
                 <td th:text="${t.region}"></td>
-                <td th:text="${t.nbSites}"></td>
-                <td th:text="${t.nbVoies}"></td>
-                <td th:text="${t.cotationMin}"></td>
-                <td th:text="${t.cotationMax}"></td>
+                <td th:text="${t.date}"></td>
+                <td th:text="${t.disponible}"></td>
+                <td th:text="${t.description}"></td>
 
                 <td th:each="r:${reservation}">
                         <span th:if="${r.id == null}"><a th:href="@{monTopoReservation/(id=${t.id})}">Demande de réservation</a></span>
@@ -91,7 +89,6 @@
 
                         <span th:if="${r.demandeReservation == true} and ${r.reserve == true}">Déjà pris !</span>
                     </div>
-                        </form>
                 </td>
                     <!--<div th:if="${id == null}">
                         <span th:if="${demandeReservation == null or demandeReservation == false}"><a th:href="@{monTopoReservation/(id=${t.id})}">Demande de réservation</a></span>

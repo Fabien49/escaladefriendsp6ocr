@@ -11,6 +11,4 @@ public interface UserService {
 	public void saveMembre(User user);
 	public User findUser(Long id);
 
-
-
 }

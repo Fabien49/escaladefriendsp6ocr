@@ -44,9 +44,9 @@ public class SiteService {
         Long id = site.getId();
         System.out.println("l'Id du site est : " + id);
         Site dbSite = siteRepository.findById(id).get();
-        Set<Topo> topo = siteRepository.findAllById(id).getTopo();
         Set<Commentaire> commentaire = siteRepository.findAllById(id).getCommentaire();
         //mise à jour (récupération) du nom depuis le formulaire d'edition
+        dbSite.getId();
         dbSite.setNom(site.getNom());
         dbSite.setRegion(site.getRegion());
         dbSite.setNbVoies(site.getNbVoies());
@@ -55,11 +55,29 @@ public class SiteService {
         dbSite.setDescription(site.getDescription());
         dbSite.setSite_image(site.getSite_image());
         dbSite.setCertifie(site.isCertifie());
-        dbSite.setTopo(topo);
         dbSite.setCommentaire(commentaire);
         //mise à jour dans la bdd (sauvegarde)
         siteRepository.save(dbSite);
 
+    }
+
+    public void updateSiteCerfifie (Site site) {
+        Long id = site.getId();
+        System.out.println("l'Id du site est : " + id);
+        Site dbSite = siteRepository.findById(id).get();
+        //mise à jour (récupération) du nom depuis le formulaire d'edition
+
+        dbSite.setNom(site.getNom());
+        dbSite.setRegion(site.getRegion());
+        dbSite.setNbVoies(site.getNbVoies());
+        dbSite.setCotationMin(site.getCotationMin());
+        dbSite.setCotationMax(site.getCotationMax());
+        dbSite.setDescription(site.getDescription());
+        dbSite.setSite_image(site.getSite_image());
+        dbSite.setCertifie(site.isCertifie());
+        dbSite.setCommentaire(site.getCommentaire());
+        //mise à jour dans la bdd (sauvegarde)
+        siteRepository.save(dbSite);
     }
 
 }

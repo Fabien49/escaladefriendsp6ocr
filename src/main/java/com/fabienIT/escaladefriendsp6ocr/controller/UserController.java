@@ -26,7 +26,7 @@ public class UserController {
     private static final Logger log = LoggerFactory.getLogger(TopoController.class);
 
 /*    @Autowired
-    UtilisateurService utilisateurService;*/
+    UserService userService;*/
 
     @Autowired
     UserService userService;
@@ -38,13 +38,13 @@ public class UserController {
 
 /*    @GetMapping("/inscription")
     public String utilisateur(Model model) {
-        model.addAttribute("utilisateur", new Utilisateur());
+        model.addAttribute("utilisateur", new UtilisateurOld());
         return "/inscription";
     }*/
 
 /*    @PostMapping("/utilisateurAjouter")
-    public String ajouter (Utilisateur utilisateur) {
-        utilisateurService.ajouter(utilisateur);
+    public String ajouter (UtilisateurOld utilisateur) {
+        userService.ajouter(utilisateur);
         log.info("Le nom de l'utilisateur est : " +utilisateur);
         return "/home";
     }*/
@@ -65,19 +65,19 @@ public class UserController {
     }*/
 
 
-    @RequestMapping(value="/utilisateurCo", method = RequestMethod.GET)
-    public ModelAndView accueilUtilisateurCo(Authentication authentication){
+    @RequestMapping(value="/userCo", method = RequestMethod.GET)
+    public ModelAndView accueilUserCo(Authentication authentication){
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("userName", "Bonjour " + " : " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
+        modelAndView.addObject("adminMessage","Content Available Only for users with Admin Role");
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         modelAndView.addObject("role", roles.toString());
         System.out.println("Le role est : " + roles.toString());
         modelAndView.addObject("userId", user.getId());
-        System.out.println("L'Id de l'utilisateur connecté est : " + user.getId());
-        modelAndView.setViewName("utilisateurCo");
+        System.out.println("L'Id de l'user connecté est : " + user.getId());
+        modelAndView.setViewName("userCo");
         return modelAndView;
     }
 
@@ -86,7 +86,7 @@ public class UserController {
         User user = userService.findUserByEmail(auth.getName());
         int userId = user.getId();
         model.addAttribute("userId ",userId);
-        System.out.println("L'Id de l'utilisateur connecté sur la page mon compte est : " + user.getId());
+        System.out.println("L'Id de l'user connecté sur la page mon compte est : " + user.getId());
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         model.addAttribute("role", roles.toString());
         System.out.println("Le role est : " + roles.toString());
@@ -101,7 +101,7 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("userName", "Bonjour " + " : " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
+        modelAndView.addObject("adminMessage","Content Available Only for users with Admin Role");
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         modelAndView.addObject("role", roles.toString());
         System.out.println("Le role est : " + roles.toString());
@@ -114,7 +114,7 @@ public class UserController {
     public String list(Model model,
             @RequestParam(name = "page", defaultValue = "0")int page,
             @RequestParam(name="size",defaultValue = "5")int size) {
-        Page<Utilisateur> utilisateurPage = utilisateurService.getUserList(PageRequest.of(page,size));
+        Page<UtilisateurOld> utilisateurPage = userService.getUtilisateurList(PageRequest.of(page,size));
         model.addAttribute("utilisateurPage",utilisateurPage.getContent());
         model.addAttribute("pages", new int[utilisateurPage.getTotalPages()]);
          return "utilisateur";
@@ -142,16 +142,16 @@ public class UserController {
       }
     }
 
-/*    @GetMapping("/deleteUser")
+/*    @GetMapping("/deleteUtilisateur")
     public String delete (Long id, String keyword, int page, int size) {
         userService.deleteById(id);
         log.info("L'id de l'utilisateur supprimé est : " + id);
         return "redirect:/utilisateur?page="+page+"&size="+size+"&keyword="+keyword;
     }*/
 
-/*    @GetMapping("/editUser")
+/*    @GetMapping("/editUtilisateur")
     public String edit (Model model, Long id) {
-        Utilisateur u =  utilisateurService.findUtilisateurById(id);
+        UtilisateurOld u =  userService.findUtilisateurById(id);
         model.addAttribute("utilisateur", u);
         log.info("L'utilisateur modifié est : " + u);
         return "modifier";
@@ -222,7 +222,7 @@ public class UserController {
         try {
             User user = userCo(model, authentication);
             int userId = user.getId();
-            System.out.println("L'id de l'utilisateur de la page mon compte est : " + userId);
+            System.out.println("L'id de l'user de la page mon compte est : " + userId);
         } catch (NullPointerException e) {
             log.error("Pas de role");
         }
@@ -230,7 +230,7 @@ public class UserController {
 
         /*user = userService.findUser(id);
         model.addAttribute("monCompte", user.getId());
-        System.out.println("L'id de l'utilisateur de la page mon compte vers la page mes topos est : " + user.getId());*/
+        System.out.println("L'id de l'user de la page mon compte vers la page mes topos est : " + user.getId());*/
 
         return "monCompte";
     }

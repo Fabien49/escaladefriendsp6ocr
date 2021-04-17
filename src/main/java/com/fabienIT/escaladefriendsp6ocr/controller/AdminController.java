@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
 import java.util.Set;
 
 @Controller
@@ -57,7 +56,7 @@ public class AdminController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.findUserByEmail(auth.getName());
         modelAndView.addObject("userName", "Bonjour " + " : " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
-        modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
+        modelAndView.addObject("adminMessage","Content Available Only for users with Admin Role");
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         modelAndView.addObject("role", roles.toString());
         System.out.println("Le role est : " + roles.toString());

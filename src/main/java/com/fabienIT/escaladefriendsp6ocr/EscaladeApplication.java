@@ -1,11 +1,9 @@
 package com.fabienIT.escaladefriendsp6ocr;
 
-import com.fabienIT.escaladefriendsp6ocr.model.*;
 import com.fabienIT.escaladefriendsp6ocr.repository.TopoRepository;
 import com.fabienIT.escaladefriendsp6ocr.repository.UserRepository;
 import com.fabienIT.escaladefriendsp6ocr.service.SiteService;
 import com.fabienIT.escaladefriendsp6ocr.service.TopoService;
-import com.fabienIT.escaladefriendsp6ocr.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -14,14 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 
 @SpringBootApplication

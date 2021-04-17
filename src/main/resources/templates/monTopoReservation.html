@@ -43,14 +43,12 @@
     <tr>
         <th>NOM</th><th>PROPRIETAIRE</th><th>REGION</th><th>Nb DE SITES</th><th>Nb DE VOIES</th><th>COTATION MINI</th><th>COTATION MAX</th><th>DEMANDE RESERATION</th>
 
-    <tr th:object="${topoAfficherDemande}">
-        <td th:text="*{nom}"> </td>
-        <td th:text="*{proprietaire}"> </td>
-        <td th:text="*{region}"> </td>
-        <td th:text="*{nbSites}"> </td>
-        <td th:text="*{nbVoies}"> </td>
-        <td th:text="*{cotationMin}"> </td>
-        <td th:text="*{cotationMax}"> </td>
+    <tr th:object="${topoAfficher}">
+        <td th:text="${t.nom}"></td>
+        <td th:text="${t.region}"></td>
+        <td th:text="${t.date}"></td>
+        <td th:text="${t.disponible}"></td>
+        <td th:text="${t.description}"></td>
     <form method="post" action="#" th:action="@{/saveReservation}" th:object="${reservation}">
         <td><!--
         <input type="hidden" name="id" th:field="*{id}"/>

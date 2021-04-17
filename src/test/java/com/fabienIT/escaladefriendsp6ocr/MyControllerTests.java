@@ -1,10 +1,10 @@
 package com.fabienIT.escaladefriendsp6ocr;
 
+import com.fabienIT.escaladefriendsp6ocr.service.UserServiceImpl;
 import org.junit.*;
 import org.junit.runner.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.test.mock.mockito.*;
-import com.fabienIT.escaladefriendsp6ocr.service.UserServiceImpl;
 import com.fabienIT.escaladefriendsp6ocr.model.User;
 
 import static org.mockito.BDDMockito.*;

@@ -3,16 +3,10 @@ package com.fabienIT.escaladefriendsp6ocr.repository;
 
 
 import com.fabienIT.escaladefriendsp6ocr.model.Reservation;
-import com.fabienIT.escaladefriendsp6ocr.model.User;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
@@ -24,6 +18,10 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     public List<Reservation> findByTopoId(Long id);
 
     Reservation findReservationById(Long id);
+
+    Reservation findReservationByTopoId(long id);
+
+    Reservation findReservationByUserId(int id);
 
 /*   Reservation findAllById(Long id);
     //Topo  deleteById();

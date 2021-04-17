@@ -40,16 +40,16 @@
                 <tr>
                     <th>Nom</th><th>Prénom</th><th>Mail<th>Mot de passe</th><th>Sexe</th><th>Voie</th><th>Code postal</th><th>Commune</th><th>Niveau</th>
                 </tr>
-                <tr th:each="u:${utilisateur}">
-                    <td th:text="${utilisateur.nom}"></td>
-                    <td th:text="${utilisateur.prenom}"></td>
-                    <td th:text="${utilisateur.mail}"></td>
-                    <td th:text="${utilisateur.mdp}"></td>
-                    <td th:text="${utilisateur.sexe}"></td>
-                    <td th:text="${utilisateur.voie}"></td>
-                    <td th:text="${utilisateur.codePostal}"></td>
-                    <td th:text="${utilisateur.commune}"></td>
-                    <td th:text="${utilisateur.niveau}"></td>
+                <tr th:each="u:${utilisateurOld}">
+                    <td th:text="${utilisateurOld.nom}"></td>
+                    <td th:text="${utilisateurOld.prenom}"></td>
+                    <td th:text="${utilisateurOld.mail}"></td>
+                    <td th:text="${utilisateurOld.mdp}"></td>
+                    <td th:text="${utilisateurOld.sexe}"></td>
+                    <td th:text="${utilisateurOld.voie}"></td>
+                    <td th:text="${utilisateurOld.codePostal}"></td>
+                    <td th:text="${utilisateurOld.commune}"></td>
+                    <td th:text="${utilisateurOld.niveau}"></td>
                 </tr>
             </table>
         </div>
@@ -60,7 +60,7 @@
 
 <div class="container mt-5">
     <div class="center-block">
-<a  class="btn btn-success" href="/utilisateur">Liste utilisateur</a>
+<a  class="btn btn-success" href="/utilisateurOld">Liste utilisateurOld</a>
 <a  class="btn btn-success" href="/callFormInscription">Inscription</a>
     </div>
 </div>

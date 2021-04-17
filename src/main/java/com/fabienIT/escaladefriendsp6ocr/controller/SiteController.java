@@ -1,7 +1,6 @@
 package com.fabienIT.escaladefriendsp6ocr.controller;
 
 
-import com.fabienIT.escaladefriendsp6ocr.form.CommentaireForm;
 import com.fabienIT.escaladefriendsp6ocr.model.*;
 import com.fabienIT.escaladefriendsp6ocr.repository.SiteRepository;
 import com.fabienIT.escaladefriendsp6ocr.service.*;
@@ -20,9 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Optional;
 import java.util.Set;
 
@@ -48,7 +45,7 @@ public class SiteController {
     UserService userService;
 
     @Autowired
-    UserDetailsService userDetailsService;
+    RoleService roleService;
 
     @Autowired
     UserController userController;
@@ -71,12 +68,12 @@ public class SiteController {
 
 
     @GetMapping("/siteCo")
-    public String utilisateur (Model model, Authentication authentication ) {
+    public String user (Model model, Authentication authentication ) {
 
         String userName = authentication . getName ();
         String authorities =  authentication.getAuthorities().toString();
 
-        System.out.println("**************************** Name : "+userName);
+        System.out.println("**************************** Name : "+ userName);
         System.out.println("**************************** Authorities : "+authorities);
 
         model.addAttribute("userName", userName);
@@ -87,7 +84,7 @@ public class SiteController {
     }
 
 
-    @GetMapping("/visiteur/sites")
+    @GetMapping("/sites")
     public String sites (Model model,
                          @RequestParam(name = "page", defaultValue = "0") int page,
                          @RequestParam(name = "size", defaultValue = "5") int size,
@@ -116,6 +113,11 @@ public class SiteController {
             }
             log.info("Le nombre de site est : " + sitePage.getTotalElements());
            // log.info("Le role de l'utilisateur connecté est : " + role);
+
+            if (sitePage.getTotalElements() == 0){
+                model.addAttribute("recherchenull", "Aucun résultat ne correspond à vos critères de recherches");
+                System.out.println("sitePage est vraiment null " + sitePage);
+            }
 
             return "sites";
         }
@@ -151,7 +153,7 @@ public class SiteController {
     public String siteEnregistrer(Site site){
         siteService.ajouter(site);
         log.info("Le site que l'on ajoute est : " + site);
-        return "redirect:/siteListe";
+        return "redirect:/site";
     }
 
     @GetMapping("/editerSite")
@@ -168,6 +170,15 @@ public class SiteController {
         model.addAttribute("update", site);
         log.info("Le site que l'on édite est : " + site);
         return "redirect:/siteListe";
+    }
+
+    @PostMapping("/saveUpdateSiteCertifie")
+    public String saveUpdateSiteCertifie (Model model, Site site){
+        site.setCertifie(true);
+        siteService.updateSiteCerfifie(site);
+        model.addAttribute("update", site);
+        log.info("Le site que l'on édite est : " + site);
+        return "redirect:/sites";
     }
 
     @GetMapping("/effacerSite")
@@ -201,24 +212,24 @@ public class SiteController {
     }*/
 
 
-    @GetMapping("/visiteur/pageEscalade")
-    public String pageEscalade (Model model, Long id, Authentication authentication, HttpSession session, @ModelAttribute("siteId") Site site){
-
+    @GetMapping("/pageEscalade")
+    public String pageEscalade (Model model, @RequestParam(name = "page", defaultValue = "0") int page,
+                                @RequestParam(name = "size", defaultValue = "5") int size, Long id, Authentication authentication, HttpSession session, @ModelAttribute("siteId") Site site){
                 if (id != null) {
                     site = siteService.findSiteById(id);
                     session.setAttribute("siteId", site);
                     System.out.println("L'Id du site est : " + site.getId());
                     model.addAttribute("siteId", site.getId());
                     model.addAttribute("sitePageEscalade", site);
-                    Set<Topo> toposite = siteService.findById(id).get().getTopo();
-                    model.addAttribute("toposite", toposite);
+                    if (site.isCertifie()){
+                        model.addAttribute("certifie", site);
+                    }
                     Set<Commentaire> comSite = siteService.findById(id).get().getCommentaire();
 //                    model.addAttribute("localDateTime", LocalDateTime.now());
                     model.addAttribute("comSite", comSite);
                     model.addAttribute("commentaireForm", new Commentaire());
 
                     log.info("La page d'escalade est : " + site);
-                    log.info("Le topo est : " + toposite);
                     log.info("La liste des commentaires est : " +comSite);
                 }else {
                     session.getId();
@@ -227,14 +238,14 @@ public class SiteController {
                     Long siteId = site.getId();
                     model.addAttribute("siteId",siteId);
                     model.addAttribute("sitePageEscalade", site);
-                    Set<Topo> toposite = siteService.findById(siteId).get().getTopo();
-                    model.addAttribute("toposite", toposite);
+                    if (!site.isCertifie()){
+                        model.addAttribute("certifie", site.isCertifie());
+                    }
                     Set<Commentaire> comSite = siteService.findById(siteId).get().getCommentaire();
                     model.addAttribute("comSite", comSite);
                     model.addAttribute("commentaireForm", new Commentaire());
 
                     log.info("La page d'escalade est : " + site);
-                    log.info("Le topo est : " + toposite);
                     log.info("La liste des commentaires est : " +comSite);
                 }
 
@@ -254,17 +265,22 @@ public class SiteController {
             Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
             model.addAttribute("role", roles.toString());
             System.out.println("Le role est : " + roles.toString());
+            String admin = new String("ADMIN");
+            if ((roles.toString() != null) && (!site.isCertifie())){
+                model.addAttribute("roles", roles.toString());
+                System.out.println("la condition testée est bien prise en compte !!!!!!!!! youhou !!!!:!!!!!!!!!!");
+            }
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             User user = userService.findUserByEmail(auth.getName());
+
             model.addAttribute("userId", user.getId());
-            System.out.println("L'id de l'utilisateur est : " + user.getId());
+            System.out.println("L'id de l'user est : " + user.getId());
         } catch (NullPointerException e) {
             log.error("Pas de role");
         }
-
-        /*log.info("La page d'escalade est : " + site);
-        log.info("Le topo est : " + toposite);
-        log.info("La liste des commentaires est : " +comSite);*/
+        if (toString() != null) {
+            log.info("La page d'escalade est : " + site);
+        }
         return "sitePageEscalade";
     }
 
@@ -276,23 +292,23 @@ public class SiteController {
         model.addAttribute(commentaire);
         model.addAttribute("update", site);
         log.info("Le site que l'on édite est : " + site);
-        return "redirect:/visiteur/pageEscalade";
+        return "redirect:/pageEscalade";
     }
 
 
 
-    @PostMapping("/visiteur/pageEscalade")
-    public String ajouterCom (User user , Long id, Model model,Commentaire commentaire, HttpSession session,
+    @PostMapping("/pageEscalade")
+    public String ajouterCom (User user, Long id, Model model, Commentaire commentaire, HttpSession session,
                               Authentication authentication, Site site, Long siteId, RedirectAttributes redirectAttributes){
         try {
             user = userController.userCo(model, authentication);
             int userId = user.getId();
             model.addAttribute("userId",userId);
-            System.out.println("L'ID de l'utilisateur connecté pour mettre un commentaire est : " + userId);
+            System.out.println("L'ID de l'user connecté pour mettre un commentaire est : " + userId);
             site = (Site) session.getAttribute("siteId");
             System.out.println("L'ID du site est : " + site.getId());
         } catch (NullPointerException e) {
-            log.error("Pas d'ID d'utilisateur connecté");
+            log.error("Pas d'ID d'user connecté");
         }
         try {
 
@@ -303,7 +319,7 @@ public class SiteController {
             System.out.println("***********La date du jour est : " + commentaire.getComDate());
             user = userController.userCo(model, authentication);
             commentaire.setUser(user);
-            System.out.println("************L'id de l'utilisateur est : " + commentaire.getUser().getId());
+            System.out.println("************L'id de l'user est : " + commentaire.getUser().getId());
 //            siteId = (Long) session.getAttribute("siteId");
             session.getAttribute("siteId");
             commentaire.setSite(site);
@@ -312,34 +328,35 @@ public class SiteController {
             model.addAttribute("commentaire", commentaire);
             log.info("Le commentaire que l'on ajoute est : " + commentaire);
         } catch (NullPointerException e) {
-            log.error("Pas d'utilisateur connecté");
+            log.error("Pas d'user connecté");
         }
         redirectAttributes.addFlashAttribute("siteId", site);
-        return "redirect:/visiteur/pageEscalade";
+        return "redirect:/pageEscalade";
     }
 
     @GetMapping("/effacerCommentaire")
     public String effacerCommentaire (Long id) {
         commentaireService.effacer(id);
         log.info("Le commentaire que l'on vient d'effacer est : " + id);
-        return "redirect:/visiteur/pageEscalade";
+        return "redirect:/pageEscalade";
     }
 
-/*    @GetMapping("/editerCommentaire")
+   @GetMapping("/editerCommentaire")
     public String modifierCom (Model model, Long id){
-        Commentaire c = commentaireService.findCommentaireById(id);
-        model.addAttribute("commentaireModif", c );
-        log.info("Le commentaire que l'on souhaite modifier est : " + c);
+        Commentaire commentaire = commentaireService.findById(id);
+       System.out.println(id);
+        model.addAttribute("comModif", commentaire.getId() );
+        log.info("Le commentaire que l'on souhaite modifier est : " + commentaire);
         return "commentaireModif";
-    }*/
+    }
 
-/*    @PostMapping("/saveUpdateCommentaire")
-    public String saveUpdateTopo (Model model, Commentaire commentaire){
+    @PostMapping("/saveUpdateCommentaire")
+    public String saveUpdateCommentaire (Model model, Commentaire commentaire){
         commentaireService.updateCommentaire(commentaire);
         model.addAttribute("commentaireModif", commentaire);
         log.info("Le commentaire que l'on édite est : " + commentaire);
-        return "redirect:/visiteur/pageEscalade";
-    }*/
+        return "redirect:/sites";
+    }
 
 }
 

@@ -1,15 +1,13 @@
 package com.fabienIT.escaladefriendsp6ocr;
 
+import com.fabienIT.escaladefriendsp6ocr.model.User;
 import org.junit.*;
 import org.junit.runner.*;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.boot.test.autoconfigure.orm.jpa.*;
 import com.fabienIT.escaladefriendsp6ocr.repository.UserRepository;
-import com.fabienIT.escaladefriendsp6ocr.model.User;
-import static org.assertj.core.api.Assertions.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.List;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

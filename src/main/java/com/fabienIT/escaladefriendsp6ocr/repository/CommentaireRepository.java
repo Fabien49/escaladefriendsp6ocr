@@ -1,7 +1,6 @@
 package com.fabienIT.escaladefriendsp6ocr.repository;
 
 import com.fabienIT.escaladefriendsp6ocr.model.Commentaire;
-import com.fabienIT.escaladefriendsp6ocr.model.Topo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +10,6 @@ import java.util.Optional;
 public interface CommentaireRepository extends JpaRepository<Commentaire, Long> {
 
     Commentaire findAllById(Long id);
-    Optional <Commentaire> findById (Long id);
+    Optional<Commentaire> findById (Long id);
     Commentaire findCommentaireById (Long id);
 }

@@ -1,5 +1,6 @@
 package com.fabienIT.escaladefriendsp6ocr.configuration;
 
+//import com.fabienIT.escaladefriendsp6ocr.handler.UserAuthenticationSuccessHandler;
 import com.fabienIT.escaladefriendsp6ocr.handler.UserAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +23,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-	@Autowired
+@Autowired
 	private UserAuthenticationSuccessHandler userAuthenticationSuccessHandler;
 
 	@Override
@@ -43,6 +44,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/home").permitAll()
 				.antMatchers("/login").permitAll()
 				.antMatchers("/inscription").permitAll()
+				.antMatchers("/sites").permitAll()
+				.antMatchers("/pageEscalade/**").permitAll()
 				.antMatchers("/save").permitAll()
 				.antMatchers("/saveUser").permitAll()
 				.antMatchers("/visiteur/**").permitAll()
@@ -89,7 +92,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 	    web
 	       .ignoring()
-	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/img/**", "/bootstrap/**", "/img/site/**", "/templates/fragments/**");
+	       .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/img/**", "/bootstrap/**", "/img/site/**", "/templates/fragments/**", "/css/style.css", "/js/paging.js", "/src/**");
 	}
 	
 	@Bean

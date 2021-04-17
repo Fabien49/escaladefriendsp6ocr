@@ -2,18 +2,15 @@ package com.fabienIT.escaladefriendsp6ocr.controller;
 
 import javax.validation.Valid;
 
+import com.fabienIT.escaladefriendsp6ocr.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fabienIT.escaladefriendsp6ocr.model.User;
 import com.fabienIT.escaladefriendsp6ocr.service.UserService;
 
 @Controller
@@ -64,7 +61,7 @@ public class LoginController {
 			userService.saveUser(user);
 			modelAndView.addObject("successMessage", "Votre inscription a bien été prise en compte");
 			modelAndView.addObject("user", new User());
-			modelAndView.setViewName("/inscription");
+			modelAndView.setViewName("/login");
 
 		}
 		return modelAndView;
@@ -96,10 +93,10 @@ public class LoginController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	*//*	User user = userService.findUserByEmail(auth.getName());
 		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");*//*
-		//modelAndView.addObject("adminMessage","Content Available Only for Users with Admin Role");
+		//modelAndView.addObject("adminMessage","Content Available Only for users with Admin Role");
 		String user =
 		userService.findUser(id).getCommune();
-		modelAndView.addObject("userIdentity", user);
+		modelAndView.addObject("UserIdentity", user);
 		modelAndView.setViewName("membre");
 		return modelAndView;
 	}*/

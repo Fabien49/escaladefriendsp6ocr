@@ -15,11 +15,11 @@ public class Reservation implements Serializable {
     private Boolean validerReservation = false;
     private Boolean reserve = false;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "topo_id")
     private Topo topo;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id_demande", nullable = true)
     private User user;
 
@@ -75,7 +75,7 @@ public class Reservation implements Serializable {
         this.topo = topo;
     }
 
-    public User getUser() {
+    public User getUseur() {
         return user;
     }
 
@@ -91,7 +91,7 @@ public class Reservation implements Serializable {
         return id.equals(topo.id);
     }
 
-    @Override
+/*    @Override
     public String toString() {
         return "Reservation{" +
                 "id=" + id +
@@ -101,5 +101,5 @@ public class Reservation implements Serializable {
                 ", topo=" + topo +
                 ", user=" + user +
                 '}';
-    }
+    }*/
 }

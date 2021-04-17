@@ -3,11 +3,7 @@ package com.fabienIT.escaladefriendsp6ocr.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
@@ -21,7 +17,7 @@ public class Commentaire {
 
     @Id
     @Column(name = "commentaire_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
    /* @Temporal(TemporalType.TIMESTAMP)
     private Date dateTime;*/
@@ -31,11 +27,11 @@ public class Commentaire {
     /*private Date date;*/
     private String com;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "site_id", nullable = false)
     private Site site;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
@@ -106,4 +102,6 @@ public class Commentaire {
                 ", com='" + com + '\'' +
                 '}';
     }
+
+
 }

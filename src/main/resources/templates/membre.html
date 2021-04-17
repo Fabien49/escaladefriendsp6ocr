@@ -37,7 +37,7 @@
 			<a href="/siteListe">Sites</a>
 			<a href="/topoListe">Topos</a>
 			<a href="/membre#about">A propos</a>
-			<a href="/utilisateur">Gestion des utilisateurs</a>
+			<a href="/utilisateurOld">Gestion des utilisateurs</a>
 			<a href="/compte">Mon compte</a>
 			<a href="/logout" class="btn btn-default"><i class="fa fa-power-off"></i></a>
 			<!-- <a href="#contact">Contact</a> -->
@@ -57,7 +57,7 @@
 	</div>
 	<div class="inner-banner">
 		<h1>Bienvenue  dans l'espace des membres</h1>
-		<p th:object="'Bonjour ' + ${userIdentity}"></p>
+		<p th:object="'Bonjour ' + ${utilisateurIdentity}"></p>
 		<!-- <a href="/callFormInscription"type="button" class="btn btn-custom">Inscritpion</a>
 		<button type="button "class="btn btn-custom" data-toggle="modal" data-target="#sem-login">Connexion</button> -->
 	</div>

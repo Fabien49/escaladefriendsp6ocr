@@ -35,7 +35,7 @@ public class PageEscaladeController {
     }*/
 
     @GetMapping("/sitePageEscaladeCo")
-    public String utilisateur (Model model, Authentication authentication ) {
+    public String user (Model model, Authentication authentication ) {
 
         String userName = authentication . getName ();
         String authorities =  authentication.getAuthorities().toString();

@@ -41,20 +41,18 @@
 <table class="table" border="1" cellpadding="10">
 
     <tr>
-        <th>NOM</th><th>PROPRIETAIRE</th><th>REGION</th><th>Nb DE SITES</th><th>Nb DE VOIES</th><th>COTATION MINI</th><th>COTATION MAX</th><th>ANNULER DEMANDE</th>
+        <th>NOM</th><th>PROPRIETAIRE</th><th>REGION</th><th>DATE</th><th>DESCRIPTION</th><th>ANNULER DEMANDE</th>
 
     <tr th:object="${topoAfficherDemande}">
         <td th:text="*{nom}"> </td>
-        <td th:text="*{proprietaire}"> </td>
+<!--        <td th:text="*{proprietaire}"> </td>-->
         <td th:text="*{region}"> </td>
-        <td th:text="*{nbSites}"> </td>
-        <td th:text="*{nbVoies}"> </td>
-        <td th:text="*{cotationMin}"> </td>
-        <td th:text="*{cotationMax}"> </td>
+        <td th:text="*{date}"> </td>
+        <td th:text="*{description}"> </td>
 
         <td>
-    <div th:object="${annulerDemande}">
-        <a class="btn btn-info"  th:href="@{/(id=${annulerDemande.id})}">Annuler demande de réservation</a>
+    <div th:object="${reservation}">
+        <a class="btn btn-info"  th:href="@{/(id=${id})}">Annuler demande de réservation</a>
     </div>
         </td>
     </tr>

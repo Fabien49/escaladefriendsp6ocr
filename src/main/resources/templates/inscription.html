@@ -5,29 +5,8 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- font -->
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-
 	<!-- css -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-
-
-	<!-- bootstrap -->
-	<!--<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script type="text/javascript" src="bootstrap/js/jquery-3.5.0.min.js"></script>
-	<script type="text/javascript" src="bootstrap/js/script.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
-
+	<link rel="stylesheet" href="css/style.css" />
 
 	<title>Les Amis de l'Escalade</title>
 </head>
@@ -46,99 +25,97 @@
 
 <!-- banniere -->
 <div class="container">
+				<div th:if="*{successMessage}" class="alert alert-info alert-dismissible fade show" role="alert">
+					<h5 class="alert-heading">Félicitation !</h5>
+					<p th:text="${successMessage}"></p>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
 	<div class="row">
 		<div class="col">
-			<div th:if="*{successMessage}" class="alert alert-info alert-dismissible fade show" role="alert">
-				<h5 class="alert-heading">Félicitation !</h5>
-				<p th:text="${successMessage}"></p>
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
+			<div class="border-secondary shadow card mt-3 px-3 py-3">
+				<h3 class="text-center">Inscription</h3>
+				<hr>
+				<form action="#" th:action="@{/save}" th:object="${user}" method="post">
+					<div class="row">
+						<div class="form-group col-6">
+							<label for="name">Prénom :</label>
+							<input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Prénom" required>
+						</div>
+						<div class="form-group col-6">
+							<label for="lastname">Nom :</label>
+							<input type="text" th:field="*{lastName}" class="form-control" id="lastname" placeholder="Nom" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-6">
+							<label for="email">Mail :</label>
+							<input type="email" th:field="*{email}" class="form-control" placeholder="Email" id="email" required>
+						</div>
+						<div class="form-group col-6">
+							<label for="confirm_email">Confirmation mail :</label>
+							<input type="email" class="form-control" placeholder="Confirm Email" id="confirm_email" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-6">
+							<label for="password">Mot de passe :</label>
+							<input type="password" th:field="*{password}" class="form-control" placeholder="Password" id="password" required>
+						</div>
+						<div class="form-group col-6">
+							<label for="confirm_password">Confirmation mot de passe :</label>
+							<input type="password" class="form-control" placeholder="Confirm Password" id="confirm_password" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-12">
+							<label for="voie">Voie :</label>
+							<input type="text" th:field="*{voie}" class="form-control" placeholder="Voie" id="voie" required>
+						</div>
+						<div class="form-group col-6">
+							<label for="codePostal">Code postal :</label>
+							<input type="text" th:field="*{codePostal}" class="form-control" placeholder="Code postal" id="codePostal" required>
+						</div>
+						<div class="form-group col-6">
+							<label for="commune">Commune :</label>
+							<input type="text" th:field="*{commune}" class="form-control" placeholder="Commune" id="commune" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="form-group col-12">
+							<label for="niveau">Niveau :</label>
+							<select th:field="*{niveau}" class="form-control" name="niveau" id="niveau">
+								<option value="1">1 (Sentier à plat)</option>
+								<option value="2">2 (Sentier escarpé)</option>
+								<option value="3">3 (Début d'usage des mains, voies enfants)</option>
+								<option value="4a">4a (Initiation)</option>
+								<option value="4b">4b (Initiation)</option>
+								<option value="4c">4c (Initiation)</option>
+								<option value="5a">5a (Perfectionnement)</option>
+								<option value="5b">5b (Perfectionnement)</option>
+								<option value="5c">5c (Perfectionnement)</option>
+								<option value="6a">6a (Escalade techniqque, adhérences, petites prises)</option>
+								<option value="6b">6b (Escalade techniqque, adhérences, petites prises)</option>
+								<option value="6c">6c (Premiers dévers et surplombs)</option>
+								<option value="7a">7a (Escalade physique, parfois en dévers)</option>
+								<option value="7b">7b (Début en compétition)</option>
+								<option value="7c">7c (Début en compétition)</option>
+								<option value="8a">8a (Haut niveau)</option>
+								<option value="8b">8b (Haut niveau)</option>
+								<option value="8c">8c (Haut niveau)</option>
+								<option value="9a">9a (Escalade extrême, Top niveau mondial)</option>
+								<option value="9a+">9a+ (Escalade extrême, Top niveau mondial)</option>
+								<option value="9b">9b (Escalade extrême, Top niveau mondial)</option>
+								<option value="9b+">9b+ (Le plus dur jamais réalisé)</option>
+							</select>
+						</div>
+						<div class="form-group col-12 d-flex flex-column">
+							<button type="submit" class="btn btn-primary mt-auto mx-auto">Envoyer</button>
+						</div>
+					</div>
+				</form>
 			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="my-4 border-primary shadow col">
-			<h3 class="text-center">Inscription</h3>
-			<hr>
-			<form action="#" th:action="@{/save}" th:object="${user}" method="post">
-				<div class="row">
-					<div class="form-group col-6">
-						<label for="name">Prénom :</label>
-						<input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Prénom" required>
-					</div>
-					<div class="form-group col-6">
-						<label for="lastname">Nom :</label>
-						<input type="text" th:field="*{lastName}" class="form-control" id="lastname" placeholder="Nom" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-6">
-						<label for="email">Mail :</label>
-						<input type="email" th:field="*{email}" class="form-control" placeholder="Email" id="email" required>
-					</div>
-					<div class="form-group col-6">
-						<label for="confirm_email">Confirmation mail :</label>
-						<input type="email" class="form-control" placeholder="Confirm Email" id="confirm_email" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-6">
-						<label for="password">Mot de passe :</label>
-						<input type="password" th:field="*{password}" class="form-control" placeholder="Password" id="password" required>
-					</div>
-					<div class="form-group col-6">
-						<label for="confirm_password">Confirmation mot de passe :</label>
-						<input type="password" class="form-control" placeholder="Confirm Password" id="confirm_password" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-12">
-						<label for="voie">Voie :</label>
-						<input type="text" th:field="*{voie}" class="form-control" placeholder="Voie" id="voie" required>
-					</div>
-					<div class="form-group col-6">
-						<label for="codePostal">Code postal :</label>
-						<input type="text" th:field="*{codePostal}" class="form-control" placeholder="Code postal" id="codePostal" required>
-					</div>
-					<div class="form-group col-6">
-						<label for="commune">Commune :</label>
-						<input type="text" th:field="*{commune}" class="form-control" placeholder="Commune" id="commune" required>
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group col-12">
-						<label for="niveau">Niveau :</label>
-						<select th:field="*{niveau}" class="form-control" name="niveau" id="niveau">
-							<option value="1">1 (Sentier à plat)</option>
-							<option value="2">2 (Sentier escarpé)</option>
-							<option value="3">3 (Début d'usage des mains, voies enfants)</option>
-							<option value="4a">4a (Initiation)</option>
-							<option value="4b">4b (Initiation)</option>
-							<option value="4c">4c (Initiation)</option>
-							<option value="5a">5a (Perfectionnement)</option>
-							<option value="5b">5b (Perfectionnement)</option>
-							<option value="5c">5c (Perfectionnement)</option>
-							<option value="6a">6a (Escalade techniqque, adhérences, petites prises)</option>
-							<option value="6b">6b (Escalade techniqque, adhérences, petites prises)</option>
-							<option value="6c">6c (Premiers dévers et surplombs)</option>
-							<option value="7a">7a (Escalade physique, parfois en dévers)</option>
-							<option value="7b">7b (Début en compétition)</option>
-							<option value="7c">7c (Début en compétition)</option>
-							<option value="8a">8a (Haut niveau)</option>
-							<option value="8b">8b (Haut niveau)</option>
-							<option value="8c">8c (Haut niveau)</option>
-							<option value="9a">9a (Escalade extrême, Top niveau mondial)</option>
-							<option value="9a+">9a+ (Escalade extrême, Top niveau mondial)</option>
-							<option value="9b">9b (Escalade extrême, Top niveau mondial)</option>
-							<option value="9b+">9b+ (Le plus dur jamais réalisé)</option>
-						</select>
-					</div>
-					<div class="form-group col-12 d-flex flex-column">
-						<button type="submit" class="btn btn-primary mt-auto mx-auto">Envoyer</button>
-					</div>
-				</div>
-			</form>
 		</div>
 	</div>
 </div>
@@ -321,9 +298,20 @@
 
 
 <!-- footer-->
-<div class="main_footer">
-	<p class="footer">Par Fabien Chapeau de chez OC</p>
-</div>
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<ul class="list-inline text-center">
+					<li class="list-inline-item">&middot;</li>
+					<li class="list-inline-item">Par Fabien Chapeau de chez OC
+					</li>
+					<li class="list-inline-item">&middot;</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
 
 <!-- Optional JavaScript -->
 
@@ -365,7 +353,5 @@
     email.onchange = validateEmail;
     confirm_email.onkeyup = validateEmail;
   </script>
-
-<svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg>
 </body>
 </html>

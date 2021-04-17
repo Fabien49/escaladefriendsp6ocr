@@ -1,3 +1,4 @@
+
 package com.fabienIT.escaladefriendsp6ocr.handler;
 
 import org.springframework.security.core.Authentication;
@@ -19,24 +20,26 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
 
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
+        httpServletResponse.sendRedirect("/");
 
         System.out.println("La liste des rôle est : " + roles.toString());
 
-        if (roles.contains("ADMIN")) {
+        /* if (roles.contains("ADMIN")) {
             System.out.println("Redirection vers la page des admins");
-            httpServletResponse.sendRedirect("admin/accueilAdmin");
+            httpServletResponse.sendRedirect("/");
 
         } else if (roles.contains("MEMBRE")) {
             System.out.println("Redirection vers la page des membres");
-            httpServletResponse.sendRedirect("/accueilMembre");
+            httpServletResponse.sendRedirect("/");
 
         } else if (roles.contains("UTILISATEURCONNECTE")) {
             System.out.println("Redirection vers la page des utilisateurs connecté");
-            httpServletResponse.sendRedirect("/utilisateurCo");
+            httpServletResponse.sendRedirect("/");
 
         } else {
             System.out.println("Rôle inconnu");
-           /* httpServletResponse.sendRedirect("/");
+           */
+/* httpServletResponse.sendRedirect("/");
             httpServletResponse.sendRedirect("/visiteur/sites");
             httpServletResponse.sendRedirect("/home");
             httpServletResponse.sendRedirect("/inscription");
@@ -45,7 +48,11 @@ public class UserAuthenticationSuccessHandler implements AuthenticationSuccessHa
             httpServletResponse.sendRedirect("/sitePageEscalade");
             httpServletResponse.sendRedirect("/topoForm");
             httpServletResponse.sendRedirect("/topoListe");
-            httpServletResponse.sendRedirect("/pageEscalade/(id=${s.id})");*/
+            httpServletResponse.sendRedirect("/pageEscalade/(id=${s.id})");*//*
+
         }
+    }
+}
+*/
     }
 }

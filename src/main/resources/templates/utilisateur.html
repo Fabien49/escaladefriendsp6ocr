@@ -29,7 +29,7 @@
             <a href="membre">Accueil</a>
             <a href="/sites">Sites d'escalade</a>
             <a href="#">Topos</a>
-            <a href="utilisateur">Liste des utilisateurs</a>
+            <a href="utilisateurOld">Liste des utilisateurs</a>
             <a href="#about">A propos</a>
             <!-- <a href="#contact">Contact</a> -->
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -45,7 +45,7 @@
 <div class="card">
     <div class="card-header">Liste des utilisateurs</div>
         <div class="card-body">
-            <form method="get" th:action="@{utilisateur}">
+            <form method="get" th:action="@{utilisateurOld}">
                 <div class="form-group">
                     <label>Nom</label>
                     <input type="text" name="keyword" th:value="${keyword}">
@@ -66,7 +66,7 @@
                     <td th:text="${u.codePostal}"></td>
                     <td th:text="${u.commune}"></td>
                     <td th:text="${u.niveau}"></td>
-                    <td><a onclick="return confirm('Etes vous sure de vouloir supprimer l'utilisateur ?')" class="btn btn-danger" th:href="@{deleteUtilisateur(id=${u.id},keyword=${keyword},page=${currentPage},size=${size})}">Supprimer</a></td>
+                    <td><a onclick="return confirm('Etes vous sure de vouloir supprimer l'utilisateurOld ?')" class="btn btn-danger" th:href="@{deleteUtilisateur(id=${u.id},keyword=${keyword},page=${currentPage},size=${size})}">Supprimer</a></td>
                     <td><a class="btn btn-info" th:href="@{editUtilisateur(id=${u.id})}">Editer</a></td>
                 </tr>
 
@@ -74,7 +74,7 @@
 
             <ul class="nav nav-pills">
                 <li  th:each="page,status:${pages}">
-                    <a  th:class="${status.index == currentPage?'btn btn-primary' : 'btn'}" th:href="@{utilisateur(page=${status.index}, keyword=${keyword})}" th:text="${status.index}"></a>
+                    <a  th:class="${status.index == currentPage?'btn btn-primary' : 'btn'}" th:href="@{utilisateurOld(page=${status.index}, keyword=${keyword})}" th:text="${status.index}"></a>
                 </li>
             </ul>
         </div>

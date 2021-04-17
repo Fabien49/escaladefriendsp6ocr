@@ -203,19 +203,23 @@ svg {
 
 table {
   border-collapse: collapse;
+  text-align: center;
 }
+
+th {
+  text-align: inherit;
+  text-align: -webkit-match-parent;
+  }
 
 caption {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   color: #6c757d;
-  text-align: left;
+  text-align: center;
   caption-side: bottom;
 }
 
-th {
-  text-align: inherit;
-}
+
 
 label {
   display: inline-block;
