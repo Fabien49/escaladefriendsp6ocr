@@ -1,9 +1,7 @@
 package com.fabienIT.escaladefriendsp6ocr.model;
 
 import java.util.Set;
-
 import javax.persistence.*;
-
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -14,7 +12,7 @@ import org.springframework.data.annotation.Transient;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
 	private int id;
 	@Column(name = "email", unique=true)
@@ -32,7 +30,6 @@ public class User {
 	@Column(name = "last_name")
 	@NotEmpty(message = "*Please provide your last name")
 	private String lastName;
-	private String sexe;
 	@Column(name = "voie")
 	@NotEmpty(message = "*Please provide your voie")
 	private String voie;
@@ -204,7 +201,6 @@ public class User {
 				", password='" + password + '\'' +
 				", name='" + name + '\'' +
 				", lastName='" + lastName + '\'' +
-				", sexe='" + sexe + '\'' +
 				", voie='" + voie + '\'' +
 				", codePostal='" + codePostal + '\'' +
 				", commune='" + commune + '\'' +

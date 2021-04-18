@@ -49,7 +49,7 @@
                             </thead>
                             <tr th:each="t:${mesDemandes}">
                                 <td th:text="${t.topo.nom}"></td>
-                                <td>Propriétaire</td>
+                                <td  th:text="${t.topo.user.name} + ' ' + ${t.topo.user.lastName}">Propriétaire</td>
                                 <td th:text="${t.topo.region}"></td>
                                 <td th:text="${t.topo.date}"></td>
                                 <td th:text="${t.topo.description}"></td>

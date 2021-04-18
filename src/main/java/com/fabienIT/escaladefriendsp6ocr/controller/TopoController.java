@@ -346,12 +346,16 @@ public class TopoController {
     @GetMapping("/coordonnees")
     public String coordonnees (Model model, Long id){
 
-        Topo topo = topoService.findTopoById(id);
-        User user = topo.getUser();
-        model.addAttribute("coordonneesProprietaire", user);
         Reservation reservation = reservationService.findReservationById(id);
+        System.out.println(id);
+        System.out.println(reservation);
         User userEmprunteur = reservation.getUseur();
         model.addAttribute("coordonneesEmprunteur", userEmprunteur);
+        Topo topo = reservationService.findReservationById(id).getTopo();
+        User user = topo.getUser();
+        model.addAttribute("coordonneesProprietaire", user);
+
+        System.out.println(userEmprunteur);
 
         return "coordonnees";
     }

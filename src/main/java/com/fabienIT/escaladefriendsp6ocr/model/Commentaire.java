@@ -1,7 +1,6 @@
 package com.fabienIT.escaladefriendsp6ocr.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
@@ -19,12 +18,8 @@ public class Commentaire {
     @Column(name = "commentaire_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-   /* @Temporal(TemporalType.TIMESTAMP)
-    private Date dateTime;*/
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime comDate;
-
-    /*private Date date;*/
     private String com;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -102,6 +97,5 @@ public class Commentaire {
                 ", com='" + com + '\'' +
                 '}';
     }
-
 
 }

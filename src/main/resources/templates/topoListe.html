@@ -53,7 +53,7 @@
                                 </thead>
                                 <tr th:each="t:${TopoListe}">
                                     <td th:text="${t.nom}"></td>
-                                    <td>Propriétaire</td>
+                                    <td th:text="${t.user.name} + ' ' + ${t.user.lastName}"></td>
                                     <td th:text="${t.region}"></td>
                                     <td th:text="${#dates.format(t.date, 'dd-MMM-yyyy')}"></td>
                                     <td th:text="${t.description}"></td>

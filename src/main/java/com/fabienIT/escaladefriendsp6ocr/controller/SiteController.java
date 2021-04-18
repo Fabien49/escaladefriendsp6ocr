@@ -56,7 +56,7 @@ public class SiteController {
     @GetMapping("/sites")
     public String sites (Model model,
                          @RequestParam(name = "page", defaultValue = "0") int page,
-                         @RequestParam(name = "size", defaultValue = "5") int size,
+                         @RequestParam(name = "size", defaultValue = "10") int size,
                          @RequestParam(name = "keyword", defaultValue = "") String mc,
                          @RequestParam(name="region", defaultValue = "")String region,
                          Authentication authentication ) {
@@ -120,7 +120,7 @@ public class SiteController {
     public String siteEnregistrer(Site site){
         siteService.ajouter(site);
         log.info("Le site que l'on ajoute est : " + site);
-        return "redirect:/site";
+        return "redirect:/sites";
     }
 
     @GetMapping("/editerSite")

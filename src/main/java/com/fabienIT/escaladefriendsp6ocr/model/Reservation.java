@@ -1,6 +1,5 @@
 package com.fabienIT.escaladefriendsp6ocr.model;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 

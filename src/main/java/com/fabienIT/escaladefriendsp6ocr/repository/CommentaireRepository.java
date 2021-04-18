@@ -9,7 +9,6 @@ import java.util.Optional;
 @Repository
 public interface CommentaireRepository extends JpaRepository<Commentaire, Long> {
 
-
     Optional<Commentaire> findById (Long id);
     Commentaire findCommentaireById (Long id);
 }

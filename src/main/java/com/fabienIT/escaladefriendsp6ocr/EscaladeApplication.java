@@ -53,18 +53,9 @@ public class EscaladeApplication implements CommandLineRunner{
 		//afficherTopo();
 		//saveAdmin();
 		//saveMembre();
-
 		//createUser();
 	}
 
-/*	public void afficherTopo(){
-			List<Topo> topoList = topoService.findAllTopo();
-
-		System.out.println("+" +
-				"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++La liste des topos est : *******+++++++++++++++++********************" + topoList);
-
-
-	}*/
 
 /*	public void saveAdmin() {
 		HashSet<Role> roles = null;
