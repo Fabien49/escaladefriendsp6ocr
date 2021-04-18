@@ -21,9 +21,6 @@ public class CommentaireService {
         commentaireRepository.save(commentaire);
     }
 
-    public Commentaire findAllById(Long id) {
-        return commentaireRepository.findAllById(id);
-    }
 
     public Commentaire findById(Long id) { return  commentaireRepository.findCommentaireById(id);
     }
@@ -43,10 +40,10 @@ public class CommentaireService {
         Commentaire dbCommentaire = commentaireRepository.findById(id).get();
         System.out.println(dbCommentaire);
         //mise à jour (récupération) du nom depuis le formulaire d'edition
-        dbCommentaire.setComDate(commentaire.getComDate());
+//        dbCommentaire.setComDate(commentaire.getComDate());
         dbCommentaire.setCom(commentaire.getCom());
-        dbCommentaire.setSite(commentaire.getSite());
-        dbCommentaire.setUser(commentaire.getUser());
+//        dbCommentaire.setSite(commentaire.getSite());
+//        dbCommentaire.setUser(commentaire.getUser());
         //mise à jour dans la bdd (sauvegarde)
         commentaireRepository.save(dbCommentaire);
     }

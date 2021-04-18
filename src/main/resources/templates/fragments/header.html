@@ -53,11 +53,11 @@
                             <li th:if="${role}" class="nav-item active">
                                 <a class="nav-link" href="/topos">Topos</a>
                             </li>
+                            <li th:if="${role}" class="nav-item active">
+                                <a class="nav-link" href="/logout">Deconnexion</a>
+                            </li>
                             <li th:unless="${role}" class="nav-item active">
                                 <a class="nav-link" href="/inscription">Inscription</a>
-                            </li>
-                            <li th:if="${role}" class="nav-item active">
-                                <a class="nav-link" href="/monCompte">Mon compte</a>
                             </li>
                             <li th:unless="${role}" class="nav-item active">
                                 <a class="nav-link" href="/login">Connexion</a>

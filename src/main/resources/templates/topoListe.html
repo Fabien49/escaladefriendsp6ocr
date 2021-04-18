@@ -29,29 +29,7 @@
                 <div class="border-secondary shadow card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Liste des Topos</h5>
-                        <!--<form th:action="@{/topoListe}">
-                            <div class="row">
-                                <div class="form-group col-12 col-md-6 col-lg-6">
-                                    <label></label>
-                                    <label><input class="form-control" type="radio" th:value="${disponible} "/>Disponible</label>
-                                    <label><input class="form-control" type="radio" th:value="${{disponible} == 'true' and {disponile} == 'false'}"/>Tous</label>
-                                    &lt;!&ndash;<input type="text" class="form-control" id="nom_du_site" placeholder="Nom du topo" th:value="${keyword}" required>&ndash;&gt;
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-6 col-md-6 col-lg-3">
-                                    <button type="submit" class="btn btn-primary mt-auto mx-auto w-100">Chercher</button>
-                                </div>
-                                <div class="form-group col-6 col-md-6 col-lg-3">
-                                    <button type="reset" class="btn btn-primary mt-auto mx-auto w-100">Vider le champ</button>
-                                </div>
-                                <div class="form-group col-6 col-md-6 col-lg-3">
-                                </div>
-                                <div class="form-group col-6 col-md-6 col-lg-3">
-                                    <a type="submit" class="btn btn-primary mt-auto mx-auto w-100" href="/topoForm">Ajouter</a>
-                                </div>
-                            </div>
-                        </form>-->
+
                     </div>
                 </div>
             </div>
@@ -95,7 +73,7 @@
                                         </div>
                                     </td>
 
-                                    <td th:if="${role}">
+                                    <td th:if="${role == 'ADMIN'}">
                                         <div>
                                             <a class="btn btn-success" th:href="@{/editerTopo/(id=${t.id})}">Editer</a>
                                         </div>
@@ -132,123 +110,6 @@
             </div>
         </div>
     </footer>
-
-<!--
-    <div class="row">
-        <div class="col">
-            <span th:text="'Hello, ' + ${successMessage}"></span>
-            <div th:if="*{successMessage}" class="alert alert-info alert-dismissible fade show" role="alert">
-                <h5 class="alert-heading">Félicitation !</h5>
-                <p th:text="${successMessage}"></p>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <table class="table">
-            <tr>
-                <th><h1>LISTE DES TOPOS</h1></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th><a class="btn btn-info" href="/topoForm">Ajouter</a></th>
-            </tr>
-        </table>
-
-        <form th:action="@{/topoListe}">
-            Filtre: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
-            &nbsp;
-            <input class="btn btn-info" type="submit" value="Filtrer" />
-            &nbsp;
-            <input class="btn btn-info" type="button" value="Réinitialiser" id="btnClear" onclick="clearSearch()" />
-        </form>
-    </div>
-
-    <div class="card-body">
-        <table class="table table-striped" border="1" cellpadding="10">
-
-            <tr></tr>
-
-            <tr class="p-3 mb-2 bg-dark text-white">
-                <th class="align-middle text-center">NOM</th><th class="align-middle text-center">REGION</th><th class="align-middle text-center">DATE</th><th class="align-middle text-center">DISPONIBLE</th><th class="align-middle text-center">DESCRIPTION</th><th class="align-middle text-center">DEMANDE RESERATION</th><th class="align-middle text-center">RESERVE</th><th class="align-middle text-center">GESTION</th>
-            </tr>
-            <tr th:each="t:${TopoListe}">
-                <td th:text="${t.nom}"></td>
-                <td th:text="${t.region}"></td>
-                <td th:text="${t.date}"></td>
-                <td th:text="${t.disponible}"></td>
-                <td th:text="${t.description}"></td>
-                <td>
-                <div th:each="r:${reservation}">
-                    <span th:if="${r.id == null} and ${t.disponible == true}"><a th:href="@{demandeReservation/(id=${t.id})}">Demande de réservation</a></span>
-                    <span th:if="${r.id == null} and ${t.disponible == false}">Pas disponible</span>
-
-                    <div th:if="${r.id != null}">
-                        <span th:if="${r.demandeReservation == true} and ${r.reserve == false}">En attente de validation</span>
-
-                        <span th:if="${r.demandeReservation == true} and ${r.reserve == true}">Déjà pris !</span>
-                    </div>
-                </div>
-
-                <td th:if="${t.disponible == true}">
-                    <a th:href="@{demandeReservation/(id=${t.id})}">Demande de réservation</a>
-                </td>
-                </td>
-
-
-
-&lt;!&ndash;                <td>
-                    <span th:if="${!t.reservation.id} and ${!t.reservation.reserve}"><a th:href="@{demandeReservation/(id=${t.id})}">Demande de réservation</a></span>
-
-                    <span th:if="${t.reservation.demandeReservation} and ${!t.reservation.reserve}"><a th:href="@{validerReservation/(id=${t.id})}">Validation réservation</a></span>
-
-                    <span th:if="${t.reservation.demandeReservation} and ${t.reservation.reserve}">Déjà pris !</span>
-                    </form>
-                </td>
-                <td>
-                        <span th:if="${!t.reservation.demandeReservation}">Disponible</span>
-                        <span th:if="${t.reservation.demandeReservation} and ${!t.reserve}">En attente de validation</span>
-                        <span th:if="${t.reservation.reserve}">Réservé</span>
-
-                </td>
-                <td>
-                    <div>
-                        <a class="btn btn-success" th:href="@{editerTopo/(id=${t.id})}">Editer</a>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;
-                    <div>
-                        <a class="btn btn-danger" th:href="@{effacerTopo/(id=${t.id})}">Effacer</a>
-                    </div>
-                </td>&ndash;&gt;
-
-                <td th:if="${{role} == 'ADMIN' }">
-                    <div>
-                        <a class="btn btn-success" th:href="@{editerTopo/(id=${t.id})}">Editer</a>
-                    </div>
-                    &nbsp;&nbsp;&nbsp;
-                    <div>
-                        <a class="btn btn-danger" th:href="@{effacerTopo/(id=${t.id})}">Effacer</a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-
-        <ul class="nav nav-pills">
-            <li  th:each="page,status:${pages}">
-                <a  th:class="${status.index == currentPage?'btn btn-primary' : 'btn'}" th:href="@{topoListe(page=${status.index}, keyword=${keyword})}" th:text="${status.index + 1}"></a>
-            </li>
-        </ul>
-    </div>
-    </div>
-
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Back to top</a>
-            </p>
-            <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
-        </div>
-    </footer>
--->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

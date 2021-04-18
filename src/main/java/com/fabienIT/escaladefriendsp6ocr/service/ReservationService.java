@@ -3,6 +3,7 @@ package com.fabienIT.escaladefriendsp6ocr.service;
 import com.fabienIT.escaladefriendsp6ocr.model.Reservation;
 import com.fabienIT.escaladefriendsp6ocr.model.Topo;
 import com.fabienIT.escaladefriendsp6ocr.repository.ReservationRepository;
+import com.fabienIT.escaladefriendsp6ocr.repository.TopoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,12 @@ public class ReservationService {
 
 	@Autowired
 	ReservationRepository reservationRepository;
+
+	@Autowired
+	TopoService topoService;
+
+	@Autowired
+	TopoRepository topoRepository;
 
 	public void ajouter(Reservation reservation) {
 		reservationRepository.save(reservation);
@@ -44,7 +51,7 @@ public class ReservationService {
 
 	public Reservation findReservationByUserId(int id){return reservationRepository.findReservationByUserId(id);}
 
-	public void updateReservation(Reservation reservation) {
+	public Reservation updateReservation(Reservation reservation) {
 		//recuparation du topo en base via l'id
 		Long id = reservation.getId();
 		Reservation dbReservation = reservationRepository.findById(id).get();
@@ -53,11 +60,27 @@ public class ReservationService {
 		dbReservation.setValiderReservation(reservation.getValiderReservation());
 		dbReservation.setReserve(reservation.getReserve());
 //		dbReservation.setUser(reservation.getUseur());
-		dbReservation.setTopo(reservation.getTopo());
+//		dbReservation.setTopo(reservation.getTopo());
 		//mise à jour dans la bdd (sauvegarde)
-		reservationRepository.save(dbReservation);
+		return reservationRepository.save(dbReservation);
+
 	}
 
+	public void validerReservation (Long id, boolean accepted){
+		Reservation dbReservation = reservationRepository.findById(id).get();
+		dbReservation.setReserve(accepted);
+		dbReservation.setDemandeReservation(false);
+		dbReservation.setValiderReservation(true);
+		reservationRepository.save(dbReservation);
+
+		/*Topo dbTopo = dbReservation.getTopo();
+		dbTopo.setDisponible(false);
+		topoRepository.save(dbTopo);*/
+
+
+		// Changer le statut su Topo
+		topoService.updateTopoStatus(dbReservation.getTopo().getId(),!accepted);
+	}
 
 	/*
 

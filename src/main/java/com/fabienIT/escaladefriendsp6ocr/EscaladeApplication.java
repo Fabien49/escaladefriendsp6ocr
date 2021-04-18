@@ -54,7 +54,6 @@ public class EscaladeApplication implements CommandLineRunner{
 		//saveAdmin();
 		//saveMembre();
 
-
 		//createUser();
 	}
 

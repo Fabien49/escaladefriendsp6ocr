@@ -40,8 +40,8 @@
                     <h5 class="card-title">Votre commentaire</h5>
                     <form method="post" action="#" th:action="@{/saveUpdateCommentaire}" th:object="${comModif}">
                         <div class="row">
-                            <input type="text" name="id" th:field="*{id}" th:value="${id}" />
-                            <input type="text" name="id" th:field="*{comDate}" th:value="${comDate}"/>
+                            <input type="hidden" name="id" th:field="*{id}"  />
+<!--                            <input type="text" name="comDate" th:field="*{comDate}"/>-->
                             <div class="form-group col-8">
                                 <label for="commentaire"></label>
                                 <textarea th:field="*{com}" th:value="${com}" type="text" class="form-control"
@@ -62,40 +62,6 @@
     </div>
 </div>
 
-<!--
-    <h1>MODIFICATION DU COMMENTAIRE</h1>
-
-    <form method="post" action="#" th:action="@{/saveUpdateCommentaire}" th:object="${commentaireModif}">
-        <p><input type="hidden" name="id" th:field="*{id}" /></p>
-        <p><input type="hidden" name="comDate" th:field="*{comDate}" /></p>
-        <p>Commentaire : <input type="text" name="commentaire" th:field="*{com}" th:value="${com}" /></p>
-        <p><input type="hidden" name="user" th:field="*{user}" /></p>
-        <p><input type="hidden" name="site" th:field="*{site}" /></p>
-
-        <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
-    </form>
-
-
-    <footer class="text-muted">
-        <div class="container">
-            <p class="float-right">
-                <a href="#">Back to top</a>
-            </p>
-            <p>Album example is © Bootstrap, but please download and customize it for yourself!</p>
-        </div>
-    </footer>
-
-    &lt;!&ndash; Bootstrap core JavaScript
-    ================================================== &ndash;&gt;
-    &lt;!&ndash; Placed at the end of the document so the pages load faster &ndash;&gt;
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="../../js/vendor/popper.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/holderjs@2.9.4/holder.js"></script>
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="348" height="225" viewBox="0 0 348 225" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="17" style="font-weight:bold;font-size:17pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thumbnail</text></svg></body>
-    </html>-->
     <footer>
         <div class="container">
             <div class="row">
@@ -110,7 +76,6 @@
             </div>
         </div>
     </footer>
-
 
     <!-- Optional JavaScript -->
 

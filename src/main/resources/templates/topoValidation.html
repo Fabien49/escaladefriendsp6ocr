@@ -32,7 +32,7 @@
         <div class="col-12">
             <div class="border-secondary shadow card h-100">
                 <div class="card-body">
-                    <div class="table-responsive-sm table-responsive-md table-responsive-lg">
+                    <td class="table-responsive-sm table-responsive-md table-responsive-lg">
                         <table class="table table-bordered table-striped table">
                             <thead class="thead-dark">
                             <tr>
@@ -48,22 +48,27 @@
                                 <td th:text="*{region}"></td>
                                 <td th:text="*{#dates.format(date, 'dd-MMM-yyyy')}"></td>
                                 <td th:text="*{description}"></td>
-                                <div th:if="${reservation}">
-                                <form method="post" action="#" th:action="@{/saveValiderReservation}" th:object="${reservation}">
-                                    <td>
+                                <td th:if="${!reservation.reserve && !reservation.validerReservation}">
+                                   <form method="post" action="#" th:action="@{/saveValiderReservation}" th:object="${reservation}">
                                        <input type="hidden" name="id" th:field="*{id}"/>
 
                                         <input type="hidden" th:value="${topoReservation}"/>
 <!--                                        <input type="hidden" th:value="${userId}"/>-->
                                         <input type="hidden" th:field="*{demandeReservation}" th:value="false"/>
                                         <input type="hidden" th:field="*{reserve}"th:value="true"/>
-                                        <button type="submit" value="Accepter réservation" class="btn btn-success" >Accepter</button>
+                                       <!-- <button type="submit" value="Accepter réservation" class="btn btn-success" >Accepter</button>-->
+                                        <a class="btn btn-success" th:href="@{'/saveResa/' + ${reservation.id} + '/true'}">Accepter</a>
                                         <input type="hidden" th:field="*{demandeReservation}" th:value="false"/>
                                         <input type="hidden" th:field="*{reserve}"th:value="false"/>
-                                        <button type="submit" value="Refuser réservation" class="btn btn-danger" >Refuser</button>
-                                    </td>
-                                </form>
-                                </div>
+<!--                                        <button type="submit" value="Refuser réservation" class="btn btn-danger" >Refuser</button>-->
+                                        <a th:href="@{'/saveResa/' + ${reservation.id} + '/false'}">
+                                            <button type="button" class="btn btn-danger" >Accepter</button>
+                                        </a>
+                                   </form>
+                                </td>
+                                <td th:if="${reservation.reserve}">
+                                    <a th:href="@{/coordonnees/(id=${reservation.id})}">Coordonnées</a>
+                                </td>
                             </tr>
                         </table>
                     </div>

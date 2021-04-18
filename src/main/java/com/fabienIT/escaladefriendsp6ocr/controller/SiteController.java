@@ -263,7 +263,7 @@ public class SiteController {
 
         try {
             Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
-            model.addAttribute("role", roles.toString());
+            model.addAttribute("role", roles.toArray()[0].toString());
             System.out.println("Le role est : " + roles.toString());
             String admin = new String("ADMIN");
             if ((roles.toString() != null) && (!site.isCertifie())){
@@ -311,8 +311,6 @@ public class SiteController {
             log.error("Pas d'ID d'user connecté");
         }
         try {
-
-            commentaire.setId();
             commentaire.getCom();
             System.out.println("***********Le commentaire est :" + commentaire.getCom());
             commentaire.setComDate(LocalDateTime.now());
@@ -335,28 +333,69 @@ public class SiteController {
     }
 
     @GetMapping("/effacerCommentaire")
-    public String effacerCommentaire (Long id) {
-        commentaireService.effacer(id);
-        log.info("Le commentaire que l'on vient d'effacer est : " + id);
+    public String effacerCommentaire (Model model, Commentaire commentaire, HttpSession session, User user, Long id,
+                                      Authentication authentication, Site site, RedirectAttributes redirectAttributes) {
+        try {
+            user = userController.userCo(model, authentication);
+            int userId = user.getId();
+            model.addAttribute("userId",userId);
+            System.out.println("L'ID de l'user connecté pour mettre un commentaire est : " + userId);
+            site = (Site) session.getAttribute("siteId");
+            System.out.println("L'ID du site est : " + site.getId());
+            if (!site.isCertifie()){
+                model.addAttribute("certifie", site.isCertifie());
+            }
+        } catch (NullPointerException e) {
+            log.error("Pas d'ID d'user connecté");
+        }
+        try {
+            commentaireService.effacer(id);
+            log.info("Le commentaire que l'on vient d'effacer est : " + id);
+        } catch (NullPointerException e) {
+            log.error("Pas d'user connecté");
+        }
+        redirectAttributes.addFlashAttribute("siteId", site);
+
         return "redirect:/pageEscalade";
     }
+
 
    @GetMapping("/editerCommentaire")
     public String modifierCom (Model model, Long id){
         Commentaire commentaire = commentaireService.findById(id);
        System.out.println(id);
-        model.addAttribute("comModif", commentaire.getId() );
+        model.addAttribute("comModif", commentaire);
         log.info("Le commentaire que l'on souhaite modifier est : " + commentaire);
         return "commentaireModif";
     }
 
     @PostMapping("/saveUpdateCommentaire")
-    public String saveUpdateCommentaire (Model model, Commentaire commentaire){
-        commentaireService.updateCommentaire(commentaire);
-        model.addAttribute("commentaireModif", commentaire);
-        log.info("Le commentaire que l'on édite est : " + commentaire);
-        return "redirect:/sites";
+    public String saveUpdateCommentaire (Model model, Commentaire commentaire, HttpSession session, User user, Long id,
+                                         Authentication authentication, Site site, RedirectAttributes redirectAttributes){
+        try {
+            user = userController.userCo(model, authentication);
+            int userId = user.getId();
+            model.addAttribute("userId",userId);
+            System.out.println("L'ID de l'user connecté pour mettre un commentaire est : " + userId);
+            site = (Site) session.getAttribute("siteId");
+            System.out.println("L'ID du site est : " + site.getId());
+            if (!site.isCertifie()){
+                model.addAttribute("certifie", site.isCertifie());
+            }
+        } catch (NullPointerException e) {
+            log.error("Pas d'ID d'user connecté");
+        }
+        try {
+            commentaireService.updateCommentaire(commentaire);
+            id = commentaire.getSite().getId();
+            model.addAttribute("commentaireModif", commentaire);
+            log.info("Le commentaire que l'on édite est : " + commentaire);
+        } catch (NullPointerException e) {
+            log.error("Pas d'user connecté");
+        }
+        redirectAttributes.addFlashAttribute("siteId", site);
+
+        return "redirect:/pageEscalade";
     }
 
 }
-

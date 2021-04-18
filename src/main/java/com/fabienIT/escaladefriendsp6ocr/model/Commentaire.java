@@ -17,7 +17,7 @@ public class Commentaire {
 
     @Id
     @Column(name = "commentaire_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
    /* @Temporal(TemporalType.TIMESTAMP)
     private Date dateTime;*/
@@ -50,7 +50,7 @@ public class Commentaire {
         return id;
     }
 
-    public void setId() {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -53,16 +53,14 @@
                                 <td th:text="${t.topo.region}"></td>
                                 <td th:text="${t.topo.date}"></td>
                                 <td th:text="${t.topo.description}"></td>
-                                <td th:if="${t.id != null}">
-                                    <div th:if="${t.validerReservation != null}">
-                                        <span th:if="${!t.validerReservation}">Demande en attente de validation</span>
-                                        <div th:if="${t.demandeReservation != null}">
-                                            <span th:if="${t.validerReservation}">Demande acceptée : <a th:href="@{coordonnees/(id=${t.topo.id})}">Voir les coordonnées</a></span>
-                                        </div>
-                                    </div>
+                                <td th:if="${t.demandeReservation && !t.reserve}">
+                                    <p>Demande en attente de validation</p>
+                                </td>
+                                <td th:if="${t.reserve}">
+                                    <p>Demande acceptée : <a th:href="@{coordonnees/(id=${t.id})}">Voir les coordonnées</a></p>
                                 </td>
                                 <td>
-                                    <div th:if="${role}">
+                                    <div>
                                         <a class="btn btn-success" th:href="@{annulerDemande/(id=${t.id})}">Annuler ma demande</a>
                                     </div>
                                 </td>

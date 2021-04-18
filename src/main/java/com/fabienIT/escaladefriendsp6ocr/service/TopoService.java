@@ -78,6 +78,14 @@ public class TopoService {
 		//mise à jour dans la bdd (sauvegarde)
 		topoRepository.save(dbTopo);
 	}
+
+	public void updateTopoStatus(Long topoId, boolean newStatus) {
+		// ici on récupère le topo puis on set le statut avec 'newStatus'
+		Topo dbTopo = topoRepository.findById(topoId).get();
+		dbTopo.setDisponible(newStatus);
+		topoRepository.save(dbTopo);
+	}
+
 }
 
 
