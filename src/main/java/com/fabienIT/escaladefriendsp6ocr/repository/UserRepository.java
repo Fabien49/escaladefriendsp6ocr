@@ -1,6 +1,5 @@
 package com.fabienIT.escaladefriendsp6ocr.repository;
 
-
 import com.fabienIT.escaladefriendsp6ocr.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,9 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	User findByEmail(String email);
 
-	User findAllById(Long id);
+	User findUserById(Long id);
 
-	 User findUserById(Long id);
-
-	public Page<User> findByNameContains(String keyword, Pageable pageable);
+	Page<User> findByNameContains(String keyword, Pageable pageable);
 }

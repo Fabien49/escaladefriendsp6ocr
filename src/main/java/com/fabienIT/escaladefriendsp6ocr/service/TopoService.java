@@ -11,8 +11,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,21 +30,11 @@ public class TopoService {
 		return topoRepository.findTopoById(id);
 	}
 
-	public Topo findTopoByNom(String topo) {
-		return topoRepository.findByNom(topo);
-	}
-
 	public Optional<Topo> findTopoSite(Long topo){return topoRepository.findById(topo);}
 
 
-	/*public List <Topo> findAllTopo (){
-		return topoRepository.findAll();
-	}*/
-
 	public Page<Topo> findAllNotId (Pageable pageable, @Param("model") Model model, @Param("user") User user, @Param("authentification") Authentication authentication, UserController userController){
-
 		user = userController.userCo(model, authentication);
-
 		return topoRepository.findAllNotId(pageable, user);
 	}
 
@@ -62,7 +50,6 @@ public class TopoService {
 	public void delete (Long id) {
 		topoRepository.deleteById(id);
 	}
-
 
 	public void updateTopo(Topo topo) {
 		//recuparation du topo en base via l'id

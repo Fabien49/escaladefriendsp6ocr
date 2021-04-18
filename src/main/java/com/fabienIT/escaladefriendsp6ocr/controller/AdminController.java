@@ -1,6 +1,5 @@
 package com.fabienIT.escaladefriendsp6ocr.controller;
 
-
 import com.fabienIT.escaladefriendsp6ocr.model.User;
 import com.fabienIT.escaladefriendsp6ocr.repository.SiteRepository;
 import com.fabienIT.escaladefriendsp6ocr.service.UserService;
@@ -28,28 +27,6 @@ public class AdminController {
     @Autowired
     SiteRepository siteRepository;
 
-/*
-    @GetMapping("/admin/accueilAdmin")
-    public String accueilAdmin(Model model, String userName, Authentication authentication, Long id, String user) {
-    */
-/*   User u = userService.findUser(id);
-       model.addAttribute(u);*//*
-
-         userName = authentication . getName();
-//         userName = userService.findByName(userName).getName();
-        String authorities =  authentication.getAuthorities().toString();
-        System.out.println("**************************** Name : "+userName);
-        System.out.println("**************************** Authorities : "+authorities);
-
-        model.addAttribute("userName", userName);
-        user = userService.findUser(id).getName();
-        model.addAttribute("userIdentity", user);
-//       System.out.println("L'admin connecté est : " + u);
-
-        return "accueilAdmin";
-    }
-*/
-
     @RequestMapping(value="/admin/accueilAdmin", method = RequestMethod.GET)
     public ModelAndView accueilAdmin(Authentication authentication){
         ModelAndView modelAndView = new ModelAndView();
@@ -59,10 +36,7 @@ public class AdminController {
         modelAndView.addObject("adminMessage","Content Available Only for users with Admin Role");
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         modelAndView.addObject("role", roles.toString());
-        System.out.println("Le role est : " + roles.toString());
-        System.out.println("*********************L'Id est : " + user.getId()+ "*****************");
         modelAndView.setViewName("accueilAdmin");
         return modelAndView;
     }
-
 }

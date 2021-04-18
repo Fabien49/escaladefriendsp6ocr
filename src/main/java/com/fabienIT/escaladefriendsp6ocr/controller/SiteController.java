@@ -1,6 +1,5 @@
 package com.fabienIT.escaladefriendsp6ocr.controller;
 
-
 import com.fabienIT.escaladefriendsp6ocr.model.*;
 import com.fabienIT.escaladefriendsp6ocr.repository.SiteRepository;
 import com.fabienIT.escaladefriendsp6ocr.service.*;
@@ -12,17 +11,14 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
-
 
 @Controller
 public class SiteController {
@@ -36,35 +32,13 @@ public class SiteController {
     SiteService siteService;
 
     @Autowired
-    TopoService topoService;
-
-    @Autowired
     CommentaireService commentaireService;
 
     @Autowired
     UserService userService;
 
     @Autowired
-    RoleService roleService;
-
-    @Autowired
     UserController userController;
-
-    @Autowired
-    SiteController siteController;
-
-/*   @Autowired
-    RoleService roleService;
-
-    @Autowired
-    RoleRepository roleRepository;*/
-
-    /*@GetMapping("/hello")
-    public String hello(@RequestParam(value = "message", defaultValue = "Bienvenue") String message, Model model) {
-        model.addAttribute("message", message);
-        return "hello";
-    }*/
-
 
 
     @GetMapping("/siteCo")
@@ -72,12 +46,7 @@ public class SiteController {
 
         String userName = authentication . getName ();
         String authorities =  authentication.getAuthorities().toString();
-
-        System.out.println("**************************** Name : "+ userName);
-        System.out.println("**************************** Authorities : "+authorities);
-
         model.addAttribute("userName", userName);
-
         log.info("L'utlisateur connecté est : " + userName);
 
         return "siteCo";
@@ -91,7 +60,6 @@ public class SiteController {
                          @RequestParam(name = "keyword", defaultValue = "") String mc,
                          @RequestParam(name="region", defaultValue = "")String region,
                          Authentication authentication ) {
-       // Role roleUser = roleService.findByRole(role);
         Page<Site> sitePage = siteRepository.findByNomContainsAndRegionContains(mc, region, PageRequest.of(page, size));
         model.addAttribute("sitePage", sitePage.getContent());
         model.addAttribute("pages", new int[sitePage.getTotalPages()]);
@@ -148,7 +116,6 @@ public class SiteController {
         return "siteForm";
     }
 
-
     @PostMapping("/ajouterSite")
     public String siteEnregistrer(Site site){
         siteService.ajouter(site);
@@ -166,25 +133,31 @@ public class SiteController {
 
     @PostMapping("/saveUpdateSite")
     public String saveUpdateSite (Model model, Site site){
+
         siteService.updateSite(site);
         model.addAttribute("update", site);
         log.info("Le site que l'on édite est : " + site);
+
         return "redirect:/siteListe";
     }
 
     @PostMapping("/saveUpdateSiteCertifie")
     public String saveUpdateSiteCertifie (Model model, Site site){
+
         site.setCertifie(true);
         siteService.updateSiteCerfifie(site);
         model.addAttribute("update", site);
         log.info("Le site que l'on édite est : " + site);
+
         return "redirect:/sites";
     }
 
     @GetMapping("/effacerSite")
     public String effacer (Long id) {
+
         siteService.effacer(id);
         log.info("Le site que l'on vient d'effacer est : " + id);
+
         return "redirect:/siteListe";
     }
 
@@ -194,23 +167,11 @@ public class SiteController {
 
         String userName = authentication . getName ();
         String authorities =  authentication.getAuthorities().toString();
-
-        System.out.println("**************************** Authorities : "+authorities);
-
         model.addAttribute("userName", userName);
-
         log.info("Le membre connecté est : " + userName);
 
         return "sitesMe";
     }
-
-
-/*    @GetMapping("/commentaire")
-    public String commentaire(Model model) {
-        model.addAttribute("commentaireForm", new Commentaire());
-        return "redirect:/sitePageEscalade";
-    }*/
-
 
     @GetMapping("/pageEscalade")
     public String pageEscalade (Model model, @RequestParam(name = "page", defaultValue = "0") int page,
@@ -225,7 +186,6 @@ public class SiteController {
                         model.addAttribute("certifie", site);
                     }
                     Set<Commentaire> comSite = siteService.findById(id).get().getCommentaire();
-//                    model.addAttribute("localDateTime", LocalDateTime.now());
                     model.addAttribute("comSite", comSite);
                     model.addAttribute("commentaireForm", new Commentaire());
 
@@ -248,18 +208,6 @@ public class SiteController {
                     log.info("La page d'escalade est : " + site);
                     log.info("La liste des commentaires est : " +comSite);
                 }
-
-
-        /*Long siteId = site.getId();
-        session.setAttribute("siteId", site);
-        System.out.println("L'Id du site est : " + site.getId());
-        model.addAttribute("siteId", site.getId());
-        model.addAttribute("sitePageEscalade", site);
-        Set<Topo> toposite= siteService.findById(id).get().getTopo();
-        model.addAttribute("toposite", toposite);
-        Set<Commentaire> comSite = siteService.findById(id).get().getCommentaire();
-        model.addAttribute("comSite", comSite);
-        model.addAttribute("commentaireForm", new Commentaire());*/
 
         try {
             Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());

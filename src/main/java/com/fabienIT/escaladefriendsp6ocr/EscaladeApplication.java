@@ -23,7 +23,7 @@ public class EscaladeApplication implements CommandLineRunner{
 
 	
 	private static final Logger logger = LoggerFactory.getLogger(EscaladeApplication.class);
-	
+/*
 	@Autowired
 	private UserRepository userRepository;
 
@@ -34,7 +34,7 @@ public class EscaladeApplication implements CommandLineRunner{
 	TopoRepository topoRepository;
 
 	@Autowired
-	SiteService siteService;
+	SiteService siteService;*/
 	
 	/*@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;*/

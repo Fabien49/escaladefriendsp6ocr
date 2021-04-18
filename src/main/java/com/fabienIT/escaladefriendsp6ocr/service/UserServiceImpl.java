@@ -1,9 +1,7 @@
 package com.fabienIT.escaladefriendsp6ocr.service;
 
 import java.util.*;
-
 import javax.transaction.Transactional;
-
 import com.fabienIT.escaladefriendsp6ocr.model.Role;
 import com.fabienIT.escaladefriendsp6ocr.model.User;
 import com.fabienIT.escaladefriendsp6ocr.repository.RoleRepository;
@@ -16,14 +14,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-/*import sun.jvm.hotspot.debugger.Page;*/
 
 @Service("userService")
 public class UserServiceImpl implements UserService, UserDetailsService {
 
 	@Autowired
 	private UserRepository userRepository;
-
 	@Autowired
 	private RoleRepository roleRepository;
 	@Autowired
@@ -32,10 +28,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 	public User findUserByEmail(String email) {
 		return userRepository.findByEmail(email);
-	}
-
-	public User findUser(Long id){
-		return userRepository.findUserById(id);
 	}
 
 
@@ -62,38 +54,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		userRepository.save(user);
 		System.out.println("Le membre enregistré est : " + user);
 	}
-
-
-
-
-
-
-/*	public void saveAdmin(User user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-		user.setActive(true);
-		HashSet<Role> roles = new HashSet<Role>();
-		Role role = new Role();
-		role.setRole("ADMIN");
-		roles.add(role);
-		user.setRoles(roles);
-		userRepository.save(user);
-		System.out.println("L'admin enregistré est : " + user);
-	}*/
-	
-
-/*	 * INSERT INTO `role` VALUES (1,'ADMIN');
-	@Override
-	public void saveUser(User user) {
-		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setActive(1);
-        Role userRole = roleRepository.findByRole("ADMIN");
-        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-		userRepository.save(user);
-	}*/
-
-
-
-
 
 	@Transactional
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {

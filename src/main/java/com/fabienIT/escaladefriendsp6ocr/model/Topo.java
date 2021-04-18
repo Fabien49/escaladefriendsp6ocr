@@ -24,17 +24,9 @@ public class Topo implements Serializable {
     private boolean disponible;
     private String description;
 
-   /* @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "site_id", nullable = false)
-    private Site site;*/
-
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
-
-   /* @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "reservation_id")
-    private Reservation reservation*/;
 
     @OneToMany(mappedBy = "topo", fetch = FetchType.LAZY)
     private Set<Reservation> reservation;

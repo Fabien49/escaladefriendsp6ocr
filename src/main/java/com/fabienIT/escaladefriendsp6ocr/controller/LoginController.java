@@ -1,7 +1,6 @@
 package com.fabienIT.escaladefriendsp6ocr.controller;
 
 import javax.validation.Valid;
-
 import com.fabienIT.escaladefriendsp6ocr.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,8 +43,6 @@ public class LoginController {
 		return modelAndView;
 	}
 
-
-
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
 		ModelAndView modelAndView = new ModelAndView();
@@ -62,44 +59,7 @@ public class LoginController {
 			modelAndView.addObject("successMessage", "Votre inscription a bien été prise en compte");
 			modelAndView.addObject("user", new User());
 			modelAndView.setViewName("/login");
-
 		}
 		return modelAndView;
 	}
-
-/*	@RequestMapping(value = "/saveMembre", method = RequestMethod.POST)
-	public ModelAndView createNewMembre(@Valid User user, BindingResult bindingResult) {
-		ModelAndView modelAndView = new ModelAndView();
-		User userExists = userService.findUserByEmail(user.getEmail());
-		if (userExists != null) {
-			bindingResult
-					.rejectValue("email", "error.user",
-							"There is already a user registered with the email provided");
-		}
-		if (bindingResult.hasErrors()) {
-			modelAndView.setViewName("inscriptionAdmin");
-		} else {
-			userService.saveMembre(user);
-			modelAndView.addObject("successMessage", "User has been registered successfully");
-			modelAndView.addObject("user", new User());
-			modelAndView.setViewName("inscriptionAdmin");
-		}
-		return modelAndView;
-	}*/
-	
-/*	@RequestMapping(value="/membre", method = RequestMethod.GET)
-	public ModelAndView home(Long id){
-		ModelAndView modelAndView = new ModelAndView();
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	*//*	User user = userService.findUserByEmail(auth.getName());
-		modelAndView.addObject("userName", "Welcome " + user.getName() + " " + user.getLastName() + " (" + user.getEmail() + ")");*//*
-		//modelAndView.addObject("adminMessage","Content Available Only for users with Admin Role");
-		String user =
-		userService.findUser(id).getCommune();
-		modelAndView.addObject("UserIdentity", user);
-		modelAndView.setViewName("membre");
-		return modelAndView;
-	}*/
-	
-
 }

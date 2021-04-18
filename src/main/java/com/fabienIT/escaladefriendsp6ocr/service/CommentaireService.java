@@ -1,13 +1,10 @@
 package com.fabienIT.escaladefriendsp6ocr.service;
 
-
 import com.fabienIT.escaladefriendsp6ocr.model.Commentaire;
 import com.fabienIT.escaladefriendsp6ocr.repository.CommentaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CommentaireService {
@@ -21,9 +18,7 @@ public class CommentaireService {
         commentaireRepository.save(commentaire);
     }
 
-
-    public Commentaire findById(Long id) { return  commentaireRepository.findCommentaireById(id);
-    }
+    public Commentaire findById(Long id) { return  commentaireRepository.findCommentaireById(id);    }
 
     public void effacer(Long id) {
         commentaireRepository.deleteById(id);
@@ -40,10 +35,7 @@ public class CommentaireService {
         Commentaire dbCommentaire = commentaireRepository.findById(id).get();
         System.out.println(dbCommentaire);
         //mise à jour (récupération) du nom depuis le formulaire d'edition
-//        dbCommentaire.setComDate(commentaire.getComDate());
         dbCommentaire.setCom(commentaire.getCom());
-//        dbCommentaire.setSite(commentaire.getSite());
-//        dbCommentaire.setUser(commentaire.getUser());
         //mise à jour dans la bdd (sauvegarde)
         commentaireRepository.save(dbCommentaire);
     }

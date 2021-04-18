@@ -1,10 +1,7 @@
 package com.fabienIT.escaladefriendsp6ocr.controller;
 
 import java.io.Serializable;
-
-//import com.sun.istack.internal.NotNull;
 import javax.validation.constraints.NotNull;
-
 import javax.validation.constraints.Size;
 
 public class LoginForm implements Serializable{

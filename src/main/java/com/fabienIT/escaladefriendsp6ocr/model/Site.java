@@ -23,9 +23,6 @@ public class Site implements Serializable {
     private String site_image;
     private boolean certifie;
 
-    /*@OneToMany(mappedBy = "site", fetch = FetchType.EAGER, cascade =  CascadeType.ALL)
-    private Set<Topo> topo;*/
-
     @OneToMany(mappedBy = "site", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
     private Set<Commentaire> commentaire;
 

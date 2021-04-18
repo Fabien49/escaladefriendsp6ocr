@@ -1,14 +1,10 @@
 package com.fabienIT.escaladefriendsp6ocr.service;
 
-
 import com.fabienIT.escaladefriendsp6ocr.model.Commentaire;
 import com.fabienIT.escaladefriendsp6ocr.model.Site;
-import com.fabienIT.escaladefriendsp6ocr.model.Topo;
 import com.fabienIT.escaladefriendsp6ocr.repository.SiteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -22,7 +18,6 @@ public class SiteService {
         siteRepository.save(site);
     }
 
-
     public Site findSiteById(Long id) {
         return (Site) siteRepository.findAllById(id);
     }
@@ -34,10 +29,6 @@ public class SiteService {
     public void effacer (Long id) {
         siteRepository.deleteById(id);
     }
-
-    public Site findByNom(String nom){return  siteRepository.findByNom(nom);}
-
-
 
     public void updateSite(Site site) {
         //recuparation du topo en base via l'id

@@ -1,6 +1,5 @@
 package com.fabienIT.escaladefriendsp6ocr.controller;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -16,12 +15,6 @@ public class HomeController {
 
     private static final Logger log = LoggerFactory.getLogger(TopoController.class);
 
-
-    /*@GetMapping("/hello")
-    public String hello(@RequestParam(value = "message", defaultValue = "Bienvenue") String message, Model model) {
-        model.addAttribute("message", message);
-        return "hello";
-    }*/
 
     @GetMapping("/")
     public String accueil(Model model, Authentication authentication) {
