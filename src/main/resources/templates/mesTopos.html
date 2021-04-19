@@ -76,8 +76,10 @@
                                 <td th:text="${#dates.format(t.date, 'dd-MMM-yyyy')}"></td>
                                 <td th:text="${t.description}"></td>
                                 <td>
-                                    <div th:if="${t.disponible}">
+                                    <div th:if="${reservation}">
+                                        <div th:if="${t.disponible}">
                                         Pas de demande de réservation
+                                        </div>
                                     </div>
                                     <div th:if="${!t.disponible}">
                                         <div th:if="${reservation}">

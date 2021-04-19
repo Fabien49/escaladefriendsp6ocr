@@ -28,6 +28,7 @@
         <div class="col">
             <div class="border-secondary shadow jumbotron">
                 <h1>Mes demandes</h1>
+                <p>Si votre demande a été acceptée, un lien "coordonnées" s'affichera</p>
             </div>
         </div>
     </div>
@@ -56,8 +57,9 @@
                                 <td th:if="${t.demandeReservation && !t.reserve}">
                                     <p>Demande en attente de validation</p>
                                 </td>
-                                <td th:if="${t.reserve}">
-                                    <p>Demande acceptée : <a th:href="@{coordonnees/(id=${t.id})}">Voir les coordonnées</a></p>
+                                <td >
+                                    <p th:if="${t.reserve}">Demande acceptée : <a th:href="@{coordonnees/(id=${t.id})}">Voir les coordonnées</a></p>
+                                    <p th:unless="${t.reserve}">En attente de décision</p>
                                 </td>
                                 <td>
                                     <div>

@@ -25,7 +25,7 @@ public class Topo implements Serializable {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "topo", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "topo", fetch = FetchType.LAZY, cascade =  CascadeType.ALL)
     private Set<Reservation> reservation;
 
     public Topo() {

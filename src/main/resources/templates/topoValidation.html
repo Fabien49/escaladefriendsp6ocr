@@ -48,27 +48,25 @@
                                 <td th:text="*{region}"></td>
                                 <td th:text="*{#dates.format(date, 'dd-MMM-yyyy')}"></td>
                                 <td th:text="*{description}"></td>
+                                <div th:if="${reservation}">
                                 <td th:if="${!reservation.reserve && !reservation.validerReservation}">
                                    <form method="post" action="#" th:action="@{/saveValiderReservation}" th:object="${reservation}">
                                        <input type="hidden" name="id" th:field="*{id}"/>
-
                                         <input type="hidden" th:value="${topoReservation}"/>
-<!--                                        <input type="hidden" th:value="${userId}"/>-->
                                         <input type="hidden" th:field="*{demandeReservation}" th:value="false"/>
                                         <input type="hidden" th:field="*{reserve}"th:value="true"/>
-                                       <!-- <button type="submit" value="Accepter réservation" class="btn btn-success" >Accepter</button>-->
                                         <a class="btn btn-success" th:href="@{'/saveResa/' + ${reservation.id} + '/true'}">Accepter</a>
                                         <input type="hidden" th:field="*{demandeReservation}" th:value="false"/>
                                         <input type="hidden" th:field="*{reserve}"th:value="false"/>
-<!--                                        <button type="submit" value="Refuser réservation" class="btn btn-danger" >Refuser</button>-->
-                                        <a th:href="@{'/saveResa/' + ${reservation.id} + '/false'}">
-                                            <button type="button" class="btn btn-danger" >Accepter</button>
-                                        </a>
+                                        <a class="btn btn-danger" th:href="@{'/saveResa/' + ${reservation.id} + '/false'}">Refuser</a>
                                    </form>
                                 </td>
+                                </div>
+                                <div th:if="${reservation}">
                                 <td th:if="${reservation.reserve}">
                                     <a th:href="@{/coordonnees/(id=${reservation.id})}">Coordonnées</a>
                                 </td>
+                                </div>
                             </tr>
                         </table>
                     </div>
