@@ -10,10 +10,10 @@
 
 </head>
 <h2>
-  <div th:if="${role == 'ADMIN'}">
-<p>ça marche !</p>
-</div>
-    <span th:text="'Hello, ' + ${role[0]}"></span>
+    <div th:if="${role == 'ADMIN'}">
+        <p>ça marche !</p>
+    </div>
+    <span th:text="'Hello, ' + ${role}"></span>
 
 </h2>
 <body>
@@ -40,25 +40,26 @@
                                 <hr>
                                 <table class="table table-border">
                                     <div th:object="${sitePageEscalade}">
-                                    <tr>
-                                        <td class="text-left">Nombre de voies</td>
-                                        <td th:text="*{nbVoies}"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-left">Nombre de secteurs</td>
-                                        <td>5</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-left">Difficulté</td>
-                                        <td th:text="'De ' + *{cotationMin} + ' à ' + *{cotationMax}"></td>
-                                    </tr>
-                                    <tr th:if="${certifie}">
-                                        <td colspan="2">Site officiel les amis de l'escalade</td>
-                                        <td></td>
-                                    </tr>
+                                        <tr>
+                                            <td class="text-left">Nombre de voies</td>
+                                            <td th:text="*{nbVoies}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">Nombre de secteurs</td>
+                                            <td>5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">Difficulté</td>
+                                            <td th:text="'De ' + *{cotationMin} + ' à ' + *{cotationMax}"></td>
+                                        </tr>
+                                        <tr th:if="${certifie}">
+                                            <td colspan="2">Site officiel les amis de l'escalade</td>
+                                            <td></td>
+                                        </tr>
                                     </div>
 
-                                    <tr th:if="${role == 'ADMIN'}">
+                                    <tr th:unless="${certifie}">
+                                        <div th:if="${role == 'ADMIN'}">
                                         <form method="post" action="" th:action="${saveUpdateSiteCertifie}" th:object="${sitePageEscalade}">
                                             <td>
                                                 <input type="hidden" th:field="*{id}"/>
@@ -68,6 +69,7 @@
                                                 </button>
                                             </td>
                                         </form>
+                                        </div>
                                     </tr>
                                 </table>
                             </div>

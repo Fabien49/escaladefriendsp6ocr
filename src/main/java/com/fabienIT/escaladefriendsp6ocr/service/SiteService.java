@@ -40,6 +40,7 @@ public class SiteService {
         dbSite.getId();
         dbSite.setNom(site.getNom());
         dbSite.setRegion(site.getRegion());
+        dbSite.setNbSecteurs(site.getNbSecteurs());
         dbSite.setNbVoies(site.getNbVoies());
         dbSite.setCotationMin(site.getCotationMin());
         dbSite.setCotationMax(site.getCotationMax());
@@ -66,7 +67,7 @@ public class SiteService {
         dbSite.setDescription(site.getDescription());
         dbSite.setSite_image(site.getSite_image());
         dbSite.setCertifie(site.isCertifie());
-        dbSite.setCommentaire(site.getCommentaire());
+//        dbSite.setCommentaire(site.getCommentaire());
         //mise à jour dans la bdd (sauvegarde)
         siteRepository.save(dbSite);
     }

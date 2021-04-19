@@ -142,15 +142,28 @@ public class SiteController {
     }
 
     @PostMapping("/saveUpdateSiteCertifie")
-    public String saveUpdateSiteCertifie (Model model, Site site){
+    public String saveUpdateSiteCertifie (Model model, Site site, Authentication authentication, User user) {
 
-        site.setCertifie(true);
-        siteService.updateSiteCerfifie(site);
-        model.addAttribute("update", site);
-        log.info("Le site que l'on édite est : " + site);
+        try {
+            user = userController.userCo(model, authentication);
+            int userId = user.getId();
+            model.addAttribute("userId", userId);
+            System.out.println("L'ID de l'user connecté pour mettre un commentaire est : " + userId);
+            System.out.println("L'ID du site est : " + site.getId());
+            if (!site.isCertifie()) {
+                model.addAttribute("certifie", site.isCertifie());
+            }
+        } catch (NullPointerException e) {
+            log.error("Pas d'ID d'user connecté");
+        }
+            site.setCertifie(true);
+            siteService.updateSiteCerfifie(site);
+            model.addAttribute("update", site);
+            log.info("Le site que l'on édite est : " + site);
 
-        return "redirect:/sites";
+        return "redirect:/sitePageEscalade";
     }
+
 
     @GetMapping("/effacerSite")
     public String effacer (Long id) {

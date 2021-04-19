@@ -13,6 +13,7 @@ public class Site implements Serializable {
     private Long id;
     private String nom;
     private String region;
+    private int nbSecteurs;
     private int nbVoies;
     private String cotationMin;
     private String cotationMax;
@@ -27,10 +28,11 @@ public class Site implements Serializable {
     public Site() {
     }
 
-    public Site(Long id, String nom, String region, int nbVoies, String cotationMin, String cotationMax, String description, String site_image, boolean certifie) {
+    public Site(Long id, String nom, String region,int nbSecteurs, int nbVoies, String cotationMin, String cotationMax, String description, String site_image, boolean certifie) {
         this.id = id;
         this.nom = nom;
         this.region = region;
+        this.nbSecteurs = nbSecteurs;
         this.nbVoies = nbVoies;
         this.cotationMin = cotationMin;
         this.cotationMax = cotationMax;
@@ -62,6 +64,10 @@ public class Site implements Serializable {
     public void setRegion(String region) {
         this.region = region;
     }
+
+    public int getNbSecteurs() {return nbSecteurs;}
+
+    public void setNbSecteurs(int nbSecteurs) {this.nbSecteurs = nbSecteurs;}
 
     public int getNbVoies() {
         return nbVoies;

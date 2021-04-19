@@ -10,6 +10,8 @@
         <title>Les Amis de l'Escalade</title>
     </head>
     <h2>
+        <div th:if="${role == 'ADMIN'}"></div>
+            <p>ça marche !</p>
         <span th:text="'Hello, ' + ${role}"></span>
     </h2>
 
@@ -43,7 +45,7 @@
                                     <th>Nom</th>
                                     <th>Propriétaire</th>
                                     <th>Région</th>
-                                    <th>Date d'enregistrement</th>
+                                    <th>Date de parution</th>
                                     <th>Description</th>
                                     <th>Réservation</th>
                                     <div th:if="${role == 'ADMIN'}">
@@ -51,24 +53,23 @@
                                     </div>
                                 </tr>
                                 </thead>
+
                                 <tr th:each="t:${TopoListe}">
+                                    <div th:if="${t.user.id != roleUser}">
                                     <td th:text="${t.nom}"></td>
                                     <td th:text="${t.user.name} + ' ' + ${t.user.lastName}"></td>
                                     <td th:text="${t.region}"></td>
                                     <td th:text="${#dates.format(t.date, 'dd-MMM-yyyy')}"></td>
                                     <td th:text="${t.description}"></td>
                                     <td>
-                                        <div th:each="r:${reservation}">
-                                            <span th:if="${r.id == null} and ${t.disponible == true}"><a th:href="@{/demandeReservation/(id=${t.id})}">Demande de réservation</a></span>
-                                            <span th:if="${r.id == null} and ${t.disponible == false}">Pas disponible</span>
+                                        <div>
+                                            <span th:if="${t.disponible == true}"><a th:href="@{/demandeReservation/(id=${t.id})}">Demande de réservation</a></span>
+                                            <span th:if="${t.disponible == false}">Pas disponible</span>
 
-                                            <div th:if="${r.id != null}">
+                                            <!--<div th:if="${r.id != null}">
                                                 <span th:if="${r.demandeReservation == true} and ${r.reserve == false}">En attente de validation</span>
 
                                                 <span th:if="${r.demandeReservation == true} and ${r.reserve == true}">Déjà pris !</span>
-                                            </div>
-                                           <!-- <div>
-                                                <a th:href="@{demandeReservation/(id=${t.id})}">Demande de réservation</a>
                                             </div>-->
                                         </div>
                                     </td>
@@ -83,6 +84,7 @@
                                         </div>
                                     </td>
                                 </tr>
+                                </div>
                             </table>
                             <ul class="nav nav-pills">
                                 <li  th:each="page,status:${pages}">

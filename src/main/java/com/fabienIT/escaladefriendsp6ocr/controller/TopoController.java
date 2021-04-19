@@ -110,14 +110,13 @@ public class TopoController {
         model.addAttribute("roleUser", user.getId());
         System.out.println("L'ID est : " + user.getId());
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
-        model.addAttribute("role", roles.toString());
+        model.addAttribute("role", roles.toArray()[0].toString());
         Page<Topo> pageTopo = topoService.findByNameContains(keyword, PageRequest.of(page, size));
         model.addAttribute("TopoListe", pageTopo.getContent());
         model.addAttribute("keyword", keyword);
         model.addAttribute("pages", new int[pageTopo.getTotalPages()]);
         model.addAttribute("currentPage", page);
         model.addAttribute("size", size);
-        model.addAttribute("role", roles.toString());
         model.addAttribute("reservation", reservation);
         log.info("*********Le nombre de topo est : " + pageTopo.getTotalElements());
 
