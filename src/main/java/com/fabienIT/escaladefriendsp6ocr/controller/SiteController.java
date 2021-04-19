@@ -123,14 +123,6 @@ public class SiteController {
         return "redirect:/sites";
     }
 
-    @GetMapping("/editerSite")
-    public String modifier (Model model, Long id){
-        Optional<Site> s = siteService.findById(id);
-        model.addAttribute("siteModif", s);
-        log.info("Le site que l'on souhaite modifier est : " + s);
-        return "siteModif";
-    }
-
     @PostMapping("/saveUpdateSite")
     public String saveUpdateSite (Model model, Site site){
 
@@ -139,6 +131,14 @@ public class SiteController {
         log.info("Le site que l'on édite est : " + site);
 
         return "redirect:/siteListe";
+    }
+
+    @GetMapping("/editerSiteCertifie")
+    public String modifier (Model model, Long id){
+        Site s = siteService.findSiteById(id);
+        model.addAttribute("siteModif", s);
+        log.info("Le site que l'on souhaite modifier est : " + s);
+        return "siteModif";
     }
 
     @PostMapping("/saveUpdateSiteCertifie")
@@ -156,12 +156,11 @@ public class SiteController {
         } catch (NullPointerException e) {
             log.error("Pas d'ID d'user connecté");
         }
-            site.setCertifie(true);
             siteService.updateSiteCerfifie(site);
             model.addAttribute("update", site);
             log.info("Le site que l'on édite est : " + site);
 
-        return "redirect:/sitePageEscalade";
+        return "redirect:/sites";
     }
 
 

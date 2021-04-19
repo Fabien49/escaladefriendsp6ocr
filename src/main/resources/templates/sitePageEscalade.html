@@ -58,17 +58,21 @@
                                         </tr>
                                     </div>
 
+
                                     <tr th:unless="${certifie}">
                                         <div th:if="${role == 'ADMIN'}">
-                                        <form method="post" action="" th:action="${saveUpdateSiteCertifie}" th:object="${sitePageEscalade}">
+                                            <td>
+                                                <a class="btn btn-success" th:href="@{/editerSiteCertifie/(id=${sitePageEscalade.id})}">Certifier</a>
+                                            </td>
+<!--                                        <form method="post" action="" th:action="${saveUpdateSiteCertifie}" th:object="${sitePageEscalade}">
                                             <td>
                                                 <input type="hidden" th:field="*{id}"/>
-                                                <!--<input type="radio" th:field="*{certifie}" th:value="true"/>-->
+                                                <input type="radio" th:field="*{certifie}" th:value="true"/>
                                                 <button type="submit" value="certifier"
                                                         class="btn btn-primary mt-auto mx-auto">Certifier
                                                 </button>
                                             </td>
-                                        </form>
+                                        </form>-->
                                         </div>
                                     </tr>
                                 </table>
@@ -89,6 +93,7 @@
             </div>
         </div>
     </div>
+
 
 
     <div class="row">
