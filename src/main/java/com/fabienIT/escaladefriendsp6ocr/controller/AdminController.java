@@ -1,7 +1,6 @@
 package com.fabienIT.escaladefriendsp6ocr.controller;
 
 import com.fabienIT.escaladefriendsp6ocr.model.User;
-import com.fabienIT.escaladefriendsp6ocr.repository.SiteRepository;
 import com.fabienIT.escaladefriendsp6ocr.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,8 +23,6 @@ public class AdminController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    SiteRepository siteRepository;
 
     @RequestMapping(value="/admin/accueilAdmin", method = RequestMethod.GET)
     public ModelAndView accueilAdmin(Authentication authentication){

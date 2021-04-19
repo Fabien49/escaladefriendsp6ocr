@@ -37,8 +37,6 @@ public class ReservationService {
 
 	public Reservation findReservationByTopoId(long id){return reservationRepository.findReservationByTopoId(id);}
 
-	public Reservation findReservationByUserId(int id){return reservationRepository.findReservationByUserId(id);}
-
 	public Reservation updateReservation(Reservation reservation) {
 		//recuparation du topo en base via l'id
 		Long id = reservation.getId();

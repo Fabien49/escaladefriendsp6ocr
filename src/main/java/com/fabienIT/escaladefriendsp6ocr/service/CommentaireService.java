@@ -12,8 +12,6 @@ public class CommentaireService {
     @Autowired
     CommentaireRepository commentaireRepository;
 
-    public List<Commentaire> findAllCom (){return commentaireRepository.findAll(); }
-
     public void ajouterCom (Commentaire commentaire){
         commentaireRepository.save(commentaire);
     }
@@ -31,9 +29,7 @@ public class CommentaireService {
     public void updateCommentaire(Commentaire commentaire) {
         //recuparation du commentaire en base via l'id
         Long id = commentaire.getId();
-        System.out.println(id);
         Commentaire dbCommentaire = commentaireRepository.findById(id).get();
-        System.out.println(dbCommentaire);
         //mise à jour (récupération) du nom depuis le formulaire d'edition
         dbCommentaire.setCom(commentaire.getCom());
         //mise à jour dans la bdd (sauvegarde)

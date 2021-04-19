@@ -9,11 +9,6 @@
 
         <title>Les Amis de l'Escalade</title>
     </head>
-    <h2>
-        <div th:if="${role == 'ADMIN'}"></div>
-            <p>ça marche !</p>
-        <span th:text="'Hello, ' + ${role}"></span>
-    </h2>
 
     <body>
     <!-- header -->
@@ -27,14 +22,13 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="border-secondary shadow card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Liste des Topos</h5>
-
-                    </div>
+            <div class="col">
+                <div class="border-secondary shadow jumbotron">
+                    <h1>Liste des topos des autres utilisateurs</h1>
+                    <p>Vous pouvez faire une demande d'emprunt quand ils sont disponibles</p>
                 </div>
             </div>
+        </div>
             <div class="col-12">
                 <div class="border-secondary shadow card h-100">
                     <div class="card-body">

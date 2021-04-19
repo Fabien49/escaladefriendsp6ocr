@@ -108,7 +108,6 @@ public class TopoController {
 
         User user = userController.userCo(model, authentication);
         model.addAttribute("roleUser", user.getId());
-        System.out.println("L'ID est : " + user.getId());
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         model.addAttribute("role", roles.toArray()[0].toString());
         Page<Topo> pageTopo = topoService.findByNameContains(keyword, PageRequest.of(page, size));
@@ -169,11 +168,16 @@ public class TopoController {
     }
 
     @GetMapping("/validerReservation")
-    public String topoValider (Model model, Long id , HttpSession session){
+    public String topoValider (Model model, Long id , HttpSession session, Authentication authentication){
 
         Topo topo = topoService.findTopoById(id);
         model.addAttribute("topoValider", topo);
         session.setAttribute("topoValider", topo);
+        User user = userController.userCo(model, authentication);
+        model.addAttribute("roleUser", user.getId());
+        System.out.println("L'ID est : " + user.getId());
+        Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
+        model.addAttribute("role", roles.toArray()[0].toString());
         Reservation reservation = reservationService.findReservationByTopoId(id);
         if (reservation != null) {
             Topo topoReservation = reservationService.findReservationByTopoId(id).getTopo();
@@ -343,15 +347,17 @@ public class TopoController {
     }
 
     @GetMapping("/coordonnees")
-    public String coordonnees (Model model, Long id){
+    public String coordonnees (Model model, Long id, Authentication authentication, User user){
 
+        user = userController.userCo(model, authentication);
+        model.addAttribute("roleUser", user.getId());
+        Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
+        model.addAttribute("role", roles.toArray()[0].toString());
         Reservation reservation = reservationService.findReservationById(id);
-        System.out.println(id);
-        System.out.println(reservation);
         User userEmprunteur = reservation.getUseur();
         model.addAttribute("coordonneesEmprunteur", userEmprunteur);
         Topo topo = reservationService.findReservationById(id).getTopo();
-        User user = topo.getUser();
+        user = topo.getUser();
         model.addAttribute("coordonneesProprietaire", user);
 
         System.out.println(userEmprunteur);

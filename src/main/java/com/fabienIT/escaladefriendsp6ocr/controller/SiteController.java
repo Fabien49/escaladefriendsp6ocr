@@ -67,46 +67,21 @@ public class SiteController {
         model.addAttribute("size", size);
         model.addAttribute("keyword", mc);
         model.addAttribute("region", region);
-        /*Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
-        model.addAttribute("role", roles.toString());
-        System.out.println("Le role est : " + roles.toString());*/
         {
 
             try {
                 Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
                 model.addAttribute("role", roles.toString());
-                System.out.println("Le role est : " + roles.toString());
             } catch (NullPointerException e) {
                 log.error("Pas de role");
             }
             log.info("Le nombre de site est : " + sitePage.getTotalElements());
-           // log.info("Le role de l'utilisateur connecté est : " + role);
 
             if (sitePage.getTotalElements() == 0){
                 model.addAttribute("recherchenull", "Aucun résultat ne correspond à vos critères de recherches");
-                System.out.println("sitePage est vraiment null " + sitePage);
             }
 
             return "sites";
-        }
-    }
-
-    @GetMapping("/siteListe")
-    public String siteListe (Model model,
-                         @RequestParam(name = "page", defaultValue = "0") int page,
-                         @RequestParam(name = "size", defaultValue = "5") int size,
-                         @RequestParam(name = "keyword", defaultValue = "") String mc,
-                         @RequestParam(name="region", defaultValue = "")String region) {
-        Page<Site> sitePage = siteRepository.findByNomContainsAndRegionContains(mc, region, PageRequest.of(page, size));
-        model.addAttribute("siteListe", sitePage.getContent());
-        model.addAttribute("pages", new int[sitePage.getTotalPages()]);
-        model.addAttribute("currentPage", page);
-        model.addAttribute("size", size);
-        model.addAttribute("keyword", mc);
-        {
-            log.info("Le nombre de site est : " + sitePage.getTotalElements());
-
-            return "siteListe";
         }
     }
 
@@ -135,9 +110,11 @@ public class SiteController {
 
     @GetMapping("/editerSiteCertifie")
     public String modifier (Model model, Long id){
+
         Site s = siteService.findSiteById(id);
         model.addAttribute("siteModif", s);
         log.info("Le site que l'on souhaite modifier est : " + s);
+
         return "siteModif";
     }
 
@@ -174,24 +151,12 @@ public class SiteController {
     }
 
 
-    @GetMapping("/admin/sitesMe")
-    public String membre (Model model, Authentication authentication ) {
-
-        String userName = authentication . getName ();
-        String authorities =  authentication.getAuthorities().toString();
-        model.addAttribute("userName", userName);
-        log.info("Le membre connecté est : " + userName);
-
-        return "sitesMe";
-    }
-
     @GetMapping("/pageEscalade")
     public String pageEscalade (Model model, @RequestParam(name = "page", defaultValue = "0") int page,
                                 @RequestParam(name = "size", defaultValue = "5") int size, Long id, Authentication authentication, HttpSession session, @ModelAttribute("siteId") Site site){
                 if (id != null) {
                     site = siteService.findSiteById(id);
                     session.setAttribute("siteId", site);
-                    System.out.println("L'Id du site est : " + site.getId());
                     model.addAttribute("siteId", site.getId());
                     model.addAttribute("sitePageEscalade", site);
                     if (site.isCertifie()){
@@ -224,17 +189,14 @@ public class SiteController {
         try {
             Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
             model.addAttribute("role", roles.toArray()[0].toString());
-            System.out.println("Le role est : " + roles.toString());
-            String admin = new String("ADMIN");
+//            String admin = new String("ADMIN");
             if ((roles.toString() != null) && (!site.isCertifie())){
                 model.addAttribute("roles", roles.toString());
-                System.out.println("la condition testée est bien prise en compte !!!!!!!!! youhou !!!!:!!!!!!!!!!");
             }
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             User user = userService.findUserByEmail(auth.getName());
 
             model.addAttribute("userId", user.getId());
-            System.out.println("L'id de l'user est : " + user.getId());
         } catch (NullPointerException e) {
             log.error("Pas de role");
         }
@@ -247,11 +209,13 @@ public class SiteController {
 
     @PostMapping("/saveCommentaireSite")
     public String saveCommentaireSite (Model model, Site site, Commentaire commentaire){
+
         siteService.updateSite(site);
         commentaireService.ajouterCom(commentaire);
         model.addAttribute(commentaire);
         model.addAttribute("update", site);
         log.info("Le site que l'on édite est : " + site);
+
         return "redirect:/pageEscalade";
     }
 
@@ -264,24 +228,17 @@ public class SiteController {
             user = userController.userCo(model, authentication);
             int userId = user.getId();
             model.addAttribute("userId",userId);
-            System.out.println("L'ID de l'user connecté pour mettre un commentaire est : " + userId);
             site = (Site) session.getAttribute("siteId");
-            System.out.println("L'ID du site est : " + site.getId());
         } catch (NullPointerException e) {
             log.error("Pas d'ID d'user connecté");
         }
         try {
             commentaire.getCom();
-            System.out.println("***********Le commentaire est :" + commentaire.getCom());
             commentaire.setComDate(LocalDateTime.now());
-            System.out.println("***********La date du jour est : " + commentaire.getComDate());
             user = userController.userCo(model, authentication);
             commentaire.setUser(user);
-            System.out.println("************L'id de l'user est : " + commentaire.getUser().getId());
-//            siteId = (Long) session.getAttribute("siteId");
             session.getAttribute("siteId");
             commentaire.setSite(site);
-            System.out.println("***********L'id du site est : " + commentaire.getSite().getId());
             commentaireService.ajouterCom(commentaire);
             model.addAttribute("commentaire", commentaire);
             log.info("Le commentaire que l'on ajoute est : " + commentaire);
@@ -295,13 +252,12 @@ public class SiteController {
     @GetMapping("/effacerCommentaire")
     public String effacerCommentaire (Model model, Commentaire commentaire, HttpSession session, User user, Long id,
                                       Authentication authentication, Site site, RedirectAttributes redirectAttributes) {
+
         try {
             user = userController.userCo(model, authentication);
             int userId = user.getId();
             model.addAttribute("userId",userId);
-            System.out.println("L'ID de l'user connecté pour mettre un commentaire est : " + userId);
             site = (Site) session.getAttribute("siteId");
-            System.out.println("L'ID du site est : " + site.getId());
             if (!site.isCertifie()){
                 model.addAttribute("certifie", site.isCertifie());
             }
@@ -322,10 +278,12 @@ public class SiteController {
 
    @GetMapping("/editerCommentaire")
     public String modifierCom (Model model, Long id){
+
         Commentaire commentaire = commentaireService.findById(id);
        System.out.println(id);
         model.addAttribute("comModif", commentaire);
         log.info("Le commentaire que l'on souhaite modifier est : " + commentaire);
+
         return "commentaireModif";
     }
 
@@ -336,9 +294,7 @@ public class SiteController {
             user = userController.userCo(model, authentication);
             int userId = user.getId();
             model.addAttribute("userId",userId);
-            System.out.println("L'ID de l'user connecté pour mettre un commentaire est : " + userId);
             site = (Site) session.getAttribute("siteId");
-            System.out.println("L'ID du site est : " + site.getId());
             if (!site.isCertifie()){
                 model.addAttribute("certifie", site.isCertifie());
             }

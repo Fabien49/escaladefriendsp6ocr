@@ -11,8 +11,6 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
 
     List<Reservation> findByUserId(int id);
 
-    List<Reservation> findByTopoId(Long id);
-
     Reservation findReservationById(Long id);
 
     Reservation findReservationByTopoId(long id);

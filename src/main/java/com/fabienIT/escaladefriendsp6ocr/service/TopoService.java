@@ -32,12 +32,10 @@ public class TopoService {
 
 	public Optional<Topo> findTopoSite(Long topo){return topoRepository.findById(topo);}
 
-
 	public Page<Topo> findAllNotId (Pageable pageable, @Param("model") Model model, @Param("user") User user, @Param("authentification") Authentication authentication, UserController userController){
 		user = userController.userCo(model, authentication);
 		return topoRepository.findAllNotId(pageable, user);
 	}
-
 
 	public Page<Topo> findByNameContains (@Param("keyword") String keyword, @Param("page") Pageable pageable) {
 		if (keyword != null) {

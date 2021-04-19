@@ -13,8 +13,6 @@ import java.util.Optional;
 @Repository
 public interface TopoRepository extends JpaRepository<Topo, Long> {
 
-   Topo findByNom(String nom);
-
     Page<Topo> findByNomContains(@Param("keyword") String keyword, @Param("page") Pageable pageable);
 
     @Query("SELECT t FROM Topo t WHERE t.user NOT LIKE :user ")

@@ -41,12 +41,12 @@
                                 <table class="table table-border">
                                     <div th:object="${sitePageEscalade}">
                                         <tr>
-                                            <td class="text-left">Nombre de voies</td>
-                                            <td th:text="*{nbVoies}"></td>
+                                            <td class="text-left">Nombre de secteurs</td>
+                                            <td th:text="*{nbSecteurs}"></td>
                                         </tr>
                                         <tr>
-                                            <td class="text-left">Nombre de secteurs</td>
-                                            <td>5</td>
+                                            <td class="text-left">Nombre de voies</td>
+                                            <td th:text="*{nbVoies}"></td>
                                         </tr>
                                         <tr>
                                             <td class="text-left">Difficulté</td>
@@ -59,21 +59,10 @@
                                     </div>
 
 
-                                    <tr th:unless="${certifie}">
-                                        <div th:if="${role == 'ADMIN'}">
+                                    <tr th:if="${role == 'ADMIN'}">
                                             <td>
-                                                <a class="btn btn-success" th:href="@{/editerSiteCertifie/(id=${sitePageEscalade.id})}">Certifier</a>
+                                                <a class="btn btn-success" th:href="@{/editerSiteCertifie/(id=${sitePageEscalade.id})}">Editer / Certifier</a>
                                             </td>
-<!--                                        <form method="post" action="" th:action="${saveUpdateSiteCertifie}" th:object="${sitePageEscalade}">
-                                            <td>
-                                                <input type="hidden" th:field="*{id}"/>
-                                                <input type="radio" th:field="*{certifie}" th:value="true"/>
-                                                <button type="submit" value="certifier"
-                                                        class="btn btn-primary mt-auto mx-auto">Certifier
-                                                </button>
-                                            </td>
-                                        </form>-->
-                                        </div>
                                     </tr>
                                 </table>
                             </div>

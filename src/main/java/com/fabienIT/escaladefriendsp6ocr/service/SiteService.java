@@ -33,7 +33,6 @@ public class SiteService {
     public void updateSite(Site site) {
         //recuparation du topo en base via l'id
         Long id = site.getId();
-        System.out.println("l'Id du site est : " + id);
         Site dbSite = siteRepository.findById(id).get();
         Set<Commentaire> commentaire = siteRepository.findAllById(id).getCommentaire();
         //mise à jour (récupération) du nom depuis le formulaire d'edition
@@ -55,7 +54,6 @@ public class SiteService {
 
     public void updateSiteCerfifie (Site site) {
         Long id = site.getId();
-        System.out.println("l'Id du site est : " + id);
         Site dbSite = siteRepository.findById(id).get();
         //mise à jour (récupération) du nom depuis le formulaire d'edition
 

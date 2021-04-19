@@ -12,8 +12,6 @@ public interface SiteRepository extends JpaRepository<Site, Long> {
 
     Page<Site> findByNomContainsAndRegionContains(String mc, String region, Pageable pageable);
 
-    Site findByNom(String nom);
-
     Optional<Site> findById(Long id);
 
     Site findAllById(Long id);
