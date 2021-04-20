@@ -1,0 +1,121 @@
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+          <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Les Amis de l'Escalade</title>
+    </head>
+
+    <body>
+    <!-- header -->
+    <header th:replace="fragments/header::header">
+
+        <div th:if="${role == 'ADMIN'}">
+            <div th:replace="fragments/headerAdmin::menuAdmin"></div>
+        </div>
+    </header>
+    <!-- end header -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="border-secondary shadow jumbotron">
+                    <h1>Liste des topos des autres utilisateurs</h1>
+                    <p>Vous pouvez faire une demande d'emprunt quand ils sont disponibles</p>
+                </div>
+            </div>
+        </div>
+            <div class="col-12">
+                <div class="border-secondary shadow card h-100">
+                    <div class="card-body">
+                        <div class="table-responsive-sm table-responsive-md table-responsive-lg">
+                            <table th:object="${role}" class="table table-bordered table-striped table">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Propriétaire</th>
+                                    <th>Région</th>
+                                    <th>Date de parution</th>
+                                    <th>Description</th>
+                                    <th>Réservation</th>
+                                    <div th:if="${role == 'ADMIN'}">
+                                    <th>Gestion</th>
+                                    </div>
+                                </tr>
+                                </thead>
+
+                                <tr th:each="t:${TopoListe}">
+                                    <div th:if="${t.user.id != roleUser}">
+                                    <td th:text="${t.nom}"></td>
+                                    <td th:text="${t.user.name} + ' ' + ${t.user.lastName}"></td>
+                                    <td th:text="${t.region}"></td>
+                                    <td th:text="${#dates.format(t.date, 'dd-MMM-yyyy')}"></td>
+                                    <td th:text="${t.description}"></td>
+                                    <td>
+                                        <div>
+                                            <span th:if="${t.disponible == true}"><a th:href="@{/demandeReservation/(id=${t.id})}">Demande de réservation</a></span>
+                                            <span th:if="${t.disponible == false}">Pas disponible</span>
+
+                                            <!--<div th:if="${r.id != null}">
+                                                <span th:if="${r.demandeReservation == true} and ${r.reserve == false}">En attente de validation</span>
+
+                                                <span th:if="${r.demandeReservation == true} and ${r.reserve == true}">Déjà pris !</span>
+                                            </div>-->
+                                        </div>
+                                    </td>
+
+                                    <td th:if="${role == 'ADMIN'}">
+                                        <div>
+                                            <a class="btn btn-success" th:href="@{/editerTopo/(id=${t.id})}">Editer</a>
+                                        </div>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <div>
+                                            <a class="btn btn-danger">Effacer</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </div>
+                            </table>
+                            <ul class="nav nav-pills">
+                                <li  th:each="page,status:${pages}">
+                                    <a  th:class="${status.index == currentPage?'btn btn-primary' : 'btn'}" th:href="@{topoListe(page=${status.index}, keyword=${keyword}, disponible=${disponible})}" th:text="${status.index + 1}"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item">Par Fabien Chapeau de chez OC
+                        </li>
+                        <li class="list-inline-item">&middot;</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    </body>
+
+    </html>
