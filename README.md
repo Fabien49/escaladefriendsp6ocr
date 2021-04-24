@@ -37,11 +37,11 @@ application-prod.properties:
 - password = "mettre le mot de passe de votre base de données"
 
 Pour lancer le mode prod il faut d'abord créer la table escaladefriends et y importer le dump qui 
-en dans le doiier data à la racine du projet.
+est dans le dossier data à la racine du projet.
 
 Les 3 utilisateurs enregistrés sont:
 - Mail: admin@admin.com / Mot de passe: admin (MEMBRE --> évolue comme ADMIN dans l'application)
-- Mail: cerise@gmail.com / Mot de passe: admin (UTILISATEUR CONNECTE)
-- Mail: francois@gmail.com / Mot de passe: admin (UTILISATEUR CONNECTE)
+- Mail: cerise@gmail.com / Mot de passe: cerise@2021 (UTILISATEUR CONNECTE)
+- Mail: francois@gmail.com / Mot de passe: francois@2021 (UTILISATEUR CONNECTE)
 ```
 
